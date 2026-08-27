@@ -58,7 +58,7 @@ if (contactForm) {
 
 function validateForm(data) {
     // Check if all required fields are filled
-    const requiredFields = ['name', 'email', 'company', 'timeline', 'project-type', 'message'];
+    const requiredFields = ['name', 'email', 'company', 'timeline', 'inquiry-type', 'message'];
     for (const field of requiredFields) {
         if (!data[field] || data[field].trim() === '') {
             return false;
