@@ -30,45 +30,57 @@ const formMessage = document.getElementById('form-message');
 
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     // Get form data
     const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData);
-    
+
     // Validate form
     if (!validateForm(data)) {
         showMessage('Please fill in all required fields correctly.', 'error');
         return;
     }
-    
-    // Show success message (in production, this would send to a server)
-    showMessage('Thank you for your inquiry! We\'ll get back to you within 24 hours.', 'success');
-    
-    // Log form data (in production, this would be sent to a server)
-    console.log('Form submission:', data);
-    
-    // Reset form
-    contactForm.reset();
-    
+
+    // Submit to Formspree
+    try {
+        const response = await fetch('https://formspree.io/f/mbdkqayb', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            showMessage('Thank you for your inquiry! We\'ll get back to you within 24 hours.', 'success');
+            contactForm.reset();
+        } else {
+            const errorData = await response.json();
+            showMessage(errorData.error || 'Something went wrong. Please try again.', 'error');
+        }
+    } catch (error) {
+        showMessage('Network error. Please check your connection and try again.', 'error');
+    }
+
     // Scroll to message
     formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
 });
 
 function validateForm(data) {
     // Check if all required fields are filled
-    const requiredFields = ['name', 'email', 'company', 'timeline', 'project-type', 'message'];
+    const requiredFields = ['name', 'email', 'company', 'timeline', 'inquiry-type', 'message'];
     for (const field of requiredFields) {
         if (!data[field] || data[field].trim() === '') {
             return false;
         }
     }
-    
+
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
         return false;
     }
-    
+
     return true;
 }
 
@@ -76,7 +88,7 @@ function showMessage(message, type) {
     formMessage.textContent = message;
     formMessage.className = `form-message ${type}`;
     formMessage.style.display = 'block';
-    
+
     // Hide message after 5 seconds
     setTimeout(() => {
         formMessage.style.display = 'none';
@@ -89,7 +101,7 @@ formInputs.forEach(input => {
     input.addEventListener('focus', () => {
         input.parentElement.classList.add('focused');
     });
-    
+
     input.addEventListener('blur', () => {
         input.parentElement.classList.remove('focused');
         if (input.value) {
@@ -106,7 +118,7 @@ const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
+
     if (scrollTop > lastScrollTop && scrollTop > 100) {
         // Scrolling down
         navbar.style.transform = 'translateY(-100%)';
@@ -114,7 +126,7 @@ window.addEventListener('scroll', () => {
         // Scrolling up
         navbar.style.transform = 'translateY(0)';
     }
-    
+
     lastScrollTop = scrollTop;
 });
 
