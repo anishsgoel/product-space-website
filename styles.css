@@ -295,57 +295,45 @@ body {
 
 /* Sections */
 section {
-    padding: 100px 0;
+    padding: 88px 0;
     position: relative;
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--primary-color);
-    text-align: center;
-    margin-bottom: 1.5rem;
-    position: relative;
-    display: inline-block;
-    width: 100%;
+    margin-bottom: 1rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
 }
 
-h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-    border-radius: 2px;
+.eyebrow {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-bright);
+    margin-bottom: 0.85rem;
+}
+
+.section-head {
+    max-width: 760px;
+    margin-bottom: 2.75rem;
 }
 
 .section-intro {
-    text-align: center;
     font-size: 1.125rem;
     color: var(--text-secondary);
-    max-width: 700px;
-    margin: 0 auto 3rem;
+    max-width: 720px;
+    margin: 0 0 1.25rem;
 }
 
 /* About Section */
 .about {
-    background: linear-gradient(180deg, var(--background-white) 0%, var(--background-light) 100%);
+    background: var(--background-light);
     position: relative;
-}
-
-.about::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background: white;
-    transform: skewY(-2deg);
-    z-index: -1;
 }
 
 .features-grid {
@@ -406,91 +394,51 @@ h2::after {
     gap: 1.5rem;
 }
 
-/* Client Cards */
+/* Client Cards — logo + description always visible (mobile & keyboard safe) */
 .client-card {
     background: white;
-    padding: 2rem;
+    padding: 1.75rem;
     border-radius: 16px;
-    box-shadow: 0 5px 20px rgba(106, 43, 116, 0.1);
-    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(106, 43, 116, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     border: 1px solid var(--border-color);
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    min-height: 200px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    text-align: left;
+}
+
+.client-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 34px rgba(106, 43, 116, 0.14);
 }
 
 .client-logo {
-    font-size: 4rem;
-    color: var(--text-secondary);
-    transition: all 0.3s ease;
-    text-align: center;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-}
-
-.client-logo i {
-    display: block;
+    justify-content: flex-start;
+    height: 46px;
 }
 
 .client-logo img {
-    max-width: 120px;
-    max-height: 80px;
+    max-width: 140px;
+    max-height: 44px;
     width: auto;
     height: auto;
     object-fit: contain;
-    transition: all 0.3s ease;
-}
-
-.text-logo {
-    font-weight: 700;
-    font-size: 2rem;
-    letter-spacing: 0.1em;
-}
-
-.client-info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-    color: white;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-}
-
-.client-card:hover .client-info {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.client-card:hover .client-logo {
-    opacity: 0;
-    transform: scale(0.8);
 }
 
 .client-info h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: white;
+    font-size: 1.15rem;
+    margin-bottom: 0.35rem;
+    color: var(--primary-color);
 }
 
 .client-info p {
     font-size: 0.95rem;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.55;
+    color: var(--text-secondary);
 }
 
 .service-card h3 {
@@ -553,38 +501,7 @@ h2::after {
     color: var(--text-primary);
 }
 
-/* Capstone Section */
-.capstone-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3rem;
-}
-
-.capstone-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 16px;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(106, 43, 116, 0.1);
-    border: 1px dashed var(--border-color);
-}
-
-.capstone-card i {
-    font-size: 2rem;
-    color: var(--border-color);
-    margin-bottom: 1rem;
-}
-
-.capstone-card h4 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-.capstone-card p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
+/* (Capstone section removed — folded into "Our Work" on clients.html) */
 
 /* Explore Section (Home) */
 .explore-grid {
@@ -745,7 +662,7 @@ h2::after {
 /* Fellowship Section */
 .fellowship {
     background-color: var(--background-light);
-    padding: 100px 0;
+    padding: 88px 0;
 }
 
 .fellowship-grid {
@@ -855,12 +772,7 @@ h2::after {
     font-weight: 500;
 }
 
-/* Where We Work Section */
-.where-we-work {
-    background: white;
-    padding: 80px 0;
-}
-
+/* Alumni wall */
 .alumni-wall {
     margin: 3.5rem auto 0;
     max-width: 960px;
@@ -880,8 +792,8 @@ h2::after {
 }
 
 .alumni-logo img {
-    max-height: 30px;
-    max-width: 135px;
+    max-height: 28px;
+    max-width: 165px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -904,6 +816,7 @@ h2::after {
     .alumni-wall {
         grid-template-columns: repeat(2, 1fr);
     }
+    .alumni-logo img { max-width: 100%; }
 }
 
 /* Contact Section */
@@ -1008,18 +921,7 @@ h2::after {
     opacity: 0.9;
 }
 
-/* Scroll Progress Bar */
-.scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-    transform: scaleX(0);
-    transform-origin: left;
-    z-index: 10000;
-}
+/* (scroll progress bar removed with GSAP) */
 
 /* Mobile Menu Styles */
 .nav-menu.active {
@@ -1052,21 +954,7 @@ h2::after {
     transition: transform 0.3s ease;
 }
 
-.animate-in {
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+/* (old .animate-in / fadeInUp removed — reveal handled by .in-view) */
 
 /* Form focus effects */
 .form-group.focused label {
@@ -1133,3 +1021,294 @@ h2::after {
 .capstone-card img { display: block; width: 30px; height: 30px; margin: 0 auto 1rem; }
 .team-avatar img { width: 34px; height: 34px; }
 .pipeline-arrow img { width: 26px; height: 26px; }
+
+/* ============================================================
+   Fall 2026 redesign — unified system, footer, reveal, a11y
+   ============================================================ */
+
+/* Active nav via aria-current (mirrors .active) */
+.nav-menu a[aria-current="page"] { color: var(--primary-color); }
+.nav-menu a[aria-current="page"]::after { width: 100%; }
+
+/* Eyebrow contrast on gradient sections */
+.work .eyebrow { color: rgba(255, 255, 255, 0.85); }
+
+/* Keyboard focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--accent-bright);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Skip link */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 2000;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0 0 8px 0;
+    font-weight: 600;
+    text-decoration: none;
+}
+.skip-link:focus { left: 0; }
+
+/* Hamburger as a real button */
+button.hamburger {
+    background: none;
+    border: none;
+    padding: 4px;
+}
+
+/* ---------- Footer (rebuilt: brand + quick links + social) ---------- */
+.footer {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: #fff;
+    text-align: left;
+    padding: 3.5rem 0 1.75rem;
+}
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+.footer-brand { max-width: 340px; }
+.footer-wordmark {
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #fff;
+    margin-bottom: 0.9rem;
+}
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+.footer-nav { display: flex; gap: 3rem; flex-wrap: wrap; }
+.footer-col h4 {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.9rem;
+}
+.footer-col a {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 0.25rem 0;
+    transition: color 0.2s ease;
+}
+.footer-col a:hover { color: #fff; }
+.footer-social { display: flex; gap: 0.75rem; }
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    color: #fff;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.footer-social a:hover {
+    background: #fff;
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+.footer-social svg { width: 20px; height: 20px; }
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 1.5rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+.footer-bottom .nonprofit-status { margin: 0; opacity: 1; }
+
+/* ---------- Scroll reveal (replaces GSAP) ---------- */
+.js .section-head,
+.js .feature,
+.js .client-card,
+.js .explore-card,
+.js .portfolio-card,
+.js .capstone-card,
+.js .team-card,
+.js .fellowship-module,
+.js .pipeline-step,
+.js .stat,
+.js .path-card {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.js .in-view { opacity: 1 !important; transform: none !important; }
+
+/* Failsafe: if scripts never execute, reveal everything after a beat */
+.js.reveal-failsafe .section-head,
+.js.reveal-failsafe .feature,
+.js.reveal-failsafe .client-card,
+.js.reveal-failsafe .explore-card,
+.js.reveal-failsafe .portfolio-card,
+.js.reveal-failsafe .capstone-card,
+.js.reveal-failsafe .team-card,
+.js.reveal-failsafe .fellowship-module,
+.js.reveal-failsafe .pipeline-step,
+.js.reveal-failsafe .stat,
+.js.reveal-failsafe .path-card {
+    opacity: 1;
+    transform: none;
+}
+
+/* Hero entrance (load-triggered, auto-completing — never gates content) */
+.js .hero-eyebrow { animation: heroUp 0.7s ease both; }
+.js .hero-title { animation: heroUp 0.7s ease 0.08s both; }
+.js .hero-subtitle { animation: heroUp 0.7s ease 0.16s both; }
+.js .hero-cta { animation: heroUp 0.7s ease 0.24s both; }
+@keyframes heroUp {
+    from { opacity: 0; transform: translateY(26px); }
+    to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js .section-head,
+    .js .feature,
+    .js .client-card,
+    .js .explore-card,
+    .js .portfolio-card,
+    .js .capstone-card,
+    .js .team-card,
+    .js .fellowship-module,
+    .js .pipeline-step,
+    .js .stat,
+    .js .path-card,
+    .js .hero-eyebrow,
+    .js .hero-title,
+    .js .hero-subtitle,
+    .js .hero-cta {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* ---------- Apply page: student / company paths ---------- */
+.apply-toggle {
+    display: inline-flex;
+    background: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    padding: 5px;
+    gap: 4px;
+    margin-bottom: 2.5rem;
+}
+.apply-tab {
+    border: none;
+    background: none;
+    padding: 10px 26px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+.apply-tab.active {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(106, 43, 116, 0.3);
+}
+.apply-form { max-width: 800px; margin: 0; }
+.apply-form.hidden { display: none; }
+.apply-intro { max-width: 720px; margin: 0 0 2rem; color: var(--text-secondary); }
+
+/* ---------- Careers: alumni vs interned split ---------- */
+.placements { background: #fff; }
+.placement-block + .placement-block {
+    margin-top: 4rem;
+    padding-top: 4rem;
+    border-top: 1px solid var(--border-color);
+}
+.intern-wall {
+    margin: 3.5rem auto 0;
+    max-width: 960px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+}
+.intern-slot {
+    height: 56px;
+    border: 1.5px dashed var(--border-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 0 0.75rem;
+}
+@media (max-width: 768px) {
+    .intern-wall { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---------- Responsive polish ---------- */
+@media (max-width: 1024px) {
+    .container { padding: 0 24px; }
+    .hero-title { font-size: 3rem; }
+    .hero-line-2 { font-size: 3.25rem; }
+    section { padding: 72px 0; }
+}
+@media (max-width: 768px) {
+    .nav-right { gap: 1rem; }
+    .footer-top { gap: 2rem; }
+    .footer-nav { gap: 2rem; }
+    .footer-bottom { justify-content: flex-start; }
+    .clients-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+    .footer-brand { max-width: 100%; }
+    .footer-nav { width: 100%; gap: 2rem; }
+    .btn { padding: 14px 30px; font-size: 1rem; }
+    .hero-cta { width: 100%; }
+    .hero-cta .btn { flex: 1 1 auto; text-align: center; }
+    .apply-toggle { width: 100%; }
+    .apply-tab { flex: 1 1 auto; padding: 12px 10px; }
+    .stats-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .intern-wall { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------- Alumni wall: per-logo optical tuning (even cap-height across mixed marks) ---------- */
+.alumni-logo img[alt="Apple"] { max-height: 30px; }
+.alumni-logo img[alt="NBA"] { max-height: 30px; }
+.alumni-logo img[alt="Tesla"] { max-height: 30px; }
+.alumni-logo img[alt="Salesforce"] { max-height: 30px; }
+.alumni-logo img[alt="Meta"] { max-height: 24px; max-width: 150px; }
+.alumni-logo img[alt="Microsoft"] { max-height: 25px; }
+.alumni-logo img[alt="Google"] { max-height: 25px; }
+.alumni-logo img[alt="Amazon"] { max-height: 26px; }
+.alumni-logo img[alt="Capital One"] { max-height: 26px; }
+.alumni-logo img[alt="Accenture"] { max-height: 23px; }
+.alumni-logo img[alt="Spotify"] { max-height: 22px; }
+.alumni-logo img[alt="Oracle"] { max-height: 21px; }
+.alumni-logo img[alt="Deloitte"] { max-height: 21px; }
+.alumni-logo img[alt="JPMorgan"] { max-height: 21px; }
+.alumni-logo img[alt="McKinsey & Company"] { max-height: 22px; max-width: 180px; }

@@ -16,22 +16,27 @@ not a nav tab.
   **placeholder only** — Board of Directors (6 members, top) and Vice Presidents (4 members, below) as
   separate `team-group` blocks; board always above VPs.
 - **`clients.html`** — "Our Clients": real, named past client engagements (Google, Uber, WaPo, Noom,
-  Product Madness, GMAC, Cencora, IDI) with hover-reveal descriptions — do not replace with placeholders.
-  "Past Client Portfolio": **placeholder only**, formatted as problem/approach/outcome write-ups (not just
-  logos) per the design brief. "Capstone Highlights": **placeholder only**, net-new section, no source
-  material yet.
+  Product Madness, GMAC, Cencora, IDI) with each description shown alongside its logo (always visible,
+  mobile- and keyboard-safe; the old hover-reveal was removed). "Our Work": **placeholder only**, formatted
+  as problem/approach/outcome write-ups (not just logos) per the design brief. The separate "Capstone
+  Highlights" section was removed and folded into "Our Work" (pressure-tested against 5 peer chapters —
+  only Vanderbilt uses a distinct capstone concept).
 - **`students.html`** — Fellowship program overview + 6 curriculum modules, plus a "What You'll Get"
   section (real client work, community, portfolio) linking to Clients/Careers.
-- **`careers.html`** — Alumni company logo wall. Per design.md this list is currently aspirational, not a
-  verified placement list — replace with real data when the club provides it.
-- **`apply.html`** — Contains the inquiry form (`#contact-form`) as a **temporary stand-in** for the real
-  application, which isn't available yet (open item in design.md). Both the Home hero CTA and the nav
-  Apply button point here; swap all of these to the real application URL once known.
+- **`careers.html`** — Two placement blocks: "Where Our Alumni Work" (15 real company SVG logos,
+  per-logo optically tuned) and "Where Our Members Intern" (8 "Coming soon" placeholder slots for
+  current-member internships). Per design.md the alumni list still needs club verification; the intern
+  roster is club-pending.
+- **`apply.html`** — A student/company toggle with two separate forms (`#student-form`, `#company-form`)
+  as a **temporary stand-in** for the real application, which isn't available yet (open item in design.md).
+  The forms don't submit anywhere yet. Both the Home hero CTA and the nav Apply button point here; wire the
+  real application URL/endpoint once known.
 
-`script.js` guards `contact-form` lookups with `if (contactForm)` since the form only exists on
-`apply.html` — keep that guard if the form moves again. `gsap-animations.js` is written to no-op safely on
-selectors/classes absent from a given page (e.g. `.client-card`, `.fellowship-module`) — no changes needed
-there when moving sections between pages.
+`script.js` is a single vanilla IIFE (no GSAP) handling the mobile menu, sticky-nav shadow, in-page smooth
+scroll (the skip-link is excluded so its native focus jump works), an IntersectionObserver scroll-reveal
+with a 2500ms failsafe, a stats count-up, and the apply-page student/company toggle + form validation. Every
+lookup is guarded so selectors/classes absent from a given page are safe. GSAP and `gsap-animations.js` were
+removed in the Fall-2026 redesign.
 
 When placeholder content (Portfolio, Capstones, Team) is later replaced with real data, preserve the
 existing grid/card markup and CSS classes (`portfolio-card`, `capstone-card`, `team-card`, `board-grid`,
