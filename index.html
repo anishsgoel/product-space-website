@@ -19,22 +19,23 @@
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="#home" class="nav-brand">
+            <a href="index.html" class="nav-brand">
                 <img src="ProductSpaceLogoGU.png" alt="Product Space Georgetown" class="nav-logo">
             </a>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Clients</a></li>
-                <li><a href="#fellowship">Fellowship</a></li>
-                <li><a href="#work">Impact</a></li>
-                <li><a href="#where-we-work">Alumni</a></li>
-                <li><a href="#contact">Join</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-right">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="clients.html">Clients</a></li>
+                    <li><a href="students.html">Students</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+                <a href="apply.html" class="btn btn-primary nav-apply">Apply</a>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -51,169 +52,24 @@
             </h1>
             <p class="hero-subtitle">A community at Georgetown where students learn, lead, and build products end-to-end
                 in the rapidly evolving product space</p>
-            <a href="#contact" class="btn btn-primary">Start Your Project</a>
+            <a href="apply.html" class="btn btn-primary">Start Your Project</a>
         </div>
         <div class="scroll-indicator">
             <div class="scroll-down"></div>
         </div>
     </section>
 
-    <section id="about" class="about">
+    <section id="intro" class="about">
         <div class="container">
-            <h2>About Product Space</h2>
-            <p class="section-intro">We are a club of future product leaders striving to create a community at
-                Georgetown where students can learn about the rapidly evolving product space, hone their leadership
-                skills, and build products end-to-end, zero-to-one.</p>
-
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <h3>Learn & Grow</h3>
-                    <p>Master product management through hands-on experience with real tech companies</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon"><i class="fas fa-rocket"></i></div>
-                    <h3>Build Zero-to-One</h3>
-                    <p>Create innovative products from ideation to launch with industry partners</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon"><i class="fas fa-users"></i></div>
-                    <h3>Lead Tomorrow</h3>
-                    <p>Develop leadership skills essential for the future of product management</p>
-                </div>
-            </div>
+            <h2>What We Are</h2>
+            <p class="section-intro">Product Space is a student-run product management consultancy at Georgetown
+                University. We train students in product thinking through a hands-on fellowship, then put that
+                training to work on real engagements for companies and organizations — building products
+                zero-to-one, end-to-end.</p>
         </div>
     </section>
 
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Our Clients</h2>
-            <p class="section-intro">We partner with leading technology companies and organizations to deliver
-                innovative product solutions</p>
-            <div class="services-grid clients-grid">
-                <div class="client-card" data-client="google">
-                    <div class="client-logo">
-                        <img src="logos/googlelogo.png" alt="Google">
-                    </div>
-                    <div class="client-info">
-                        <h3>Google</h3>
-                        <p>Built the first Gemini-integrated programmable search engine with AI-enabled search
-                            experiences</p>
-                    </div>
-                </div>
-                <div class="client-card" data-client="uber">
-                    <div class="client-logo">
-                        <img src="logos/uberlogo.png" alt="Uber">
-                    </div>
-                    <div class="client-info">
-                        <h3>Uber</h3>
-                        <p>Conducted market research for Uber Eats and designed GTM strategy</p>
-                    </div>
-                </div>
-                <div class="client-card" data-client="wapo">
-                    <div class="client-logo">
-                        <img src="logos/washingtonpostlogo.png" alt="The Washington Post">
-                    </div>
-                    <div class="client-info">
-                        <h3>The Washington Post</h3>
-                        <p>Redesigned mobile app with 11 features for Gen Z users</p>
-                    </div>
-                </div>
-                <div class="client-card" data-client="noom">
-                    <div class="client-logo">
-                        <img src="logos/noomlogo.png" alt="Noom">
-                    </div>
-                    <div class="client-info">
-                        <h3>Noom</h3>
-                        <p>Enhanced user engagement and product experience</p>
-                    </div>
-                </div>
-                <div class="client-card" data-client="madness">
-                    <div class="client-logo">
-                        <img src="logos/productmadnesslogo.png" alt="Product Madness">
-                    </div>
-                    <div class="client-info">
-                        <h3>Product Madness</h3>
-                        <p>Gaming product development and retention strategies</p>
-                    </div>
-                </div>
-                <div class="client-card" data-client="gmac">
-                    <div class="client-logo">
-                        <img src="logos/GMAClogo.png" alt="GMAC">
-                    </div>
-                    <div class="client-info">
-                        <h3>GMAC</h3>
-                        <p>Improved digital products for Graduate Management Admission Council</p>
-                    </div>
-                </div>
-                <div class="client-card" data-client="cencora">
-                    <div class="client-logo">
-                        <img src="logos/cencoralogo.png" alt="Cencora">
-                    </div>
-                    <div class="client-info">
-                        <h3>Cencora</h3>
-                        <p>Healthcare technology product consulting</p>
-                    </div>
-                </div>
-                <div class="client-card" data-client="idi">
-                    <div class="client-logo">
-                        <img src="logos/ID4Dlogo.png" alt="Institute for Developmental Impact">
-                    </div>
-                    <div class="client-info">
-                        <h3>Institute for Developmental Impact</h3>
-                        <p>Social impact product strategy</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="fellowship" class="fellowship">
-        <div class="container">
-            <h2>Product Fellowship</h2>
-            <p class="section-intro">Our 10-week intensive fellowship program equips students with comprehensive product
-                management skills, with a focus on AI-native product development and technical fluency</p>
-
-            <div class="fellowship-grid">
-                <div class="fellowship-module">
-                    <div class="module-icon"><i class="fas fa-book"></i></div>
-                    <h3>Product Fundamentals</h3>
-                    <p>Master core PM principles, PRDs, roadmapping, and product strategy frameworks</p>
-                </div>
-                <div class="fellowship-module">
-                    <div class="module-icon"><i class="fas fa-brain"></i></div>
-                    <h3>AI & LLM Products</h3>
-                    <p>Build with AI APIs, prompt engineering, and understand LLM capabilities and limitations</p>
-                </div>
-                <div class="fellowship-module">
-                    <div class="module-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>Data & Analytics</h3>
-                    <p>SQL fundamentals, product metrics, A/B testing, and data-driven decision making</p>
-                </div>
-                <div class="fellowship-module">
-                    <div class="module-icon"><i class="fas fa-lightbulb"></i></div>
-                    <h3>Problem Discovery</h3>
-                    <p>User research, customer interviews, and validating problems worth solving</p>
-                </div>
-                <div class="fellowship-module">
-                    <div class="module-icon"><i class="fas fa-paint-brush"></i></div>
-                    <h3>Design & Prototyping</h3>
-                    <p>Wireframing, Figma prototypes, and UI/UX best practices</p>
-                </div>
-                <div class="fellowship-module">
-                    <div class="module-icon"><i class="fas fa-code"></i></div>
-                    <h3>Technical Foundations</h3>
-                    <p>APIs, system design basics, Git, and working effectively with engineering teams</p>
-                </div>
-            </div>
-
-            <div class="fellowship-cta">
-                <a href="#contact" class="btn btn-primary">Apply for Fellowship</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="work" class="work">
+    <section id="impact" class="work">
         <div class="container">
             <h2>Our Impact</h2>
             <div class="stats-grid">
@@ -233,89 +89,28 @@
         </div>
     </section>
 
-    <section id="where-we-work" class="where-we-work">
+    <section id="explore" class="explore">
         <div class="container">
-            <h2>Where We Work</h2>
-            <p class="section-intro">Our alumni have gone on to work at leading technology companies worldwide</p>
-
-            <div class="company-logos">
-                <div class="logo-row">
-                    <div class="company-logo"><i class="fab fa-meta"></i> Meta</div>
-                    <div class="company-logo"><i class="fab fa-microsoft"></i> Microsoft</div>
-                    <div class="company-logo"><i class="fab fa-apple"></i> Apple</div>
-                    <div class="company-logo">NBA</div>
-                    <div class="company-logo"><i class="fab fa-amazon"></i> Amazon</div>
-                </div>
-                <div class="logo-row">
-                    <div class="company-logo"><i class="fab fa-salesforce"></i> Salesforce</div>
-                    <div class="company-logo">Tesla</div>
-                    <div class="company-logo">Capital One</div>
-                    <div class="company-logo"><i class="fab fa-google"></i> Google</div>
-                    <div class="company-logo">JPMorgan</div>
-                </div>
-                <div class="logo-row">
-                    <div class="company-logo">Deloitte</div>
-                    <div class="company-logo">McKinsey</div>
-                    <div class="company-logo"><i class="fab fa-spotify"></i> Spotify</div>
-                    <div class="company-logo">Oracle</div>
-                    <div class="company-logo">Accenture</div>
-                </div>
+            <h2>Explore Product Space</h2>
+            <p class="section-intro">Find out more about who we are, who we've worked with, and how to get
+                involved</p>
+            <div class="explore-grid">
+                <a href="about.html" class="explore-card">
+                    <i class="fas fa-users"></i>
+                    <h3>About</h3>
+                    <p>Our mission, how the fellowship leads into client work, and our board & VPs</p>
+                </a>
+                <a href="clients.html" class="explore-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Clients</h3>
+                    <p>Past client engagements, capstone projects, and the companies we've worked with</p>
+                </a>
+                <a href="students.html" class="explore-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Students</h3>
+                    <p>The fellowship curriculum, what members get out of it, and how to join</p>
+                </a>
             </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get Involved</h2>
-            <p class="section-intro">Whether you're a company seeking innovative product solutions or a student
-                interested in joining our community, we'd love to hear from you.</p>
-
-            <form id="contact-form" class="contact-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="company">Company</label>
-                        <input type="text" id="company" name="company" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="timeline">Project Timeline</label>
-                        <select id="timeline" name="timeline" required>
-                            <option value="">Select timeline</option>
-                            <option value="immediate">Immediate (< 1 month)</option>
-                            <option value="short">1-3 months</option>
-                            <option value="medium">3-6 months</option>
-                            <option value="long">6+ months</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inquiry-type">I am a...</label>
-                    <select id="inquiry-type" name="inquiry-type" required>
-                        <option value="">Select one</option>
-                        <option value="company">Company seeking product solutions</option>
-                        <option value="student">Georgetown student interested in joining</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Tell us more</label>
-                    <textarea id="message" name="message" rows="5"
-                        placeholder="For companies: Describe your product challenge or project needs. For students: Tell us about your interests and experience."
-                        required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit Inquiry</button>
-            </form>
-
-            <div id="form-message" class="form-message"></div>
         </div>
     </section>
 

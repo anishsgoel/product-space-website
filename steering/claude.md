@@ -1,5 +1,44 @@
 # Claude Code Guidelines by Sabrina Ramonov
 
+## Project Context: Product Space Website
+
+Multi-page static site (plain HTML/CSS/JS, `live-server` for local dev, no build step) for Product Space at
+Georgetown University, per the redesign brief in `steering/design.md`. Nav bar is shared/duplicated across
+every page (no templating engine); keep it in sync by hand when editing. Persistent nav tabs are Home /
+About / Clients / Students / Careers, plus a separate **Apply** button (`apply.html`) that is intentionally
+not a nav tab.
+
+- **`index.html` (Home)** — Hero (tagline, subtitle, CTA → `apply.html`), a short "what we are" intro, the
+  impact stats grid (client revenue, enterprise clients, members), and an explore grid linking out to
+  About/Clients/Students.
+- **`about.html`** — Mission statement + "what is PM" explainer, the 3 feature highlights, a two-stage
+  "How We Work" pipeline (Fellowship → Client Work, linking to Students/Clients), and "Our Leadership":
+  **placeholder only** — Board of Directors (6 members, top) and Vice Presidents (4 members, below) as
+  separate `team-group` blocks; board always above VPs.
+- **`clients.html`** — "Our Clients": real, named past client engagements (Google, Uber, WaPo, Noom,
+  Product Madness, GMAC, Cencora, IDI) with hover-reveal descriptions — do not replace with placeholders.
+  "Past Client Portfolio": **placeholder only**, formatted as problem/approach/outcome write-ups (not just
+  logos) per the design brief. "Capstone Highlights": **placeholder only**, net-new section, no source
+  material yet.
+- **`students.html`** — Fellowship program overview + 6 curriculum modules, plus a "What You'll Get"
+  section (real client work, community, portfolio) linking to Clients/Careers.
+- **`careers.html`** — Alumni company logo wall. Per design.md this list is currently aspirational, not a
+  verified placement list — replace with real data when the club provides it.
+- **`apply.html`** — Contains the inquiry form (`#contact-form`) as a **temporary stand-in** for the real
+  application, which isn't available yet (open item in design.md). Both the Home hero CTA and the nav
+  Apply button point here; swap all of these to the real application URL once known.
+
+`script.js` guards `contact-form` lookups with `if (contactForm)` since the form only exists on
+`apply.html` — keep that guard if the form moves again. `gsap-animations.js` is written to no-op safely on
+selectors/classes absent from a given page (e.g. `.client-card`, `.fellowship-module`) — no changes needed
+there when moving sections between pages.
+
+When placeholder content (Portfolio, Capstones, Team) is later replaced with real data, preserve the
+existing grid/card markup and CSS classes (`portfolio-card`, `capstone-card`, `team-card`, `board-grid`,
+`vp-grid`) rather than restructuring. Out of scope so far: the visual redesign items in design.md §2 (new
+icon set, non-particle hero treatment, left-aligned hero) — those need new creative direction/assets and
+haven't been started.
+
 ## Implementation Best Practices
 
 ### 0 — Purpose  

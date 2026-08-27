@@ -59,6 +59,25 @@ body {
     padding: 0.5rem 20px;
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-menu a.active {
+    color: var(--primary-color);
+}
+
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+.nav-apply {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+}
+
 .nav-brand {
     display: flex;
     align-items: center;
@@ -526,6 +545,244 @@ h2::after {
 .service-card p {
     color: var(--text-secondary);
     line-height: 1.8;
+}
+
+/* Portfolio Section */
+.portfolio {
+    background: var(--background-light);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.portfolio-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: left;
+    box-shadow: 0 5px 20px rgba(106, 43, 116, 0.1);
+    border: 1px dashed var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(106, 43, 116, 0.15);
+}
+
+.portfolio-logo {
+    font-size: 2rem;
+    color: var(--border-color);
+    margin-bottom: 1rem;
+}
+
+.portfolio-card h4 {
+    color: var(--primary-color);
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+}
+
+.portfolio-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+}
+
+.portfolio-card p strong {
+    color: var(--text-primary);
+}
+
+/* Capstone Section */
+.capstone-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.capstone-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(106, 43, 116, 0.1);
+    border: 1px dashed var(--border-color);
+}
+
+.capstone-card i {
+    font-size: 2rem;
+    color: var(--border-color);
+    margin-bottom: 1rem;
+}
+
+.capstone-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.capstone-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Explore Section (Home) */
+.explore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.explore-card {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 5px 20px rgba(106, 43, 116, 0.1);
+    transition: all 0.3s ease;
+}
+
+.explore-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(106, 43, 116, 0.2);
+}
+
+.explore-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1.25rem;
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.explore-card h3 {
+    font-size: 1.35rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.explore-card p {
+    color: var(--text-secondary);
+}
+
+/* Pipeline Section (About) */
+.pipeline-grid {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.pipeline-step {
+    flex: 1 1 280px;
+    max-width: 340px;
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(106, 43, 116, 0.1);
+}
+
+.pipeline-step h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.pipeline-step p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.pipeline-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: var(--accent-bright);
+}
+
+@media (max-width: 768px) {
+    .pipeline-arrow {
+        transform: rotate(90deg);
+    }
+}
+
+.apply-note {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    padding: 1rem 1.5rem;
+    background: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+/* Team Section */
+.team-group {
+    margin-top: 3rem;
+}
+
+.team-group-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.team-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(106, 43, 116, 0.1);
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(106, 43, 116, 0.15);
+}
+
+.team-avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.25rem;
+    border-radius: 50%;
+    background: var(--background-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--border-color);
+}
+
+.team-card h4 {
+    font-size: 1.15rem;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+}
+
+.team-role {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
 }
 
 /* Fellowship Section */

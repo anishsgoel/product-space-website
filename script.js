@@ -28,31 +28,33 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const contactForm = document.getElementById('contact-form');
 const formMessage = document.getElementById('form-message');
 
-contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
-    
-    // Validate form
-    if (!validateForm(data)) {
-        showMessage('Please fill in all required fields correctly.', 'error');
-        return;
-    }
-    
-    // Show success message (in production, this would send to a server)
-    showMessage('Thank you for your inquiry! We\'ll get back to you within 24 hours.', 'success');
-    
-    // Log form data (in production, this would be sent to a server)
-    console.log('Form submission:', data);
-    
-    // Reset form
-    contactForm.reset();
-    
-    // Scroll to message
-    formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Get form data
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData);
+
+        // Validate form
+        if (!validateForm(data)) {
+            showMessage('Please fill in all required fields correctly.', 'error');
+            return;
+        }
+
+        // Show success message (in production, this would send to a server)
+        showMessage('Thank you for your inquiry! We\'ll get back to you within 24 hours.', 'success');
+
+        // Log form data (in production, this would be sent to a server)
+        console.log('Form submission:', data);
+
+        // Reset form
+        contactForm.reset();
+
+        // Scroll to message
+        formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+}
 
 function validateForm(data) {
     // Check if all required fields are filled
