@@ -904,40 +904,49 @@ h2::after {
     padding: 80px 0;
 }
 
-.company-logos {
-    margin-top: 3rem;
+.alumni-wall {
+    margin: 3.5rem auto 0;
+    max-width: 960px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3rem 2rem;
+    align-items: center;
+    justify-items: center;
 }
 
-.logo-row {
+.alumni-logo {
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 3rem;
-    margin-bottom: 2rem;
+    height: 40px;
+    width: 100%;
 }
 
-.company-logo {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    padding: 0.8rem 1.5rem;
-    background: var(--background-light);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+.alumni-logo img {
+    max-height: 30px;
+    max-width: 135px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.25s ease, filter 0.25s ease;
 }
 
-.company-logo i {
-    font-size: 1.5rem;
-}
-
-.company-logo:hover {
-    color: var(--primary-color);
+.alumni-logo:hover img {
     transform: translateY(-3px);
-    box-shadow: 0 5px 20px rgba(106, 43, 116, 0.15);
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.12));
+}
+
+@media (max-width: 768px) {
+    .alumni-wall {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.25rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .alumni-wall {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* Contact Section */
