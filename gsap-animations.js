@@ -169,11 +169,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }, '-=0.7')
     
     // Subtitle and CTA
-    .from(['.hero-subtitle', '.hero .btn'], {
+    .from('.hero-subtitle', {
         y: 30,
         opacity: 0,
         duration: 0.8,
-        stagger: 0.2,
         ease: 'power2.out'
     }, '-=0.5');
 
