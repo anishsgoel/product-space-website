@@ -78,6 +78,44 @@
         window.setTimeout(revealAll, 2500); // hard failsafe: never leave content hidden
     }
 
+    // --- About: vertical path fill tracks scroll progress ---
+    const vpath = document.querySelector('.vpath');
+    if (vpath) {
+        if (reduceMotion) {
+            vpath.style.setProperty('--vpath-progress', '100%');
+        } else {
+            const onVPathScroll = () => {
+                const r = vpath.getBoundingClientRect();
+                const p = Math.max(0, Math.min(1, (window.innerHeight * 0.5 - r.top) / r.height));
+                vpath.style.setProperty('--vpath-progress', (p * 100).toFixed(1) + '%');
+            };
+            onVPathScroll();
+            window.addEventListener('scroll', onVPathScroll, { passive: true });
+            window.addEventListener('resize', onVPathScroll, { passive: true });
+        }
+    }
+
+    // --- Careers: rotating editorial pull-quote ---
+    const pq = document.querySelector('.pullquotes');
+    if (pq) {
+        const slides = Array.from(pq.querySelectorAll('.pullquote'));
+        const dots = Array.from(pq.querySelectorAll('.pullquote-dots button'));
+        if (slides.length > 1) {
+            let idx = 0, timer = null;
+            const show = (i) => {
+                slides.forEach((s, n) => s.classList.toggle('is-active', n === i));
+                dots.forEach((d, n) => d.classList.toggle('active', n === i));
+                idx = i;
+            };
+            const restart = () => {
+                if (timer) clearInterval(timer);
+                if (!reduceMotion) timer = setInterval(() => show((idx + 1) % slides.length), 6000);
+            };
+            dots.forEach((d, n) => d.addEventListener('click', () => { show(n); restart(); }));
+            show(0); restart();
+        }
+    }
+
     // --- Count-up for stats (real numbers live in HTML; JS only animates from 0) ---
     const stats = Array.from(document.querySelectorAll('.stat h3'));
     const runCount = (el) => {

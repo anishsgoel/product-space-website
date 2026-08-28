@@ -10,22 +10,19 @@
     <!-- Open Graph / social preview. TODO before public launch: prefix og:url and og:image with the absolute site origin (https://YOUR-DOMAIN/). -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Product Space at Georgetown">
-    <meta property="og:title" content="Apply — Product Space at Georgetown">
+    <meta property="og:title" content="Apply · Product Space at Georgetown">
     <meta property="og:description" content="Join Product Space as a student, or partner with us as a company. Start your application to Georgetown's student product management consultancy.">
     <meta property="og:url" content="apply.html">
     <meta property="og:image" content="og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Apply — Product Space at Georgetown">
+    <meta name="twitter:title" content="Apply · Product Space at Georgetown">
     <meta name="twitter:description" content="Join Product Space as a student, or partner with us as a company. Start your application to Georgetown's student product management consultancy.">
     <meta name="twitter:image" content="og-image.jpg">
-    <title>Apply — Product Space at Georgetown</title>
+    <title>Apply · Product Space at Georgetown</title>
     <link rel="icon" type="image/png" href="product_space_icon.png">
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         (function () {
             var d = document.documentElement;
@@ -69,50 +66,25 @@
             <p class="apply-intro">Two ways in: join as a Georgetown student through our fellowship, or partner with
                 us as a company. Pick your path below.</p>
 
-            <p class="apply-note">This is a temporary preview form while our official application is being set
-                up. It doesn't submit anywhere yet.</p>
+            <p class="apply-note">Georgetown students apply through our Google Form. The company inquiry form below
+                is a preview and doesn't submit yet.</p>
 
             <div class="apply-toggle" role="group" aria-label="Choose how you'd like to get involved">
                 <button class="apply-tab active" type="button" aria-pressed="true" data-target="student">I'm a Student</button>
                 <button class="apply-tab" type="button" aria-pressed="false" data-target="company">I'm a Company</button>
             </div>
 
-            <form id="student-form" class="contact-form apply-form" data-role="student">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="s-name">Name</label>
-                        <input type="text" id="s-name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="s-email">Georgetown Email</label>
-                        <input type="email" id="s-email" name="email" required>
-                    </div>
+            <div class="apply-form apply-panel" data-role="student">
+                <div class="apply-callout">
+                    <span class="apply-callout-eyebrow">For Georgetown students</span>
+                    <h3>Apply through our Google Form</h3>
+                    <p>The fellowship application runs through a Google Form kept private for Georgetown students.
+                        When applications are open, apply through the link below.</p>
+                    <!-- TODO: replace with the real Google Form URL once provided, and restore the link/enabled state. -->
+                    <span class="btn btn-primary is-disabled" role="link" aria-disabled="true">Open the application</span>
+                    <p class="apply-callout-note">Application link coming soon.</p>
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="s-year">Class Year</label>
-                        <select id="s-year" name="year" required>
-                            <option value="">Select year</option>
-                            <option>Freshman</option>
-                            <option>Sophomore</option>
-                            <option>Junior</option>
-                            <option>Senior</option>
-                            <option>Graduate</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="s-major">Major</label>
-                        <input type="text" id="s-major" name="major" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="s-why">Why do you want to join Product Space?</label>
-                    <textarea id="s-why" name="message" rows="5"
-                        placeholder="Tell us about your interest in product, anything you've built, and what you hope to get out of the fellowship."
-                        required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit Student Interest</button>
-            </form>
+            </div>
 
             <form id="company-form" class="contact-form apply-form hidden" data-role="company">
                 <div class="form-row">
@@ -153,8 +125,8 @@
             <div id="form-message" class="form-message"></div>
 
             <div id="network" class="network-callout">
-                <p><strong>Alumni or industry?</strong> If you'd like to give a talk or present to our members,
-                    we'd love to host you.</p>
+                <p><strong>Want to speak to our members?</strong> If you'd like to give a talk or present, we'd
+                    love to host you.</p>
                 <a href="https://www.linkedin.com/company/product-space-georgetown/" target="_blank" rel="noopener" class="btn btn-primary">Reach out on LinkedIn</a>
             </div>
         </div>
@@ -189,7 +161,7 @@
                             <a href="https://github.com/ProductSpace-Georgetown" target="_blank" rel="noopener" aria-label="Product Space on GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
                             <a href="https://www.linkedin.com/company/product-space-georgetown/" target="_blank" rel="noopener" aria-label="Product Space on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
                         </div>
-                        <div class="footer-talk"><a href="apply.html#network">Alumni: give a talk &rarr;</a></div>
+                        <div class="footer-talk"><a href="apply.html#network">Give a talk &rarr;</a></div>
                     </div>
                 </nav>
             </div>

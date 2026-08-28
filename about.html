@@ -10,22 +10,19 @@
     <!-- Open Graph / social preview. TODO before public launch: prefix og:url and og:image with the absolute site origin (https://YOUR-DOMAIN/). -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Product Space at Georgetown">
-    <meta property="og:title" content="About — Product Space at Georgetown">
+    <meta property="og:title" content="About · Product Space at Georgetown">
     <meta property="og:description" content="Our mission, how the fellowship leads into real client work, and the student board and VPs behind Product Space at Georgetown.">
     <meta property="og:url" content="about.html">
     <meta property="og:image" content="og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About — Product Space at Georgetown">
+    <meta name="twitter:title" content="About · Product Space at Georgetown">
     <meta name="twitter:description" content="Our mission, how the fellowship leads into real client work, and the student board and VPs behind Product Space at Georgetown.">
     <meta name="twitter:image" content="og-image.jpg">
-    <title>About — Product Space at Georgetown</title>
+    <title>About · Product Space at Georgetown</title>
     <link rel="icon" type="image/png" href="product_space_icon.png">
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         (function () {
             var d = document.documentElement;
@@ -70,26 +67,26 @@
                 Georgetown where students can learn about the rapidly evolving product space, hone their leadership
                 skills, and build products end-to-end, zero-to-one.</p>
             <p class="section-intro">Product management is the discipline of deciding what a company should build and
-                why — bridging user needs, business goals, and engineering feasibility. It's the job that turns an
-                idea into a product people actually want.</p>
+                why. It bridges user needs, business goals, and engineering feasibility, turning an idea into a
+                product people actually want.</p>
 
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon"><img src="icons/learn.svg" alt=""></div>
-                    <h3>Learn & Grow</h3>
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <span class="feature-item-icon"><img src="icons/learn.svg" alt=""></span>
+                    <h3>Learn and Grow</h3>
                     <p>Master product management through hands-on experience with real tech companies</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon"><img src="icons/build.svg" alt=""></div>
+                </li>
+                <li class="feature-item">
+                    <span class="feature-item-icon"><img src="icons/build.svg" alt=""></span>
                     <h3>Build Zero-to-One</h3>
                     <p>Create innovative products from ideation to launch with industry partners</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon"><img src="icons/lead.svg" alt=""></div>
+                </li>
+                <li class="feature-item">
+                    <span class="feature-item-icon"><img src="icons/lead.svg" alt=""></span>
                     <h3>Lead Tomorrow</h3>
                     <p>Develop leadership skills essential for the future of product management</p>
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
     </section>
 
@@ -101,23 +98,25 @@
                 <p class="section-intro">Every member moves through two sequential stages: training first, then
                     applied client work.</p>
             </div>
-            <div class="path">
-                <div class="path-step rvl">
-                    <span class="step-num">1</span>
-                    <h3>Fellowship</h3>
-                    <p>A 10-week intensive training program covering product fundamentals, AI and LLM products,
-                        data and analytics, and more.</p>
-                    <a href="students.html" class="btn btn-primary">See the Curriculum</a>
+            <div class="vpath" style="--vpath-progress:0%">
+                <div class="vpath-line" aria-hidden="true"><span class="vpath-fill"></span></div>
+                <div class="vpath-step rvl">
+                    <span class="vpath-node">1</span>
+                    <div class="vpath-card">
+                        <h3>Fellowship</h3>
+                        <p>A 10-week intensive training program covering product fundamentals, AI and LLM products,
+                            data and analytics, and more.</p>
+                        <a href="students.html" class="link-arrow">See the curriculum</a>
+                    </div>
                 </div>
-                <div class="path-connector" aria-hidden="true">
-                    <span class="rail"></span><span class="fill"></span><span class="dot"></span>
-                </div>
-                <div class="path-step rvl">
-                    <span class="step-num">2</span>
-                    <h3>Client Work</h3>
-                    <p>Fellowship graduates apply what they've learned on real engagements for companies and
-                        organizations, building products zero-to-one.</p>
-                    <a href="clients.html" class="btn btn-primary">See Our Clients</a>
+                <div class="vpath-step rvl">
+                    <span class="vpath-node">2</span>
+                    <div class="vpath-card">
+                        <h3>Client Work</h3>
+                        <p>Fellowship graduates apply what they've learned on real engagements for companies and
+                            organizations, building products zero-to-one.</p>
+                        <a href="clients.html" class="link-arrow">See our clients</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -127,7 +126,7 @@
         <div class="container">
             <p class="eyebrow">The Team</p>
                     <h2>Our Leadership</h2>
-            <p class="section-intro">Meet the students leading Product Space — bios coming soon</p>
+            <p class="section-intro">Meet the students leading Product Space. Bios coming soon.</p>
 
             <div class="team-group">
                 <h3 class="team-group-title">Board of Directors</h3>
@@ -222,7 +221,7 @@
                             <a href="https://github.com/ProductSpace-Georgetown" target="_blank" rel="noopener" aria-label="Product Space on GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
                             <a href="https://www.linkedin.com/company/product-space-georgetown/" target="_blank" rel="noopener" aria-label="Product Space on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
                         </div>
-                        <div class="footer-talk"><a href="apply.html#network">Alumni: give a talk &rarr;</a></div>
+                        <div class="footer-talk"><a href="apply.html#network">Give a talk &rarr;</a></div>
                     </div>
                 </nav>
             </div>
