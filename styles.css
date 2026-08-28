@@ -1,5 +1,5 @@
-@font-face{font-family:'Inter';font-weight:100 900;font-display:swap;src:url('https://fonts.najera.cc/inter/inter-variable-full.woff2') format('woff2')}
-@font-face{font-family:'Bricolage Grotesque';font-weight:200 800;font-display:swap;src:url('https://fonts.najera.cc/bricolage-grotesque/bricolage-grotesque-variable-full.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-weight:100 900;font-display:swap;src:url('fonts/inter-variable-full.woff2') format('woff2')}
+@font-face{font-family:'Bricolage Grotesque';font-weight:200 800;font-display:swap;src:url('fonts/bricolage-grotesque-variable-full.woff2') format('woff2')}
 
 :root {
     /* Brand — deepened (Fall 2026: darker, richer, less bright) */

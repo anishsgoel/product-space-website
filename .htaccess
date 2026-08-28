@@ -1,0 +1,8 @@
+<IfModule mod_headers.c>
+Header set "Content-Security-Policy" "default-src 'self'; script-src 'self' 'sha256-xccjRKJkULpA2QTMQzwusuAnDmKLJgjVozvd5Z8vEHY='; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+Header set "Strict-Transport-Security" "max-age=31536000"
+Header set "X-Frame-Options" "DENY"
+Header set "X-Content-Type-Options" "nosniff"
+Header set "Referrer-Policy" "strict-origin-when-cross-origin"
+Header set "Permissions-Policy" "geolocation=(), camera=(), microphone=(), payment=(), usb=()"
+</IfModule>
