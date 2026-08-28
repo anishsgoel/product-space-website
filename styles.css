@@ -1724,3 +1724,8 @@ a.person-name:hover { text-decoration: underline; }
 .deadline-banner p { margin: 0; flex: 1 1 260px; color: var(--text-primary); font-size: 1.02rem; }
 .deadline-banner .btn { flex: 0 0 auto; }
 @media (max-width: 560px){ .deadline-banner .btn { width: 100%; text-align: center; } }
+
+/* Testimonial avatars (client faces) */
+.cq-avatar, .pq-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; object-position: top center; flex: 0 0 auto; }
+.pq-avatar { box-shadow: 0 0 0 2px rgba(255,255,255,0.14); }
+.client-quote figcaption::before, .pullquote figcaption::before { content: none; }
