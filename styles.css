@@ -1,19 +1,33 @@
 :root {
-    --primary-color: #6A2B74;
-    --secondary-color: #BF6088;
-    --accent-color: #6A2B74;
-    --accent-bright: #BF6088;
+    /* Brand — deepened (Fall 2026: darker, richer, less bright) */
+    --primary-color: #55215E;
+    --primary-bright: #7A3486;
+    --secondary-color: #B85781;
+    --accent-color: #55215E;
+    --accent-bright: #C0648B;
     --accent-light: #D989A7;
-    --gradient-start: #6A2B74;
-    --gradient-end: #BF6088;
-    --text-primary: #1a1a2e;
-    --text-secondary: #4a5568;
-    --background-light: #faf5ff;
+    --gradient-start: #46184F;
+    --gradient-end: #9E4569;
+    --hover-color: #6C2C78;
+
+    /* Dark surfaces (new — for "moment" sections: stats, perks, testimonials, path) */
+    --ink: #190A20;
+    --ink-2: #241031;
+    --ink-3: #32173F;
+    --on-dark: rgba(255, 255, 255, 0.92);
+    --on-dark-muted: rgba(255, 255, 255, 0.66);
+    --border-dark: rgba(255, 255, 255, 0.12);
+
+    /* Light surfaces — warmer, a shade deeper so it doesn't read as blown-out white */
+    --text-primary: #241528;
+    --text-secondary: #5C5266;
+    --background-light: #F2ECF6;
+    --background-tint: #EAE1F0;
     --background-white: #FFFFFF;
-    --border-color: #e9d5ff;
-    --success-color: #48BB78;
-    --hover-color: #8B3D95;
-    --card-shadow: 0 10px 30px rgba(106, 43, 116, 0.1);
+    --surface: #FFFFFF;
+    --border-color: #E2D4EA;
+    --success-color: #2F9E63;
+    --card-shadow: 0 10px 30px rgba(37, 15, 45, 0.10);
 }
 
 * {
@@ -143,11 +157,12 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Hero Section */
+/* Hero Section — spring Healy Hall (CC BY 2.0 ajay_suresh, via Wikimedia; see CREDITS.md).
+   Directional overlay: deep plum behind the text (left) fading right to reveal the greenery. */
 .hero {
     background-image:
-        linear-gradient(100deg, rgba(106, 43, 116, 0.94) 0%, rgba(106, 43, 116, 0.72) 45%, rgba(191, 96, 136, 0.38) 100%),
-        url('Healy-Hall-Georgetown-University-Washington-DC.webp');
+        linear-gradient(100deg, rgba(21, 8, 27, 0.90) 0%, rgba(30, 12, 38, 0.66) 42%, rgba(120, 52, 92, 0.22) 100%),
+        url('healy-hall-spring.jpg');
     background-size: cover;
     background-position: center;
     padding: 120px 0 96px;
@@ -207,6 +222,7 @@ body {
     max-width: 620px;
     font-weight: 300;
     line-height: 1.55;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
 }
 
 .hero-eyebrow {
@@ -723,10 +739,12 @@ h2 {
     line-height: 1.8;
 }
 
-/* Work Section */
+/* Work Section — dark "moment" band */
 .work {
-    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-    color: white;
+    background:
+        radial-gradient(120% 140% at 15% 0%, rgba(158, 69, 105, 0.35) 0%, rgba(25, 10, 32, 0) 55%),
+        linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%);
+    color: var(--on-dark);
     position: relative;
 }
 
@@ -1312,3 +1330,210 @@ button.hamburger {
 .alumni-logo img[alt="Deloitte"] { max-height: 21px; }
 .alumni-logo img[alt="JPMorgan"] { max-height: 21px; }
 .alumni-logo img[alt="McKinsey & Company"] { max-height: 22px; max-width: 180px; }
+
+/* ============================================================
+   Fall 2026 · Xander round — dark moments, ticker, perks,
+   people catalog, animated path, testimonials, micro-motion
+   ============================================================ */
+
+/* Reveal utility for new components (JS adds .in-view) */
+.js .rvl { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.js .rvl.in-view { opacity: 1; transform: none; }
+.js.reveal-failsafe .rvl { opacity: 1; transform: none; }
+.js .rvl.d1 { transition-delay: .06s; }
+.js .rvl.d2 { transition-delay: .12s; }
+.js .rvl.d3 { transition-delay: .18s; }
+.js .rvl.d4 { transition-delay: .24s; }
+@media (prefers-reduced-motion: reduce){ .js .rvl { opacity:1 !important; transform:none !important; transition:none !important; } }
+
+/* Dark "moment" section */
+.section-dark {
+    background:
+        radial-gradient(110% 130% at 12% 0%, rgba(158,69,105,.28) 0%, rgba(25,10,32,0) 55%),
+        linear-gradient(150deg, var(--ink) 0%, var(--ink-2) 100%);
+    color: var(--on-dark);
+}
+.section-dark h2 { color: #fff; }
+.section-dark .eyebrow { color: var(--accent-light); }
+.section-dark .section-intro { color: var(--on-dark-muted); }
+
+/* Gentle hover lift on cards */
+.feature, .explore-card, .fellowship-module, .team-card, .portfolio-card, .client-card, .perk, .quote-card {
+    transition: transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s ease;
+}
+
+/* ---------- Logo / client ticker (marquee) ---------- */
+.ticker {
+    position: relative;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    padding: 10px 0;
+    margin-top: 2.5rem;
+}
+.ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll var(--ticker-dur, 64s) linear infinite;
+}
+.ticker:hover .ticker-track { animation-play-state: paused; }
+@keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce){
+    .ticker-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; gap: 1rem; }
+    .ticker-card { margin-right: 0; }
+    .ticker { -webkit-mask-image: none; mask-image: none; }
+}
+.ticker-card {
+    flex: 0 0 auto;
+    width: 270px;
+    margin-right: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.6rem 1.5rem;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+.ticker-card .ticker-logo { height: 48px; display: flex; align-items: center; }
+.ticker-card .ticker-logo img { height: 40px; width: auto; max-width: 160px; object-fit: contain; filter: saturate(.9) opacity(.9); transition: filter .3s ease, transform .3s ease; }
+.ticker-card h3 { font-size: 1.05rem; color: var(--primary-color); margin: 0; }
+.ticker-card p { font-size: .9rem; color: var(--text-secondary); line-height: 1.5; margin: 0; }
+.ticker-card:hover { transform: scale(1.05); box-shadow: 0 18px 40px rgba(37,15,45,.18); }
+.ticker-card:hover .ticker-logo img { filter: saturate(1.15) opacity(1); transform: scale(1.04); }
+
+/* logo-only ticker (alumni destinations) */
+.ticker.logos .ticker-card { width: auto; min-width: 160px; align-items: center; justify-content: center; padding: 1.4rem 2.25rem; }
+.ticker.logos .ticker-logo { height: 44px; }
+.ticker.logos .ticker-logo img { height: 34px; width: auto; max-width: 170px; }
+
+/* ---------- People catalog (intern ticker) ---------- */
+.people-ticker .ticker-card { width: 210px; align-items: center; text-align: center; gap: .4rem; }
+.person-photo {
+    width: 88px; height: 88px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--background-tint), var(--border-color));
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; margin-bottom: .35rem;
+}
+.person-photo img { width: 100%; height: 100%; object-fit: cover; }
+.person-photo svg { width: 34px; height: 34px; opacity: .65; }
+.person-name { font-weight: 600; color: var(--primary-color); font-size: 1rem; }
+.person-role { font-size: .85rem; color: var(--text-secondary); }
+.person-linkedin { display: inline-flex; align-items:center; gap:5px; font-size:.8rem; color: var(--text-secondary); margin-top: .2rem; }
+.person-linkedin svg { width: 14px; height: 14px; opacity: .8; }
+
+/* ---------- Perks (Students · dark standout) ---------- */
+.perks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.25rem; margin-top: 2.75rem; }
+.perk {
+    background: linear-gradient(160deg, var(--ink-3) 0%, var(--ink-2) 100%);
+    border: 1px solid var(--border-dark);
+    border-radius: 16px; padding: 1.75rem; position: relative; overflow: hidden;
+}
+.perk::before { content:''; position:absolute; inset:0 0 auto 0; height:3px; background: linear-gradient(90deg, var(--accent-bright), var(--accent-light)); }
+.perk .perk-icon img { width: 40px; height: 40px; margin-bottom: 1rem; }
+.perk h3 { color:#fff; font-size: 1.15rem; margin-bottom:.5rem; }
+.perk p { color: var(--on-dark-muted); font-size:.95rem; line-height:1.6; }
+.perk:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(0,0,0,.35); }
+
+/* ---------- Animated path (About · Fellowship -> Client Work) ---------- */
+.path { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.5rem; margin-top: 3rem; }
+.path-step { background: linear-gradient(160deg, var(--ink-3), var(--ink-2)); border: 1px solid var(--border-dark); border-radius: 18px; padding: 2rem; text-align: left; }
+.path-step .step-num { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:50%; background: linear-gradient(135deg, var(--accent-bright), var(--secondary-color)); color:#fff; font-weight:700; font-size:.95rem; margin-bottom:.9rem; }
+.path-step h3 { color:#fff; margin-bottom:.6rem; font-size:1.3rem; }
+.path-step p { color: var(--on-dark-muted); line-height:1.65; margin-bottom:1.1rem; }
+.path-connector { position: relative; width: 120px; height: 4px; }
+.path-connector .rail { position:absolute; inset:0; background: var(--border-dark); border-radius:99px; }
+.path-connector .fill { position:absolute; left:0; top:0; height:100%; width:0; background: linear-gradient(90deg, var(--accent-bright), var(--accent-light)); border-radius:99px; transition: width 1.1s ease .1s; }
+.path-connector .dot { position:absolute; top:50%; left:0; width:12px; height:12px; border-radius:50%; background:#fff; box-shadow:0 0 12px var(--accent-light); transform: translate(-50%,-50%); transition: left 1.1s ease .1s; }
+.path.in-view .path-connector .fill { width: 100%; }
+.path.in-view .path-connector .dot { left: 100%; }
+.path-step .btn { font-size:.95rem; padding:12px 26px; }
+@media (prefers-reduced-motion: reduce){
+    .path-connector .fill { width:100% !important; transition:none; }
+    .path-connector .dot { left:100% !important; transition:none; }
+}
+@media (max-width: 768px){
+    .path { grid-template-columns: 1fr; }
+    .path-connector { width: 4px; height: 56px; margin: 0 auto; }
+    .path-connector .fill { width:100%; height:0; transition: height 1.1s ease .1s; }
+    .path.in-view .path-connector .fill { height:100%; }
+    .path-connector .dot { left:50%; top:0; }
+    .path.in-view .path-connector .dot { top:100%; left:50%; }
+}
+
+/* ---------- Testimonials (Careers) ---------- */
+.quotes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2.75rem; }
+.quote-card { background: var(--surface); border: 1px solid var(--border-color); border-left: 4px solid var(--accent-bright); border-radius: 14px; padding: 1.75rem; box-shadow: var(--card-shadow); }
+.quote-card .quote-tag { display:inline-block; margin-bottom:1rem; font-size:.7rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color: var(--primary-bright); background: var(--background-tint); padding:3px 10px; border-radius:99px; }
+.quote-card blockquote { margin: 0 0 1.1rem; font-size: 1.02rem; line-height: 1.6; color: var(--text-primary); }
+.quote-card .quote-by { font-weight: 600; color: var(--primary-color); font-size: .95rem; }
+.quote-card .quote-role { color: var(--text-secondary); font-size: .85rem; }
+.quote-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(37,15,45,.14); }
+
+/* ---------- Intro band (spice up plain intro sections) ---------- */
+.intro-band { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2.5rem; align-items: center; }
+.intro-band .intro-copy p { margin-bottom: 1rem; }
+.intro-band .intro-copy p:last-child { margin-bottom: 0; }
+.intro-aside { background: linear-gradient(160deg, var(--background-tint), var(--surface)); border: 1px solid var(--border-color); border-radius: 18px; padding: 1.75rem; display: grid; gap: 1.1rem; }
+.mini-stat { display:flex; align-items:baseline; gap:.6rem; }
+.mini-stat b { font-size: 1.9rem; font-weight: 700; color: var(--primary-color); line-height:1; }
+.mini-stat span { color: var(--text-secondary); font-size: .95rem; }
+@media (max-width: 768px){ .intro-band { grid-template-columns: 1fr; gap: 1.75rem; } }
+
+/* ---------- Networking callout (footer + apply) ---------- */
+.footer-talk { margin-top: 1rem; }
+.footer-talk a { display:inline-flex; align-items:center; gap:6px; color:#fff; font-weight:600; font-size:.9rem; text-decoration:none; border:1px solid rgba(255,255,255,.4); padding:8px 14px; border-radius:99px; transition: background .2s ease, color .2s ease; }
+.footer-talk a:hover { background:#fff; color: var(--primary-color); }
+.network-callout { max-width: 760px; margin: 2.5rem 0 0; background: var(--background-tint); border: 1px solid var(--border-color); border-radius: 14px; padding: 1.25rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+.network-callout p { margin:0; color: var(--text-secondary); font-size:.95rem; }
+.network-callout strong { color: var(--primary-color); }
+
+/* Photo placeholder (work / team) */
+.photo-ph { background: linear-gradient(135deg, var(--background-tint), var(--border-color)); border-radius: 12px; display:flex; align-items:center; justify-content:center; color: var(--primary-bright); aspect-ratio: 4 / 3; width: 100%; border: 1px dashed var(--accent-light); font-size:.85rem; font-weight:500; gap:6px; }
+.photo-ph svg { width: 26px; height: 26px; opacity:.8; }
+
+@media (max-width: 560px){
+    .ticker-card { width: 230px; }
+    .people-ticker .ticker-card { width: 180px; }
+    .perks-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Xander round · addendum: dark-section links, curriculum, polish ---------- */
+.section-dark a { color: #fff; }
+.section-dark .section-intro a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
+.section-dark .section-intro a:hover { color: var(--accent-light); }
+
+/* Perk icons must read light on the dark cards */
+.perk-icon img { filter: brightness(0) invert(1); }
+
+/* Intern catalog: linked names */
+a.person-name { text-decoration: none; }
+a.person-name:hover { text-decoration: underline; }
+
+/* Curriculum list (Students · replaces the 6-card grid, varies the layout) */
+.curriculum-grid { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: .25rem 2.5rem; margin: 2.5rem 0 0; padding: 0; }
+.curriculum-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1.15rem 0; border-bottom: 1px solid var(--border-color); }
+.curriculum-icon { flex: 0 0 auto; width: 46px; height: 46px; border-radius: 12px; background: var(--background-tint); display: flex; align-items: center; justify-content: center; }
+.curriculum-icon img { width: 26px; height: 26px; }
+.curriculum-text h3 { font-size: 1.1rem; color: var(--primary-color); margin-bottom: .25rem; }
+.curriculum-text p { color: var(--text-secondary); font-size: .92rem; line-height: 1.55; }
+@media (max-width: 768px){ .curriculum-grid { grid-template-columns: 1fr; gap: 0; } }
+
+/* Explore cards (Home · less "template", more intentional) */
+.explore-card { text-align: left; }
+.explore-card img { margin: 0 0 1.1rem; width: 26px; height: 26px; padding: 9px; box-sizing: content-box; background: var(--background-tint); border-radius: 12px; }
+.explore-card h3 { display: flex; align-items: center; gap: .4rem; }
+.explore-card h3::after { content: '→'; color: var(--accent-bright); opacity: 0; transform: translateX(-4px); transition: opacity .25s ease, transform .25s ease; margin-left: auto; }
+.explore-card:hover h3::after { opacity: 1; transform: translateX(0); }
+
+/* Team avatars as headshot placeholders (real photos drop in with class="headshot") */
+.team-avatar { width: 104px; height: 104px; background: linear-gradient(135deg, var(--background-tint), var(--border-color)); overflow: hidden; }
+.team-avatar img { width: 42px; height: 42px; opacity: .6; }
+.team-avatar img.headshot { width: 100%; height: 100%; opacity: 1; object-fit: cover; }
+
+/* Hero photo credit (CC BY 2.0 attribution, visible per license) */
+.hero-credit { position: absolute; right: 14px; bottom: 10px; z-index: 2; margin: 0; font-size: .7rem; color: rgba(255,255,255,.55); letter-spacing: .01em; }
+.hero-credit a { color: rgba(255,255,255,.7); text-decoration: none; }
+.hero-credit a:hover { color: #fff; text-decoration: underline; }

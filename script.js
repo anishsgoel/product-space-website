@@ -39,8 +39,27 @@
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // --- Logo / client tickers: clone the track for a seamless loop, pace by card count ---
+    if (!reduceMotion) {
+        document.querySelectorAll('.ticker').forEach((ticker) => {
+            const track = ticker.querySelector('.ticker-track');
+            if (!track) return;
+            const cards = Array.from(track.children);
+            if (!cards.length) return;
+            // ~6s per card (clamped) so more logos scroll proportionally — slow, readable
+            const dur = Math.min(150, Math.max(34, cards.length * 6));
+            track.style.setProperty('--ticker-dur', dur + 's');
+            cards.forEach((c) => {
+                const clone = c.cloneNode(true);
+                clone.setAttribute('aria-hidden', 'true');
+                clone.querySelectorAll('a').forEach((a) => a.setAttribute('tabindex', '-1'));
+                track.appendChild(clone);
+            });
+        });
+    }
+
     // --- Scroll reveal (content is fully visible without JS; this only enhances) ---
-    const revealSelector = '.section-head, .feature, .client-card, .explore-card, .portfolio-card, .capstone-card, .team-card, .fellowship-module, .pipeline-step, .stat, .path-card';
+    const revealSelector = '.section-head, .feature, .client-card, .explore-card, .portfolio-card, .capstone-card, .team-card, .fellowship-module, .pipeline-step, .stat, .path-card, .rvl, .path';
     const revealEls = Array.from(document.querySelectorAll(revealSelector));
     const revealAll = () => revealEls.forEach((el) => el.classList.add('in-view'));
 
@@ -84,7 +103,7 @@
                 if (entry.isIntersecting) { runCount(entry.target); obs.unobserve(entry.target); }
             });
         }, { threshold: 0.5 });
-        stats.forEach((s) => { s.dataset.value = s.textContent; so.observe(s); });
+        stats.forEach((s) => { s.dataset.value = s.textContent; s.textContent = s.dataset.value.replace(/\d[\d,]*/, '0'); so.observe(s); });
     }
 
     // --- Apply page: student / company toggle ---

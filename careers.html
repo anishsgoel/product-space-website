@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Where our alumni work and where current members have interned, across tech, finance, and consulting.">
-    <meta name="theme-color" content="#6A2B74">
+    <meta name="theme-color" content="#190A20">
     <link rel="canonical" href="careers.html">
     <!-- Open Graph / social preview. TODO before public launch: prefix og:url and og:image with the absolute site origin (https://YOUR-DOMAIN/). -->
     <meta property="og:type" content="website">
@@ -62,7 +62,7 @@
 
     <main id="main" tabindex="-1">
 
-    <section id="placements" class="placements" style="padding-top: 160px;">
+        <section id="placements" class="placements" style="padding-top: 160px;">
         <div class="container">
             <div class="placement-block">
                 <div class="section-head">
@@ -71,22 +71,24 @@
                     <p class="section-intro">Full-time roles our graduates have gone on to hold across technology,
                         finance, and consulting.</p>
                 </div>
-                <div class="alumni-wall">
-                    <div class="alumni-logo"><img src="Logos/alumni/meta.svg" alt="Meta" loading="lazy"></div>
-                    <div class="alumni-logo"><img src="Logos/alumni/microsoft.svg" alt="Microsoft" loading="lazy"></div>
-                    <div class="alumni-logo"><img src="Logos/alumni/apple.svg" alt="Apple" loading="lazy"></div>
-                    <div class="alumni-logo"><img src="Logos/alumni/nba.svg" alt="NBA" loading="lazy"></div>
-                    <div class="alumni-logo"><img src="Logos/alumni/amazon.svg" alt="Amazon" loading="lazy"></div>
-                    <div class="alumni-logo"><img src="Logos/alumni/salesforce.svg" alt="Salesforce" loading="lazy"></div>
-                    <div class="alumni-logo"><img src="Logos/alumni/tesla.svg" alt="Tesla" loading="lazy"></div>
-                    <div class="alumni-logo"><img src="Logos/alumni/capitalone.svg" alt="Capital One" loading="lazy"></div>
-                    <div class="alumni-logo"><img src="Logos/alumni/google.svg" alt="Google" loading="lazy"></div>
-                    <div class="alumni-logo"><img src="Logos/alumni/jpmorgan.svg" alt="JPMorgan" loading="lazy"></div>
-                    <div class="alumni-logo"><img src="Logos/alumni/deloitte.svg" alt="Deloitte" loading="lazy"></div>
-                    <div class="alumni-logo"><img src="Logos/alumni/mckinsey.svg" alt="McKinsey &amp; Company" loading="lazy"></div>
-                    <div class="alumni-logo"><img src="Logos/alumni/spotify.svg" alt="Spotify" loading="lazy"></div>
-                    <div class="alumni-logo"><img src="Logos/alumni/oracle.svg" alt="Oracle" loading="lazy"></div>
-                    <div class="alumni-logo"><img src="Logos/alumni/accenture.svg" alt="Accenture" loading="lazy"></div>
+                <div class="ticker logos" aria-label="Companies where our alumni work">
+                    <div class="ticker-track">
+                        <div class="ticker-card"><div class="ticker-logo"><img src="Logos/alumni/meta.svg" alt="Meta" loading="lazy"></div></div>
+                        <div class="ticker-card"><div class="ticker-logo"><img src="Logos/alumni/microsoft.svg" alt="Microsoft" loading="lazy"></div></div>
+                        <div class="ticker-card"><div class="ticker-logo"><img src="Logos/alumni/apple.svg" alt="Apple" loading="lazy"></div></div>
+                        <div class="ticker-card"><div class="ticker-logo"><img src="Logos/alumni/nba.svg" alt="NBA" loading="lazy"></div></div>
+                        <div class="ticker-card"><div class="ticker-logo"><img src="Logos/alumni/amazon.svg" alt="Amazon" loading="lazy"></div></div>
+                        <div class="ticker-card"><div class="ticker-logo"><img src="Logos/alumni/salesforce.svg" alt="Salesforce" loading="lazy"></div></div>
+                        <div class="ticker-card"><div class="ticker-logo"><img src="Logos/alumni/tesla.svg" alt="Tesla" loading="lazy"></div></div>
+                        <div class="ticker-card"><div class="ticker-logo"><img src="Logos/alumni/capitalone.svg" alt="Capital One" loading="lazy"></div></div>
+                        <div class="ticker-card"><div class="ticker-logo"><img src="Logos/alumni/google.svg" alt="Google" loading="lazy"></div></div>
+                        <div class="ticker-card"><div class="ticker-logo"><img src="Logos/alumni/jpmorgan.svg" alt="JPMorgan" loading="lazy"></div></div>
+                        <div class="ticker-card"><div class="ticker-logo"><img src="Logos/alumni/deloitte.svg" alt="Deloitte" loading="lazy"></div></div>
+                        <div class="ticker-card"><div class="ticker-logo"><img src="Logos/alumni/mckinsey.svg" alt="McKinsey &amp; Company" loading="lazy"></div></div>
+                        <div class="ticker-card"><div class="ticker-logo"><img src="Logos/alumni/spotify.svg" alt="Spotify" loading="lazy"></div></div>
+                        <div class="ticker-card"><div class="ticker-logo"><img src="Logos/alumni/oracle.svg" alt="Oracle" loading="lazy"></div></div>
+                        <div class="ticker-card"><div class="ticker-logo"><img src="Logos/alumni/accenture.svg" alt="Accenture" loading="lazy"></div></div>
+                    </div>
                 </div>
             </div>
 
@@ -94,18 +96,95 @@
                 <div class="section-head">
                     <p class="eyebrow">Current Members</p>
                     <h2>Where Our Members Intern</h2>
-                    <p class="section-intro">Internships current fellows have landed while in the program. We're
-                        confirming the full roster with the club, and company logos land here next.</p>
+                    <p class="section-intro">A catalog of current fellows and where they interned. Names below are
+                        placeholders; where a member opts in, their name links to their LinkedIn (current interns
+                        only, never full-time alumni).</p>
                 </div>
-                <div class="intern-wall">
-                    <div class="intern-slot">Coming soon</div>
-                    <div class="intern-slot">Coming soon</div>
-                    <div class="intern-slot">Coming soon</div>
-                    <div class="intern-slot">Coming soon</div>
-                    <div class="intern-slot">Coming soon</div>
-                    <div class="intern-slot">Coming soon</div>
-                    <div class="intern-slot">Coming soon</div>
-                    <div class="intern-slot">Coming soon</div>
+                <!-- Intern catalog: person cards (photo + name + "Interned @"). LinkedIn links are added per
+                     member opt-in and apply to CURRENT interns only. The href here is a placeholder pointing at
+                     the club page until each member provides their own profile URL. -->
+                <div class="ticker people-ticker" aria-label="Current member internship catalog">
+                    <div class="ticker-track">
+                        <div class="ticker-card">
+                            <div class="person-photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                            <a class="person-name" href="https://www.linkedin.com/company/product-space-georgetown/" target="_blank" rel="noopener">Member Name</a>
+                            <span class="person-role">Interned @ Company</span>
+                            <span class="person-linkedin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</span>
+                        </div>
+                        <div class="ticker-card">
+                            <div class="person-photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                            <a class="person-name" href="https://www.linkedin.com/company/product-space-georgetown/" target="_blank" rel="noopener">Member Name</a>
+                            <span class="person-role">Interned @ Company</span>
+                            <span class="person-linkedin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</span>
+                        </div>
+                        <div class="ticker-card">
+                            <div class="person-photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                            <a class="person-name" href="https://www.linkedin.com/company/product-space-georgetown/" target="_blank" rel="noopener">Member Name</a>
+                            <span class="person-role">Interned @ Company</span>
+                            <span class="person-linkedin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</span>
+                        </div>
+                        <div class="ticker-card">
+                            <div class="person-photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                            <a class="person-name" href="https://www.linkedin.com/company/product-space-georgetown/" target="_blank" rel="noopener">Member Name</a>
+                            <span class="person-role">Interned @ Company</span>
+                            <span class="person-linkedin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</span>
+                        </div>
+                        <div class="ticker-card">
+                            <div class="person-photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                            <a class="person-name" href="https://www.linkedin.com/company/product-space-georgetown/" target="_blank" rel="noopener">Member Name</a>
+                            <span class="person-role">Interned @ Company</span>
+                            <span class="person-linkedin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</span>
+                        </div>
+                        <div class="ticker-card">
+                            <div class="person-photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                            <a class="person-name" href="https://www.linkedin.com/company/product-space-georgetown/" target="_blank" rel="noopener">Member Name</a>
+                            <span class="person-role">Interned @ Company</span>
+                            <span class="person-linkedin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</span>
+                        </div>
+                        <div class="ticker-card">
+                            <div class="person-photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                            <a class="person-name" href="https://www.linkedin.com/company/product-space-georgetown/" target="_blank" rel="noopener">Member Name</a>
+                            <span class="person-role">Interned @ Company</span>
+                            <span class="person-linkedin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</span>
+                        </div>
+                        <div class="ticker-card">
+                            <div class="person-photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                            <a class="person-name" href="https://www.linkedin.com/company/product-space-georgetown/" target="_blank" rel="noopener">Member Name</a>
+                            <span class="person-role">Interned @ Company</span>
+                            <span class="person-linkedin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="voices" class="section-dark">
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow">In Their Words</p>
+                <h2>From the Fellowship to the Field, and Back</h2>
+                <p class="section-intro">Members bring product experience from top companies into the club, and
+                    take what they build here straight into their careers.</p>
+            </div>
+            <div class="quotes-grid">
+                <div class="quote-card rvl">
+                    <span class="quote-tag">Fellowship &rarr; career</span>
+                    <blockquote>The fellowship taught me to scope a problem before jumping to a solution. I use that framing every day on the job.</blockquote>
+                    <div class="quote-by">Member Name</div>
+                    <div class="quote-role">PM @ Company</div>
+                </div>
+                <div class="quote-card rvl">
+                    <span class="quote-tag">Experience &rarr; club</span>
+                    <blockquote>What I learned interning in product I brought straight back to our client teams, so the whole cohort levels up.</blockquote>
+                    <div class="quote-by">Member Name</div>
+                    <div class="quote-role">Product Intern @ Company</div>
+                </div>
+                <div class="quote-card rvl">
+                    <span class="quote-tag">Fellowship &rarr; career</span>
+                    <blockquote>Real client work in Product Space is the reason I could hit the ground running in my first product role.</blockquote>
+                    <div class="quote-by">Member Name</div>
+                    <div class="quote-role">APM @ Company</div>
                 </div>
             </div>
         </div>
@@ -140,6 +219,7 @@
                             <a href="https://github.com/ProductSpace-Georgetown" target="_blank" rel="noopener" aria-label="Product Space on GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
                             <a href="https://www.linkedin.com/company/product-space-georgetown/" target="_blank" rel="noopener" aria-label="Product Space on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
                         </div>
+                        <div class="footer-talk"><a href="apply.html#network">Alumni: give a talk &rarr;</a></div>
                     </div>
                 </nav>
             </div>
