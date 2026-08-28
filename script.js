@@ -184,7 +184,21 @@
                 showMessage(msg, 'Please fill in all required fields correctly.', 'error');
                 return;
             }
-            showMessage(msg, "Thanks for your interest! This is a preview form, so nothing was sent yet. Our official application is coming soon.", 'success');
+            // Route the project inquiry to the club inbox via the visitor's email client
+            const subject = 'Project inquiry from ' + (data.company || data.name || 'a company');
+            const timelineLabel = { immediate: 'Immediate (under 1 month)', short: '1-3 months', medium: '3-6 months', long: '6+ months' }[data.timeline] || data.timeline || '';
+            const body = [
+                'Name: ' + (data.name || ''),
+                'Email: ' + (data.email || ''),
+                'Company: ' + (data.company || ''),
+                'Timeline: ' + timelineLabel,
+                '',
+                (data.message || '')
+            ].join('\n');
+            window.location.href = 'mailto:productspacegeorgetown@gmail.com'
+                + '?subject=' + encodeURIComponent(subject)
+                + '&body=' + encodeURIComponent(body);
+            showMessage(msg, 'Opening your email app to send this to our team. If nothing opens, email us at productspacegeorgetown@gmail.com.', 'success');
             form.reset();
         });
     });

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" width="160" height="40" role="img" aria-label="Walmart">
+  <g fill="#FDBB30">
+    <g transform="rotate(0 20 20)"><rect x="18" y="2.5" width="4" height="9" rx="2"/></g>
+    <g transform="rotate(60 20 20)"><rect x="18" y="2.5" width="4" height="9" rx="2"/></g>
+    <g transform="rotate(120 20 20)"><rect x="18" y="2.5" width="4" height="9" rx="2"/></g>
+    <g transform="rotate(180 20 20)"><rect x="18" y="2.5" width="4" height="9" rx="2"/></g>
+    <g transform="rotate(240 20 20)"><rect x="18" y="2.5" width="4" height="9" rx="2"/></g>
+    <g transform="rotate(300 20 20)"><rect x="18" y="2.5" width="4" height="9" rx="2"/></g>
+  </g>
+  <text x="46" y="28.5" textLength="104" lengthAdjust="spacingAndGlyphs" font-family="'Helvetica Neue', Arial, Helvetica, sans-serif" font-weight="700" font-size="24" letter-spacing="-0.5" fill="#0071CE">Walmart</text>
+</svg>
