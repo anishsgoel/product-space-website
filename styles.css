@@ -1227,6 +1227,7 @@ button.hamburger {
     .js .stat,
     .js .path-card,
     .js .hero-eyebrow,
+    .js .hero-announce,
     .js .hero-title,
     .js .hero-subtitle,
     .js .hero-cta {
@@ -1617,7 +1618,7 @@ a.person-name:hover { text-decoration: underline; }
 /* Careers testimonials: rotating editorial pull-quote (no cards) */
 .pullquotes { position: relative; max-width: 880px; margin: 2.75rem 0 0; }
 .pullquote { margin-bottom: 2.25rem; }
-.js .pullquotes { min-height: 200px; }
+.js .pullquotes { min-height: 280px; }
 .js .pullquote { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease; pointer-events: none; margin-bottom: 0; }
 .js .pullquote.is-active { opacity: 1; position: relative; pointer-events: auto; }
 .pullquote-tag { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.25rem; }
@@ -1708,3 +1709,18 @@ a.person-name:hover { text-decoration: underline; }
 .client-quote figcaption::before { content: ''; width: 30px; height: 2px; background: var(--accent-bright); border-radius: 2px; flex: 0 0 auto; }
 .client-quote .cq-name { font-weight: 600; color: var(--primary-color); }
 @media (max-width: 760px){ .client-quotes { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+/* Hero announcement banner (applications open) */
+.hero-announce { display: inline-flex; align-items: center; gap: 0.7rem; margin-bottom: 1.6rem; padding: 0.5rem 0.95rem 0.5rem 0.55rem; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.24); border-radius: 10px; color: #fff; text-decoration: none; font-size: 0.98rem; max-width: 100%; transition: background 0.2s ease, transform 0.2s ease; }
+.hero-announce:hover { background: rgba(255,255,255,0.17); transform: translateY(-1px); }
+.hero-announce-tag { flex: 0 0 auto; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--accent-bright); color: #fff; padding: 3px 8px; border-radius: 6px; }
+.hero-announce-text { font-weight: 500; }
+.js .hero-announce { animation: heroUp 0.7s ease both; }
+@media (max-width: 560px){ .hero-announce { font-size: 0.9rem; align-items: flex-start; } }
+
+/* Applications deadline banner (Apply page) */
+.deadline-banner { display: flex; align-items: center; gap: 0.9rem 1.5rem; flex-wrap: wrap; background: linear-gradient(100deg, var(--background-tint), var(--background-light)); border-left: 4px solid var(--accent-bright); border-radius: 12px; padding: 1.1rem 1.5rem; margin-bottom: 2.75rem; }
+.deadline-banner-tag { flex: 0 0 auto; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; background: var(--accent-bright); padding: 4px 10px; border-radius: 6px; }
+.deadline-banner p { margin: 0; flex: 1 1 260px; color: var(--text-primary); font-size: 1.02rem; }
+.deadline-banner .btn { flex: 0 0 auto; }
+@media (max-width: 560px){ .deadline-banner .btn { width: 100%; text-align: center; } }
