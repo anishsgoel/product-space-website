@@ -1698,3 +1698,13 @@ a.person-name:hover { text-decoration: underline; }
 .pullquote.pq-in .pullquote-tag::before,
 .pullquote.pq-in figcaption::before { background: var(--accent-light); }
 .pullquote.pq-in blockquote::before { color: var(--accent-light); }
+
+/* Client testimonials (Clients page): editorial, non-card, light surface */
+.client-quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 2.75rem 3.5rem; margin-top: 2.75rem; max-width: 1000px; }
+.client-quote { margin: 0; }
+.client-quote blockquote { margin: 0; font-size: 1.12rem; line-height: 1.62; color: var(--text-primary); }
+.client-quote blockquote::before { content: '\201C'; display: block; font-family: var(--font-display); font-size: 3rem; line-height: 0.5; color: var(--accent-bright); opacity: 0.4; margin: 0 0 0.5rem -0.02em; }
+.client-quote figcaption { margin-top: 1.25rem; display: flex; align-items: center; gap: 0.7rem; color: var(--text-secondary); font-size: 0.95rem; }
+.client-quote figcaption::before { content: ''; width: 30px; height: 2px; background: var(--accent-bright); border-radius: 2px; flex: 0 0 auto; }
+.client-quote .cq-name { font-weight: 600; color: var(--primary-color); }
+@media (max-width: 760px){ .client-quotes { grid-template-columns: 1fr; gap: 2.5rem; } }
