@@ -9,13 +9,13 @@ rm -rf dist
 mkdir -p dist
 
 # Public pages + code
-cp index.html about.html clients.html careers.html students.html apply.html 404.html styles.css script.js dist/
+cp index.html clients.html careers.html students.html apply.html 404.html styles.css script.js dist/
 
 # Public asset directories
 cp -R team testimonials Logos icons fonts dist/
 
 # Root-level public images
-cp ProductSpaceLogoGU.png product_space_icon.png healy-hall-hero.jpg og-image.jpg dist/
+cp ProductSpaceLogoGU.png ProductSpaceLogoWhite.png product_space_icon.png favicon.png og-image.jpg dist/
 
 # Host header configs that live in the web root (Cloudflare Pages/Netlify use _headers; Apache uses .htaccess)
 if [ -f _headers ]; then cp _headers dist/; fi
