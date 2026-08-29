@@ -22,3 +22,6 @@ dist/
 *.pem
 .wrangler/
 .cloudflared/
+
+# Vercel link metadata
+.vercel/

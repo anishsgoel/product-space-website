@@ -39,6 +39,25 @@
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // --- Hero mark: hovering a grid cell lifts every tile fragment in it. Hit squares are flat and
+    //     never move, so there is no hover ping-pong as tiles rise. Tap does the same on touch.
+    const heroMark = document.querySelector('.hero-mark');
+    if (heroMark) {
+        const tiles = Array.from(heroMark.querySelectorAll('.hero-tile'));
+        let current = null;
+        const clear = () => { tiles.forEach((t) => t.classList.remove('is-up')); current = null; };
+        heroMark.addEventListener('pointerover', (e) => {
+            const hit = e.target.closest && e.target.closest('.hero-hit');
+            if (!hit) return;
+            const cell = hit.dataset.cell;
+            if (cell === current) return;
+            clear();
+            current = cell;
+            tiles.forEach((t) => { if (t.dataset.cell === cell) t.classList.add('is-up'); });
+        });
+        heroMark.addEventListener('pointerleave', clear);
+    }
+
     // --- Logo / client tickers: clone the track for a seamless loop, pace by card count ---
     if (!reduceMotion) {
         document.querySelectorAll('.ticker').forEach((ticker) => {
@@ -86,7 +105,12 @@
         } else {
             const onVPathScroll = () => {
                 const r = vpath.getBoundingClientRect();
-                const p = Math.max(0, Math.min(1, (window.innerHeight * 0.5 - r.top) / r.height));
+                // Fill as the path crosses the lower half of the viewport…
+                let p = (window.innerHeight * 0.72 - r.top) / r.height;
+                // …and guarantee 100% once the page can't scroll any further (path is the last section).
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                if (maxScroll - window.scrollY < 4) p = 1;
+                p = Math.max(0, Math.min(1, p));
                 vpath.style.setProperty('--vpath-progress', (p * 100).toFixed(1) + '%');
             };
             onVPathScroll();

@@ -23,7 +23,7 @@
     <meta name="twitter:description" content="The companies we've partnered with and the product work our members have shipped, from Google and Uber to Cencora, Noom, and GMAC.">
     <meta name="twitter:image" content="og-image.jpg">
     <title>Clients · Product Space at Georgetown</title>
-    <link rel="icon" type="image/png" href="product_space_icon.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="favicon.png">
     <link rel="stylesheet" href="styles.css">
     <script>
         (function () {
@@ -36,15 +36,16 @@
 
 <body>
     <a class="skip-link" href="#main">Skip to main content</a>
-    <nav class="navbar">
+    <nav class="navbar solid">
         <div class="container">
             <a href="index.html" class="nav-brand">
-                <img src="ProductSpaceLogoGU.png" alt="Product Space Georgetown" class="nav-logo">
+                <img src="ProductSpaceLogoWhite.png" alt="Product Space at Georgetown University" class="nav-logo nav-logo-white">
+                <img src="ProductSpaceLogoGU.png" alt="" aria-hidden="true" class="nav-logo nav-logo-color">
             </a>
             <div class="nav-right">
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#about">About</a></li>
                     <li><a href="clients.html" class="active" aria-current="page">Clients</a></li>
                     <li><a href="students.html">Students</a></li>
                     <li><a href="careers.html">Careers</a></li>
@@ -61,62 +62,89 @@
 
     <main id="main" tabindex="-1">
 
-    <section id="services" class="services" style="padding-top: 160px;">
+    <section id="services" class="section-dark clients-hero">
         <div class="container">
-            <p class="eyebrow">Client Work</p>
-                    <h2>Our Clients</h2>
-            <p class="section-intro">We partner with leading technology companies and organizations to deliver
-                innovative product solutions</p>
-            <div class="ticker logos" aria-label="Companies and organizations we have partnered with">
-                <div class="ticker-track">
-                    <div class="ticker-card"><div class="ticker-logo"><img src="Logos/googlelogo.png" alt="Google"></div></div>
-                    <div class="ticker-card"><div class="ticker-logo"><img src="Logos/uberlogo.png" alt="Uber"></div></div>
-                    <div class="ticker-card"><div class="ticker-logo"><img src="Logos/noomlogo.png" alt="Noom"></div></div>
-                    <div class="ticker-card"><div class="ticker-logo"><img src="Logos/productmadnesslogo.png" alt="Product Madness"></div></div>
-                    <div class="ticker-card"><div class="ticker-logo"><img src="Logos/GMAClogo.png" alt="GMAC"></div></div>
-                    <div class="ticker-card"><div class="ticker-logo"><img src="Logos/cencoralogo.png" alt="Cencora"></div></div>
-                    <div class="ticker-card"><div class="ticker-logo"><img src="Logos/ID4Dlogo.png" alt="Institute for Developmental Impact"></div></div>
-                </div>
+            <div class="section-head centered">
+                <h2>Our Clients</h2>
+                <p class="section-intro">We partner with leading technology companies and organizations to deliver
+                    innovative product solutions</p>
             </div>
+            <ul class="logo-grid" aria-label="Companies and organizations we have partnered with">
+                <li class="logo-tile rvl" data-logo="googlelogo"><img src="Logos/googlelogo.png" alt="Google" loading="lazy"></li>
+                <li class="logo-tile rvl" data-logo="uberlogo"><img src="Logos/uberlogo.png" alt="Uber" loading="lazy"></li>
+                <li class="logo-tile rvl" data-logo="noomlogo"><img src="Logos/noomlogo.png" alt="Noom" loading="lazy"></li>
+                <li class="logo-tile rvl" data-logo="productmadnesslogo"><img src="Logos/productmadnesslogo.png" alt="Product Madness" loading="lazy"></li>
+                <li class="logo-tile rvl" data-logo="GMAClogo"><img src="Logos/GMAClogo.png" alt="GMAC" loading="lazy"></li>
+                <li class="logo-tile rvl" data-logo="cencoralogo"><img src="Logos/cencoralogo.png" alt="Cencora" loading="lazy"></li>
+                <li class="logo-tile rvl" data-logo="ID4Dlogo"><img src="Logos/ID4Dlogo.png" alt="Institute for Developmental Impact" loading="lazy"></li>
+                <li class="logo-tile rvl" data-logo="washingtonpostlogo"><img src="Logos/washingtonpostlogo.png" alt="The Washington Post" loading="lazy"></li>
+                <li class="logo-tile rvl" data-logo="atlanticlogo"><img src="Logos/atlanticlogo.png" alt="The Atlantic" loading="lazy"></li>
+                <li class="logo-tile rvl" data-logo="toastlogo"><img src="Logos/toastlogo.png" alt="Toast" loading="lazy"></li>
+                <li class="logo-tile rvl" data-logo="govskillslogo"><img src="Logos/govskillslogo.png" alt="GovSkills" loading="lazy"></li>
+            </ul>
         </div>
     </section>
 
     <section id="portfolio" class="portfolio">
         <div class="container">
-            <p class="eyebrow">Portfolio</p>
                     <h2>Our Work</h2>
             <p class="section-intro">A sample of the product work our teams take on.</p>
-                        <ol class="worklist">
-                <li class="work-item rvl">
-                    <span class="work-index">01</span>
-                    <div class="work-body">
-                        <div class="work-head"><h3>AI-enabled search</h3><span class="work-client">for Google</span></div>
-                        <p>Building a Gemini-integrated programmable search engine for publishers.</p>
+                        <ol class="case-list">
+                <li class="case rvl">
+                    <div class="case-side">
+                        <span class="case-client">Google</span>
+                        <h3>Gemini-powered programmable search</h3>
+                        <ul class="case-tags"><li>AI</li><li>RAG</li><li>Ad tech</li></ul>
+                    </div>
+                    <div class="case-body">
+                        <p>Working with the Search Ads and Syndication team, we integrated Gemini into Programmable Search Engine so publishers could offer smarter search on their own sites.</p>
+                        <ul class="case-points">
+                            <li>Intent detection that understands what a reader is actually looking for</li>
+                            <li>RAG context pipelines that pull the right article content into results</li>
+                            <li>Smart ad sections that serve relevant ads to publishers without user data and without clickbait</li>
+                        </ul>
                     </div>
                 </li>
-                <li class="work-item rvl">
-                    <span class="work-index">02</span>
-                    <div class="work-body">
-                        <div class="work-head"><h3>Go-to-market strategy</h3><span class="work-client">for Uber</span></div>
-                        <p>Market research and a go-to-market plan for Uber Eats.</p>
+                <li class="case rvl">
+                    <div class="case-side">
+                        <span class="case-client">Uber</span>
+                        <h3>Sizing the campus dining opportunity</h3>
+                        <ul class="case-tags"><li>Market research</li><li>Strategy</li></ul>
+                    </div>
+                    <div class="case-body">
+                        <p>We assessed whether the campus dining point-of-sale market was worth Uber entering, given the constraints of its hardware.</p>
+                        <ul class="case-points">
+                            <li>Stakeholder analysis with Georgetown Dining, Aramark, and Grubhub</li>
+                            <li>Market research on how campus dining systems are bought, run, and replaced</li>
+                            <li>A clear go or no-go recommendation grounded in Uber's hardware limits</li>
+                        </ul>
                     </div>
                 </li>
-                <li class="work-item rvl">
-                    <span class="work-index">03</span>
-                    <div class="work-body">
-                        <div class="work-head"><h3>Market research and analysis</h3><span class="work-client">for Cencora</span></div>
-                        <p>Market research and analysis to inform their strategic decision-making.</p>
+                <li class="case rvl">
+                    <div class="case-side">
+                        <span class="case-client">The Washington Post</span>
+                        <h3>A mobile app redesigned for Gen&nbsp;Z</h3>
+                        <ul class="case-tags"><li>Product design</li><li>User research</li></ul>
+                    </div>
+                    <div class="case-body">
+                        <p>With younger readers getting their news from social media, we redesigned the Post's mobile app around how Gen Z actually discovers and reads stories.</p>
+                        <ul class="case-points">
+                            <li>Research into where and how Gen Z readers find news</li>
+                            <li>A reading experience built for short, social-native formats</li>
+                            <li>Concepts and prototypes for a more mobile-first Post</li>
+                        </ul>
                     </div>
                 </li>
             </ol>
         </div>
     </section>
 
-    <section id="client-testimonials" class="client-testimonials">
+    <section id="client-testimonials" class="section-dark testimonials-dark">
         <div class="container">
-            <p class="eyebrow">Client Feedback</p>
-                    <h2>What Our Clients Say</h2>
-            <p class="section-intro">Feedback from the teams we partnered with.</p>
+            <div class="section-head centered">
+                <h2>What Our Clients Say</h2>
+                <p class="section-intro">Feedback from the teams we partnered with.</p>
+            </div>
             <div class="client-quotes">
                 <figure class="client-quote rvl">
                     <blockquote>We had the pleasure of collaborating with the Georgetown Product Space team. The findings presented were not only comprehensive but also actionable, providing valuable insights that have informed our strategic decision making. We highly recommend Product Space to any organization seeking a partner in market research and analysis, and hope to have the opportunity to work with them again on future projects!</blockquote>
@@ -126,6 +154,10 @@
                     <blockquote>The Product Space team at Georgetown proved to be strong thought partners throughout the project. They thought critically about the problems we were facing and independently uncovered insights that informed our product strategy.</blockquote>
                     <figcaption><img class="cq-avatar" src="testimonials/nathan-yang.jpg" alt="Nathan Yang" loading="lazy"><span class="cq-meta"><span class="cq-name">Nathan Yang</span>, Product Manager at Uber, Spring 2025 client</span></figcaption>
                 </figure>
+            </div>
+            <div class="band-cta">
+                <p>Have a product challenge for a student team?</p>
+                <a href="apply.html" class="btn btn-light">Work with us</a>
             </div>
         </div>
     </section>
@@ -144,14 +176,14 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <span class="footer-wordmark">Product Space</span>
+                    <span class="footer-wordmark">Product Space @ Georgetown</span>
                     <p>A student-run product management consultancy at Georgetown University. We train students through a hands-on fellowship, then build real products with companies end-to-end.</p>
                 </div>
                 <nav class="footer-nav" aria-label="Footer">
                     <div class="footer-col">
                         <h4>Explore</h4>
                         <a href="index.html">Home</a>
-                        <a href="about.html">About</a>
+                        <a href="index.html#about">About</a>
                         <a href="clients.html">Clients</a>
                     </div>
                     <div class="footer-col">
@@ -162,11 +194,6 @@
                     </div>
                     <div class="footer-col">
                         <h4>Connect</h4>
-                        <div class="footer-social">
-                            <a href="https://www.instagram.com/productspacegeorgetown/" target="_blank" rel="noopener noreferrer" aria-label="Product Space on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-                            <a href="https://github.com/ProductSpace-Georgetown" target="_blank" rel="noopener noreferrer" aria-label="Product Space on GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
-                            <a href="https://www.linkedin.com/company/product-space-georgetown/" target="_blank" rel="noopener noreferrer" aria-label="Product Space on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
-                        </div>
                         <div class="footer-talk"><a href="apply.html#network">Give a talk &rarr;</a></div>
                     </div>
                 </nav>

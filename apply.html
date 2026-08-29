@@ -23,7 +23,7 @@
     <meta name="twitter:description" content="Join Product Space as a student, or partner with us as a company. Start your application to Georgetown's student product management consultancy.">
     <meta name="twitter:image" content="og-image.jpg">
     <title>Apply · Product Space at Georgetown</title>
-    <link rel="icon" type="image/png" href="product_space_icon.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="favicon.png">
     <link rel="stylesheet" href="styles.css">
     <script>
         (function () {
@@ -36,15 +36,16 @@
 
 <body>
     <a class="skip-link" href="#main">Skip to main content</a>
-    <nav class="navbar">
+    <nav class="navbar solid">
         <div class="container">
             <a href="index.html" class="nav-brand">
-                <img src="ProductSpaceLogoGU.png" alt="Product Space Georgetown" class="nav-logo">
+                <img src="ProductSpaceLogoWhite.png" alt="Product Space at Georgetown University" class="nav-logo nav-logo-white">
+                <img src="ProductSpaceLogoGU.png" alt="" aria-hidden="true" class="nav-logo nav-logo-color">
             </a>
             <div class="nav-right">
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#about">About</a></li>
                     <li><a href="clients.html">Clients</a></li>
                     <li><a href="students.html">Students</a></li>
                     <li><a href="careers.html">Careers</a></li>
@@ -61,17 +62,10 @@
 
     <main id="main" tabindex="-1">
 
-    <section id="apply" class="contact" style="padding-top: 160px;">
-        <div class="container">
-            <div class="deadline-banner">
-                <span class="deadline-banner-tag">Now recruiting</span>
-                <p>Fall 2026 Fellowship applications are open. <strong>Due September 8 at 11:59 PM.</strong></p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQ2nfhU4u-__W8IwwI5ClPaOTTmJMEOqZMeDfs4WC9lkzN4w/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open the application</a>
-            </div>
-            <p class="eyebrow">Apply</p>
+    <section id="apply" class="contact">
+        <div class="container apply-wrap">
             <h2>Get Involved</h2>
-            <p class="apply-intro">Two ways in: join as a Georgetown student through our fellowship, or partner with
-                us as a company. Pick your path below.</p>
+            <p class="apply-intro">Join as a Georgetown student through the fellowship, or partner with us as a company.</p>
 
             <div class="apply-toggle" role="group" aria-label="Choose how you'd like to get involved">
                 <button class="apply-tab active" type="button" aria-pressed="true" data-target="student">I'm a Student</button>
@@ -79,10 +73,13 @@
             </div>
 
             <div class="apply-form apply-panel" data-role="student">
-                <div class="apply-callout">
-                    <span class="apply-callout-eyebrow">For Georgetown students</span>
-                    <h3>Apply through our Google Form</h3>
-                    <p>Ready to join the fellowship? Start your application below.</p>
+                <div class="apply-card">
+                    <div class="apply-deadline">
+                        <span class="apply-deadline-label">Fall 2026 Fellowship</span>
+                        <span class="apply-deadline-date">Applications due <strong>September 8, 11:59 PM</strong></span>
+                    </div>
+                    <h3>Apply to the fellowship</h3>
+                    <p>A 10-week, hands-on product management program for Georgetown students, followed by real client work. No prior PM experience required.</p>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQ2nfhU4u-__W8IwwI5ClPaOTTmJMEOqZMeDfs4WC9lkzN4w/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open the application</a>
                 </div>
             </div>
@@ -125,14 +122,8 @@
 
             <div id="form-message" class="form-message"></div>
 
-            <div id="network" class="network-callout">
-                <span class="network-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg></span>
-                <span class="network-eyebrow">Speakers welcome</span>
-                <h3>Want to speak to our members?</h3>
-                <p>Operators, builders, and industry voices: if you'd like to give a talk or present to the club,
-                    we'd love to host you.</p>
-                <a href="https://www.linkedin.com/company/product-space-georgetown/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Reach out on LinkedIn</a>
-            </div>
+            <p id="network" class="apply-footnote">Operators, builders, and industry voices: want to give a talk to our members?
+                <a href="https://www.linkedin.com/company/product-space-georgetown/" target="_blank" rel="noopener noreferrer">Reach out on LinkedIn &rarr;</a></p>
         </div>
     </section>
 
@@ -142,14 +133,14 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <span class="footer-wordmark">Product Space</span>
+                    <span class="footer-wordmark">Product Space @ Georgetown</span>
                     <p>A student-run product management consultancy at Georgetown University. We train students through a hands-on fellowship, then build real products with companies end-to-end.</p>
                 </div>
                 <nav class="footer-nav" aria-label="Footer">
                     <div class="footer-col">
                         <h4>Explore</h4>
                         <a href="index.html">Home</a>
-                        <a href="about.html">About</a>
+                        <a href="index.html#about">About</a>
                         <a href="clients.html">Clients</a>
                     </div>
                     <div class="footer-col">
@@ -160,11 +151,6 @@
                     </div>
                     <div class="footer-col">
                         <h4>Connect</h4>
-                        <div class="footer-social">
-                            <a href="https://www.instagram.com/productspacegeorgetown/" target="_blank" rel="noopener noreferrer" aria-label="Product Space on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-                            <a href="https://github.com/ProductSpace-Georgetown" target="_blank" rel="noopener noreferrer" aria-label="Product Space on GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
-                            <a href="https://www.linkedin.com/company/product-space-georgetown/" target="_blank" rel="noopener noreferrer" aria-label="Product Space on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
-                        </div>
                         <div class="footer-talk"><a href="apply.html#network">Give a talk &rarr;</a></div>
                     </div>
                 </nav>
