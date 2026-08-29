@@ -205,7 +205,7 @@ h1, h2, h3, h4,
     min-height: 100svh;
     display: flex;
     align-items: center;
-    padding: 112px 0 64px;
+    padding: 48px 0 240px;   /* asymmetric: pulls the centred content up toward the nav */
     font-family: var(--font-geo);
     background:
         radial-gradient(55% 60% at 76% 48%, rgba(122, 52, 134, 0.42), transparent 70%),
