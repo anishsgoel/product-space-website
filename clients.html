@@ -45,10 +45,16 @@
             <div class="nav-right">
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="nav-item-has-menu">
+                        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="students-menu">Students <span class="caret" aria-hidden="true"></span></button>
+                        <ul class="nav-sub" id="students-menu">
+                            <li><a href="fellowship.html">Fellowship</a></li>
+                            <li><a href="project-teams.html">Project Teams</a></li>
+                            <li><a href="community.html">Community</a></li>
+                        </ul>
+                    </li>
                     <li><a href="clients.html" class="active" aria-current="page">Clients</a></li>
-                    <li><a href="students.html">Students</a></li>
-                    <li><a href="careers.html">Careers</a></li>
                 </ul>
                 <a href="apply.html" class="btn btn-primary nav-apply">Apply</a>
                 <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
@@ -62,7 +68,7 @@
 
     <main id="main" tabindex="-1">
 
-    <section id="services" class="section-dark clients-hero">
+    <section id="services" class="section-dark clients-hero glow-follow">
         <div class="container">
             <div class="section-head centered">
                 <h2>Our Clients</h2>
@@ -85,7 +91,7 @@
         </div>
     </section>
 
-    <section id="portfolio" class="portfolio">
+    <section id="portfolio" class="portfolio light-echo-top light-echo-bottom">
         <div class="container">
                     <h2>Our Work</h2>
             <p class="section-intro">A sample of the product work our teams take on.</p>
@@ -124,7 +130,7 @@
         </div>
     </section>
 
-    <section id="client-testimonials" class="section-dark testimonials-dark">
+    <section id="client-testimonials" class="section-dark testimonials-dark glow-follow">
         <div class="container">
             <div class="section-head centered">
                 <h2>What Our Clients Say</h2>
@@ -133,16 +139,161 @@
             <div class="client-quotes">
                 <figure class="client-quote rvl">
                     <blockquote>We had the pleasure of collaborating with the Georgetown Product Space team. The findings presented were not only comprehensive but also actionable, providing valuable insights that have informed our strategic decision making. We highly recommend Product Space to any organization seeking a partner in market research and analysis, and hope to have the opportunity to work with them again on future projects!</blockquote>
-                    <figcaption><img class="cq-avatar" src="testimonials/sarah-trosko.jpg" alt="Sarah Trosko" loading="lazy"><span class="cq-meta"><span class="cq-name">Sarah Trosko</span>, Marketplace Customer Ops at Cencora, Spring 2025 client</span></figcaption>
+                    <figcaption><img class="cq-avatar" src="testimonials/sarah-trosko.jpg" alt="Sarah Trosko" loading="lazy"><span class="cq-meta"><span class="cq-name">Sarah Trosko</span>, Marketplace Customer Ops, Spring 2025 client</span><img class="cq-logo" src="Logos/cencoralogo.png" alt="Cencora" loading="lazy"></figcaption>
                 </figure>
                 <figure class="client-quote rvl">
                     <blockquote>The Product Space team at Georgetown proved to be strong thought partners throughout the project. They thought critically about the problems we were facing and independently uncovered insights that informed our product strategy.</blockquote>
-                    <figcaption><img class="cq-avatar" src="testimonials/nathan-yang.jpg" alt="Nathan Yang" loading="lazy"><span class="cq-meta"><span class="cq-name">Nathan Yang</span>, Product Manager at Uber, Spring 2025 client</span></figcaption>
+                    <figcaption><img class="cq-avatar" src="testimonials/nathan-yang.jpg" alt="Nathan Yang" loading="lazy"><span class="cq-meta"><span class="cq-name">Nathan Yang</span>, Product Manager, Spring 2025 client</span><img class="cq-logo" src="Logos/uberlogo.png" alt="Uber" loading="lazy"></figcaption>
                 </figure>
             </div>
             <div class="band-cta">
                 <p>Have a product challenge for a student team?</p>
                 <a href="apply.html" class="btn btn-light">Work with us</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="why-us" class="about light-echo-top">
+        <div class="container">
+            <div class="section-head centered">
+                <h2>Commitment</h2>
+                <p class="section-intro">We take on a small number of engagements each semester so that every one of
+                    them gets a real team and real hours.</p>
+            </div>
+            <div class="value-cols">
+                <div class="value-col rvl">
+                    <h3>Selective talent</h3>
+                    <p>Members are drawn from every undergraduate school at Georgetown and chosen from a competitive
+                        applicant pool for demonstrated strength in business, technology, or design. Every analyst
+                        completes an intensive twelve-week product management curriculum before joining a client team.</p>
+                </div>
+                <div class="value-col rvl">
+                    <h3>Real dedication</h3>
+                    <p>Each engagement gets a project manager, a senior product analyst, and four to six analysts
+                        putting roughly forty hours a week into your project, collectively, across a full semester.
+                        Weekly client calls, a midterm review, and a final deliverable.</p>
+                </div>
+                <div class="value-col rvl">
+                    <h3>Scoped to you</h3>
+                    <p>We scope every engagement from the problem up rather than dropping a stock framework on it.
+                        Teams are staffed against what the work actually needs, and the direction adapts as findings
+                        come in and the question changes.</p>
+                </div>
+                <div class="value-col rvl">
+                    <h3>Georgetown access</h3>
+                    <p>Our position on campus produces research other teams cannot easily run: student and faculty
+                        interviews, focus groups, on-the-ground fieldwork, and a national Product Space network with
+                        chapters at UC Berkeley, Columbia, and beyond.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services-offered" class="section-dark glow-follow">
+        <div class="container">
+            <div class="section-head centered">
+                <h2>What we can take on</h2>
+                <p class="section-intro">Our members are talented across technical, design, and business domains, each
+                    selected for particular expertise in one of them. That lets us offer varied and genuinely useful
+                    services, including but not limited to the following.</p>
+            </div>
+            <div class="value-cols">
+                <div class="value-col rvl">
+                    <h3>Growth strategy</h3>
+                    <p>Building acquisition funnels, distribution and growth work, and monetization strategy.</p>
+                </div>
+                <div class="value-col rvl">
+                    <h3>Design</h3>
+                    <p>Problem validation, mockups and wireframes, user interviews, and design recommendations.</p>
+                </div>
+                <div class="value-col rvl">
+                    <h3>Marketing</h3>
+                    <p>Market research and segmentation, value proposition validation, and go-to-market strategy.</p>
+                </div>
+                <div class="value-col rvl">
+                    <h3>Development</h3>
+                    <p>Feature recommendation, data science and analytics, and competitive analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team-structure" class="about light-echo-top light-echo-bottom">
+        <div class="container">
+            <div class="media-split">
+                <div class="media-split-copy">
+                    <h2>Every engagement gets a focused team</h2>
+                    <p>By pairing an experienced project lead with a dedicated group of analysts, we keep
+                        communication clear and quality consistent. The shape is deliberately flat: the people doing
+                        the research are the people in the room with you.</p>
+                    <p>Engagements run on a structured ten to twelve week lifecycle mapped to your fiscal cadence, with
+                        pre-defined sprint milestones, a mid-semester deliverable review by our executive board, and
+                        bi-weekly client check-ins.</p>
+                </div>
+                <div class="pod light-pod">
+                    <div class="pod-tier lead rvl">
+                        <h4>Project Manager <span class="pod-count">&times;1</span></h4>
+                        <p>Client communication, sprint timelines, and end-to-end team management.</p>
+                    </div>
+                    <span class="pod-link" aria-hidden="true"></span>
+                    <div class="pod-tier rvl">
+                        <h4>Senior Product Analyst <span class="pod-count">&times;1</span></h4>
+                        <p>Leads tactical execution, product roadmap strategy, and quality assurance.</p>
+                    </div>
+                    <span class="pod-link" aria-hidden="true"></span>
+                    <div class="pod-tier rvl">
+                        <h4>Product Analysts <span class="pod-count">&times;4&ndash;6</span></h4>
+                        <p>Execute data analytics, UI and UX design, and competitive market research.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="engagement" class="section-dark glow-follow">
+        <div class="container">
+            <div class="section-head centered">
+                <h2>How an engagement runs</h2>
+            </div>
+            <ol class="pipeline">
+                <li class="rvl"><span class="pl-step">Weeks 1&ndash;4</span><h3>Scope</h3><p>Onboarding, then initial research, scoping, and planning against your problem.</p></li>
+                <li class="rvl"><span class="pl-step">Weeks 4&ndash;8</span><h3>Build</h3><p>Implementation and building, heading into the midterm deliverable.</p></li>
+                <li class="rvl"><span class="pl-step">Midterm</span><h3>Review</h3><p>A mid-semester deliverable reviewed by you and by our executive board.</p></li>
+                <li class="rvl"><span class="pl-step">Weeks 8&ndash;11</span><h3>Iterate</h3><p>Revision against that feedback, then finalizing deliverables and findings.</p></li>
+                <li class="rvl"><span class="pl-step">Week 12</span><h3>Handoff</h3><p>The final deliverable, with everything documented for your team.</p></li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="nonprofit" class="about light-echo-top">
+        <div class="container">
+            <div class="section-head centered">
+                <h2>An independent 501(c)(3)</h2>
+            </div>
+            <div class="taxnote">
+                <div>
+                    <h3>Donations are fully tax-deductible</h3>
+                    <p>Product Space is an independent, student-run 501(c)(3) nonprofit. We are not a vendor and we do
+                        not invoice: engagements are supported by a donation, and that donation is fully tax-deductible.</p>
+                    <p>Contributions are modest relative to project scope and have historically run between $5,000 and
+                        $10,000, a fraction of the cost of the equivalent work in-house or through an agency.</p>
+                </div>
+                <div>
+                    <h3>Next steps</h3>
+                    <ol class="steps">
+                        <li><strong>Scope the project</strong>We work with you to define potential project scopes for the team.</li>
+                        <li><strong>Paperwork</strong>We draft a statement of work and sign NDAs.</li>
+                        <li><strong>Onboarding</strong>Your team completes the onboarding steps and meets the pod.</li>
+                        <li><strong>Donation</strong>You determine the donation amount that fits the engagement.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="factrow">
+                <div class="fact rvl"><strong>~40 hrs</strong><span>Of team work per week, cumulatively</span></div>
+                <div class="fact rvl"><strong>1 weekly call</strong><span>With your project manager, minimum</span></div>
+                <div class="fact rvl"><strong>10&ndash;12 weeks</strong><span>Per engagement, with two formal reviews</span></div>
+                <div class="fact rvl"><strong>DMV in person</strong><span>Teams can travel to local offices</span></div>
             </div>
         </div>
     </section>
@@ -161,24 +312,25 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <span class="footer-wordmark">Product Space @ Georgetown</span>
+                    <span class="footer-wordmark"><img src="ProductSpaceLogoWhite.png" alt="Product Space at Georgetown University"></span>
                     <p>A student-run product management consultancy at Georgetown University. We train students through a hands-on fellowship, then build real products with companies end-to-end.</p>
                 </div>
                 <nav class="footer-nav" aria-label="Footer">
                     <div class="footer-col">
                         <h4>Explore</h4>
                         <a href="index.html">Home</a>
-                        <a href="index.html#about">About</a>
+                        <a href="about.html">About</a>
                         <a href="clients.html">Clients</a>
                     </div>
                     <div class="footer-col">
-                        <h4>Get Involved</h4>
-                        <a href="students.html">Students</a>
-                        <a href="careers.html">Careers</a>
-                        <a href="apply.html">Apply</a>
+                        <h4>Students</h4>
+                        <a href="fellowship.html">Fellowship</a>
+                        <a href="project-teams.html">Project Teams</a>
+                        <a href="community.html">Community</a>
                     </div>
                     <div class="footer-col">
-                        <h4>Connect</h4>
+                        <h4>Get Involved</h4>
+                        <a href="apply.html">Apply</a>
                         <div class="footer-talk"><a href="apply.html#network">Give a talk &rarr;</a></div>
                     </div>
                 </nav>
@@ -188,6 +340,7 @@
                 <p class="nonprofit-status">Product Space is a 501(c)(3) nonprofit organization</p>
             </div>
         </div>
+        <div class="footer-bleed" aria-hidden="true">BUILD WHAT MATTERS</div>
     </footer>
 
     <script src="script.js"></script>

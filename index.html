@@ -34,8 +34,12 @@
     </script>
 </head>
 
-<body>
+<body class="has-banner">
     <a class="skip-link" href="#main">Skip to main content</a>
+    <aside class="site-banner">
+        <p>Fall 2026 fellowship applications are now open! Apply <a href="apply.html">here</a>.</p>
+        <button class="site-banner-close" type="button" aria-label="Dismiss announcement">&times;</button>
+    </aside>
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="nav-brand">
@@ -45,10 +49,16 @@
             <div class="nav-right">
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="nav-item-has-menu">
+                        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="students-menu">Students <span class="caret" aria-hidden="true"></span></button>
+                        <ul class="nav-sub" id="students-menu">
+                            <li><a href="fellowship.html">Fellowship</a></li>
+                            <li><a href="project-teams.html">Project Teams</a></li>
+                            <li><a href="community.html">Community</a></li>
+                        </ul>
+                    </li>
                     <li><a href="clients.html">Clients</a></li>
-                    <li><a href="students.html">Students</a></li>
-                    <li><a href="careers.html">Careers</a></li>
                 </ul>
                 <a href="apply.html" class="btn btn-primary nav-apply">Apply</a>
                 <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
@@ -62,7 +72,7 @@
 
     <main id="main" tabindex="-1">
 
-    <section id="home" class="hero">
+    <section id="home" class="hero glow-follow">
         <!-- Product Space mark: each piece drawn once, then sliced into grid-aligned tiles via per-tile viewBoxes -->
         <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
             <defs>
@@ -153,7 +163,7 @@
         </div>
     </section>
 
-    <section id="about" class="about">
+    <section id="about" class="about light-echo-top light-echo-bottom">
         <div class="container">
             <div class="about-grid">
                 <div class="about-copy">
@@ -187,7 +197,7 @@
         </div>
     </section>
 
-    <section id="impact" class="work">
+    <section id="impact" class="work glow-follow">
         <div class="container">
                     <h2>Our Impact</h2>
             <div class="stats-grid">
@@ -207,43 +217,139 @@
         </div>
     </section>
 
-    <section id="team" class="team">
+    <section id="team" class="team light-echo-top light-echo-bottom">
         <div class="container">
-                    <h2>Our Leadership</h2>
-            <p class="section-intro">Meet the students leading Product Space.</p>
+            <div class="section-head centered">
+                <h2>Our Leadership</h2>
+                <p class="section-intro">Meet the students leading Product Space. Hover or tap a card to meet them
+                    properly.</p>
+            </div>
 
             <div class="team-group">
                 <h3 class="team-group-title">Board of Directors</h3>
                 <div class="team-grid board-grid">
-                    <div class="team-card">
-                        <div class="team-avatar"><img class="headshot" src="team/anish-goel.jpg" alt="Anish Goel" loading="lazy"></div>
-                        <h4>Anish Goel</h4>
-                        <p class="team-role">President</p>
+                    <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Anish Goel, President. Show details.">
+                        <div class="team-card-inner">
+                            <div class="team-face team-face-front">
+                                <div class="team-avatar"><img class="headshot" src="team/anish-goel.jpg" alt="Anish Goel" loading="lazy"></div>
+                                <h4>Anish Goel</h4>
+                                <p class="team-role">President</p>
+                            </div>
+                            <div class="team-face team-face-back">
+                                <p class="team-back-name">Anish Goel</p>
+                                <p class="team-back-role">President</p>
+                                <ul class="team-facts">
+                                    <li><span class="team-fact-label">School</span>SFS/MSB &#x27;27</li>
+                                    <li><span class="team-fact-label">Studying</span>BGA</li>
+                                    <li><span class="team-fact-label">Hometown</span>Dallas, TX</li>
+                                <li><span class="team-fact-label">Underrated product</span>Speed radar detector</li>
+                                <li><span class="team-fact-label">Favorite Product Space memory</span>Spring 26 retreat + zasta</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="team-card">
-                        <div class="team-avatar"><img class="headshot" src="team/justin-lee.jpg" alt="Justin Lee" loading="lazy"></div>
-                        <h4>Justin Lee</h4>
-                        <p class="team-role">Director of Product</p>
+                    <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Justin Lee, Director of Product. Show details.">
+                        <div class="team-card-inner">
+                            <div class="team-face team-face-front">
+                                <div class="team-avatar"><img class="headshot" src="team/justin-lee.jpg" alt="Justin Lee" loading="lazy"></div>
+                                <h4>Justin Lee</h4>
+                                <p class="team-role">Director of Product</p>
+                            </div>
+                            <div class="team-face team-face-back">
+                                <p class="team-back-name">Justin Lee</p>
+                                <p class="team-back-role">Director of Product</p>
+                                <ul class="team-facts">
+                                    <li><span class="team-fact-label">School</span>CAS &#x27;27</li>
+                                    <li><span class="team-fact-label">Studying</span>Computer Science; Psychology</li>
+                                    <li><span class="team-fact-label">Hometown</span>Scotch Plains, NJ</li>
+                                <li><span class="team-fact-label">Underrated product</span>Bloons Tower Defense 6</li>
+                                <li><span class="team-fact-label">Favorite Product Space memory</span>Bapple!</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="team-card">
-                        <div class="team-avatar"><img class="headshot" src="team/michelle-hu.jpg" alt="Michelle Hu" loading="lazy"></div>
-                        <h4>Michelle Hu</h4>
-                        <p class="team-role">Director of Personnel</p>
+                    <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Michelle Hu, Director of Personnel. Show details.">
+                        <div class="team-card-inner">
+                            <div class="team-face team-face-front">
+                                <div class="team-avatar"><img class="headshot" src="team/michelle-hu.jpg" alt="Michelle Hu" loading="lazy"></div>
+                                <h4>Michelle Hu</h4>
+                                <p class="team-role">Director of Personnel</p>
+                            </div>
+                            <div class="team-face team-face-back">
+                                <p class="team-back-name">Michelle Hu</p>
+                                <p class="team-back-role">Director of Personnel</p>
+                                <ul class="team-facts">
+                                    <li><span class="team-fact-label">School</span>SOH &#x27;27</li>
+                                    <li><span class="team-fact-label">Studying</span>HCMP, Econ</li>
+                                    <li><span class="team-fact-label">Hometown</span>Chandler, AZ</li>
+                                <li><span class="team-fact-label">Underrated product</span>Immersion blender</li>
+                                <li><span class="team-fact-label">Favorite Product Space memory</span>My mentor Zoe #icon, and being on board with my dear friends this fall</li>
+                                <li><span class="team-fact-label">Excited for next semester</span>Bringing whimsy back + PS Cup</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="team-card">
-                        <div class="team-avatar"><img class="headshot" src="team/nikki-jiang.jpg" alt="Nikki Jiang" loading="lazy"></div>
-                        <h4>Nikki Jiang</h4>
-                        <p class="team-role">Director of Operations and Finance</p>
+                    <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Nikki Jiang, Director of Operations and Finance. Show details.">
+                        <div class="team-card-inner">
+                            <div class="team-face team-face-front">
+                                <div class="team-avatar"><img class="headshot" src="team/nikki-jiang.jpg" alt="Nikki Jiang" loading="lazy"></div>
+                                <h4>Nikki Jiang</h4>
+                                <p class="team-role">Director of Operations and Finance</p>
+                            </div>
+                            <div class="team-face team-face-back">
+                                <p class="team-back-name">Nikki Jiang</p>
+                                <p class="team-back-role">Director of Operations and Finance</p>
+                                <ul class="team-facts">
+                                    <li><span class="team-fact-label">School</span>SOH &#x27;28</li>
+                                    <li><span class="team-fact-label">Studying</span>Global Health, STIA minor</li>
+                                    <li><span class="team-fact-label">Hometown</span>Great Neck, NY</li>
+                                <li><span class="team-fact-label">Why product management</span>Creativity, user impact, and constantly learning new things</li>
+                                <li><span class="team-fact-label">Underrated product</span>Google App, not the browser</li>
+                                <li><span class="team-fact-label">Favorite Product Space memory</span>The wedding.</li>
+                                <li><span class="team-fact-label">Excited for next semester</span>Adapting to the new AI tools shipping in the fall</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="team-card">
-                        <div class="team-avatar"><img class="headshot" src="team/amy-liu.jpg" alt="Amy Liu" loading="lazy"></div>
-                        <h4>Amy Liu</h4>
-                        <p class="team-role">Director of Marketing</p>
+                    <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Amy Liu, Director of Marketing. Show details.">
+                        <div class="team-card-inner">
+                            <div class="team-face team-face-front">
+                                <div class="team-avatar"><img class="headshot" src="team/amy-liu.jpg" alt="Amy Liu" loading="lazy"></div>
+                                <h4>Amy Liu</h4>
+                                <p class="team-role">Director of Marketing</p>
+                            </div>
+                            <div class="team-face team-face-back">
+                                <p class="team-back-name">Amy Liu</p>
+                                <p class="team-back-role">Director of Marketing</p>
+                                <ul class="team-facts">
+                                    <li><span class="team-fact-label">School</span>MSB/SFS &#x27;27</li>
+                                    <li><span class="team-fact-label">Studying</span>Statistics</li>
+                                    <li><span class="team-fact-label">Hometown</span>San Jose, CA</li>
+                                <li><span class="team-fact-label">Underrated product</span>Ikea cooling pillow</li>
+                                <li><span class="team-fact-label">Favorite Product Space memory</span>Playing Fish</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="team-card">
-                        <div class="team-avatar"><img class="headshot" src="team/janice-ku.jpg" alt="Janice Ku" loading="lazy"></div>
-                        <h4>Janice Ku</h4>
-                        <p class="team-role">Director of Education</p>
+                    <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Janice Ku, Director of Education. Show details.">
+                        <div class="team-card-inner">
+                            <div class="team-face team-face-front">
+                                <div class="team-avatar"><img class="headshot" src="team/janice-ku.jpg" alt="Janice Ku" loading="lazy"></div>
+                                <h4>Janice Ku</h4>
+                                <p class="team-role">Director of Education</p>
+                            </div>
+                            <div class="team-face team-face-back">
+                                <p class="team-back-name">Janice Ku</p>
+                                <p class="team-back-role">Director of Education</p>
+                                <ul class="team-facts">
+                                    <li><span class="team-fact-label">School</span>CAS &#x27;27</li>
+                                    <li><span class="team-fact-label">Studying</span>Econ, with Business Studies and Math minors</li>
+                                    <li><span class="team-fact-label">Hometown</span>Oklahoma</li>
+                                <li><span class="team-fact-label">Favorite Product Space memory</span>Spring 2026 retreat, and the Atlantic team</li>
+                                <li><span class="team-fact-label">Excited for next semester</span>Building into and expanding our community with the new cohort</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -251,32 +357,93 @@
             <div class="team-group">
                 <h3 class="team-group-title">Vice Presidents</h3>
                 <div class="team-grid vp-grid">
-                    <div class="team-card">
-                        <div class="team-avatar"><img class="headshot" src="team/jesse-najera.jpg" alt="Jesse Najera" loading="lazy"></div>
-                        <h4>Jesse Najera</h4>
-                        <p class="team-role">VP of Technology</p>
+                    <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Jesse Najera, VP of Technology. Show details.">
+                        <div class="team-card-inner">
+                            <div class="team-face team-face-front">
+                                <div class="team-avatar"><img class="headshot" src="team/jesse-najera.jpg" alt="Jesse Najera" loading="lazy"></div>
+                                <h4>Jesse Najera</h4>
+                                <p class="team-role">VP of Technology</p>
+                            </div>
+                            <div class="team-face team-face-back">
+                                <p class="team-back-name">Jesse Najera</p>
+                                <p class="team-back-role">VP of Technology</p>
+                                <ul class="team-facts">
+                                    <li><span class="team-fact-label">School</span>CAS &#x27;28</li>
+                                    <li><span class="team-fact-label">Studying</span>Computer Science</li>
+                                    <li><span class="team-fact-label">Hometown</span>Long Island, NY</li>
+                                <li><span class="team-fact-label">Why product management</span>When something just works, someone thought hard about how I&#x27;d use it</li>
+                                <li><span class="team-fact-label">Underrated product</span>The PSP. Ahead of its time, and a handheld hall-of-famer</li>
+                                <li><span class="team-fact-label">Favorite Product Space memory</span>Up all night at the retreat, trying to win a card game I&#x27;d just learned</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="team-card">
-                        <div class="team-avatar"><img class="headshot" src="team/otto-dierig.jpg" alt="Otto Dierig" loading="lazy"></div>
-                        <h4>Otto Dierig</h4>
-                        <p class="team-role">VP of Design</p>
+                    <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Otto Dierig, VP of Design. Show details.">
+                        <div class="team-card-inner">
+                            <div class="team-face team-face-front">
+                                <div class="team-avatar"><img class="headshot" src="team/otto-dierig.jpg" alt="Otto Dierig" loading="lazy"></div>
+                                <h4>Otto Dierig</h4>
+                                <p class="team-role">VP of Design</p>
+                            </div>
+                            <div class="team-face team-face-back">
+                                <p class="team-back-name">Otto Dierig</p>
+                                <p class="team-back-role">VP of Design</p>
+                                <ul class="team-facts">
+                                    <li><span class="team-fact-label">School</span>CAS &#x27;28</li>
+                                    <li><span class="team-fact-label">Studying</span>Government/History, German</li>
+                                    <li><span class="team-fact-label">Hometown</span>Jersey City, NJ</li>
+                                <li><span class="team-fact-label">Underrated product</span>Garmin Forerunner</li>
+                                <li><span class="team-fact-label">Favorite Product Space memory</span>Hot tub, lake, pool, hot tub, second lake. Also PS Cup</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="team-card">
-                        <div class="team-avatar"><img class="headshot" src="team/jaden-sarr.jpg" alt="Jaden Sarr" loading="lazy"></div>
-                        <h4>Jaden Sarr</h4>
-                        <p class="team-role">VP of External Outreach</p>
+                    <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Jaden Sarr, VP of Partnerships. Show details.">
+                        <div class="team-card-inner">
+                            <div class="team-face team-face-front">
+                                <div class="team-avatar"><img class="headshot" src="team/jaden-sarr.jpg" alt="Jaden Sarr" loading="lazy"></div>
+                                <h4>Jaden Sarr</h4>
+                                <p class="team-role">VP of Partnerships</p>
+                            </div>
+                            <div class="team-face team-face-back">
+                                <p class="team-back-name">Jaden Sarr</p>
+                                <p class="team-back-role">VP of Partnerships</p>
+                                <ul class="team-facts">
+                                    <li><span class="team-fact-label">School</span>MSB &#x27;27</li>
+                                    <li><span class="team-fact-label">Studying</span>Accounting and Finance</li>
+                                    <li><span class="team-fact-label">Hometown</span>New York City, NY</li>
+                                <li><span class="team-fact-label">Favorite product</span>Retrieval augmented generation, from Bloomberg terminals to Perplexity</li>
+                                <li><span class="team-fact-label">Excited for next semester</span>Senior year is the year I go see the world. The pressure is the exciting part</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="team-card">
-                        <div class="team-avatar"><img class="headshot" src="team/aayan-ali.jpg" alt="Aayan Ali" loading="lazy"></div>
-                        <h4>Aayan Ali</h4>
-                        <p class="team-role">VP of Education</p>
+                    <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Aayan Ali, VP of Education. Show details.">
+                        <div class="team-card-inner">
+                            <div class="team-face team-face-front">
+                                <div class="team-avatar"><img class="headshot" src="team/aayan-ali.jpg" alt="Aayan Ali" loading="lazy"></div>
+                                <h4>Aayan Ali</h4>
+                                <p class="team-role">VP of Education</p>
+                            </div>
+                            <div class="team-face team-face-back">
+                                <p class="team-back-name">Aayan Ali</p>
+                                <p class="team-back-role">VP of Education</p>
+                                <ul class="team-facts">
+                                    <li><span class="team-fact-label">School</span>SFS/MSB &#x27;28</li>
+                                    <li><span class="team-fact-label">Studying</span>Business and Global Affairs, Econ minor</li>
+                                    <li><span class="team-fact-label">Hometown</span>Glenview, IL</li>
+                                <li><span class="team-fact-label">Underrated product</span>Gemini browser plugin</li>
+                                <li><span class="team-fact-label">Excited for next semester</span>Teaching the new hires Fish</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="how-we-work" class="section-dark">
+    <section id="how-we-work" class="section-dark glow-follow">
         <div class="container">
             <div class="section-head">
                 <h2>How We Work</h2>
@@ -291,7 +458,7 @@
                         <h3>Fellowship</h3>
                         <p>A 10-week intensive training program covering product fundamentals, AI and LLM products,
                             data and analytics, and more.</p>
-                        <a href="students.html" class="link-arrow">See the curriculum</a>
+                        <a href="fellowship.html" class="link-arrow">See the curriculum</a>
                     </div>
                 </div>
                 <div class="vpath-step rvl">
@@ -313,24 +480,25 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <span class="footer-wordmark">Product Space @ Georgetown</span>
+                    <span class="footer-wordmark"><img src="ProductSpaceLogoWhite.png" alt="Product Space at Georgetown University"></span>
                     <p>A student-run product management consultancy at Georgetown University. We train students through a hands-on fellowship, then build real products with companies end-to-end.</p>
                 </div>
                 <nav class="footer-nav" aria-label="Footer">
                     <div class="footer-col">
                         <h4>Explore</h4>
                         <a href="index.html">Home</a>
-                        <a href="#about">About</a>
+                        <a href="about.html">About</a>
                         <a href="clients.html">Clients</a>
                     </div>
                     <div class="footer-col">
-                        <h4>Get Involved</h4>
-                        <a href="students.html">Students</a>
-                        <a href="careers.html">Careers</a>
-                        <a href="apply.html">Apply</a>
+                        <h4>Students</h4>
+                        <a href="fellowship.html">Fellowship</a>
+                        <a href="project-teams.html">Project Teams</a>
+                        <a href="community.html">Community</a>
                     </div>
                     <div class="footer-col">
-                        <h4>Connect</h4>
+                        <h4>Get Involved</h4>
+                        <a href="apply.html">Apply</a>
                         <div class="footer-talk"><a href="apply.html#network">Give a talk &rarr;</a></div>
                     </div>
                 </nav>
@@ -340,6 +508,7 @@
                 <p class="nonprofit-status">Product Space is a 501(c)(3) nonprofit organization</p>
             </div>
         </div>
+        <div class="footer-bleed" aria-hidden="true">BUILD WHAT MATTERS</div>
     </footer>
 
     <script src="script.js"></script>
