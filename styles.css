@@ -2092,8 +2092,6 @@ a.person-name:hover { text-decoration: underline; }
 /* Logos render as white marks on the glass tiles */
 .logo-tile img { filter: brightness(0) invert(1); opacity: 0.92; }
 .logo-tile:hover img { opacity: 1; }
-/* GovSkills PNG has an opaque white box: invert it, then screen the black away */
-.logo-tile[data-logo="govskillslogo"] img { filter: grayscale(1) invert(1) contrast(1.3); mix-blend-mode: screen; }
 
 /* --- Clients: case studies (replaces the three small cards) --- */
 .case-list { list-style: none; margin: 2.75rem 0 0; padding: 0; display: grid; gap: 1.25rem; }
@@ -2165,3 +2163,757 @@ a.person-name:hover { text-decoration: underline; }
 .btn-secondary { background: transparent; border-color: var(--primary-color); color: var(--primary-color); }
 .btn-secondary:hover { background: var(--background-tint); }
 @media (max-width: 560px) { .apply-actions .btn { flex: 1 1 100%; justify-content: center; } }
+
+/* ============================================================
+   FALL 2026 OVERHAUL — liquid glass, softer geometry, ambient light
+   Appended last on purpose: this file is layered, later wins.
+   ============================================================ */
+
+:root {
+    /* Softer, more deliberate geometry — square-ish but not square */
+    --radius-btn: 4px;
+    --radius-card: 12px;
+    --radius-media: 10px;
+
+    /* Glass */
+    --glass-light: rgba(255, 255, 255, 0.62);
+    --glass-light-hover: rgba(255, 255, 255, 0.76);
+    --glass-dark: rgba(255, 255, 255, 0.055);
+    --glass-dark-hover: rgba(255, 255, 255, 0.10);
+    --glass-blur: blur(14px) saturate(150%);
+}
+
+/* ---------- 1 · Corner radii ---------- */
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-light,
+.btn-scroll,
+.nav-apply { border-radius: var(--radius-btn); }
+
+.feature,
+.explore-card,
+.fellowship-module,
+.team-card,
+.case,
+.quote-card,
+.perk,
+.logo-tile,
+.apply-callout,
+.network-callout,
+.intro-aside,
+.path-step,
+.deadline-banner,
+.curriculum-item { border-radius: var(--radius-card); }
+
+.about-photo,
+.photo-ph,
+.team-avatar,
+.case-logo,
+.hero-announce { border-radius: var(--radius-media); }
+
+.curriculum-icon,
+.perk-item-icon,
+.explore-card img,
+.network-icon { border-radius: 8px; }
+
+/* Pills and true circles stay as they are: .case-tags li, .quote-tag,
+   .cq-avatar, .step-num, .vpath-node, .pullquote-dots button. */
+
+/* ---------- 2 · Liquid glass surfaces ---------- */
+.feature,
+.explore-card,
+.fellowship-module,
+.team-card,
+.case,
+.quote-card,
+.apply-callout,
+.network-callout,
+.intro-aside {
+    position: relative;
+    background: var(--glass-light);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border: none;
+    box-shadow: 0 6px 24px rgba(37, 15, 45, 0.07);
+}
+
+.logo-tile,
+.perk,
+.path-step,
+.stat {
+    position: relative;
+    background: var(--glass-dark);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border: none;
+}
+
+/* Gradient hairline stroke, drawn as a masked ring so the corner radius is
+   inherited exactly. ::after because .perk already owns ::before. */
+.feature::after,
+.explore-card::after,
+.fellowship-module::after,
+.team-card::after,
+.case::after,
+.quote-card::after,
+.apply-callout::after,
+.network-callout::after,
+.intro-aside::after,
+.logo-tile::after,
+.perk::after,
+.path-step::after,
+.polaroid::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+    background: linear-gradient(145deg,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(192, 100, 139, 0.34) 42%,
+        rgba(85, 33, 94, 0.16) 70%,
+        rgba(255, 255, 255, 0.55) 100%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    transition: opacity 0.28s ease;
+    opacity: 0.85;
+}
+
+.logo-tile::after,
+.perk::after,
+.path-step::after {
+    background: linear-gradient(145deg,
+        rgba(255, 255, 255, 0.34) 0%,
+        rgba(217, 137, 167, 0.30) 45%,
+        rgba(255, 255, 255, 0.06) 100%);
+}
+
+.feature:hover::after,
+.explore-card:hover::after,
+.fellowship-module:hover::after,
+.team-card:hover::after,
+.case:hover::after,
+.quote-card:hover::after,
+.logo-tile:hover::after,
+.perk:hover::after { opacity: 1; }
+
+.feature:hover,
+.explore-card:hover,
+.fellowship-module:hover,
+.case:hover,
+.quote-card:hover { background: var(--glass-light-hover); }
+
+.logo-tile:hover,
+.perk:hover { background: var(--glass-dark-hover); }
+
+/* The stats band reads as bare numbers by design — keep it flat. */
+.stat { background: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+
+/* ---------- 3 · Navbar: more glass, less milk ---------- */
+.navbar.scrolled,
+.navbar.solid {
+    background: rgba(255, 255, 255, 0.62);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    backdrop-filter: blur(28px) saturate(160%);
+    box-shadow: 0 6px 26px rgba(25, 10, 32, 0.07);
+}
+
+/* Gradient hairline along the bottom edge instead of a flat inset line */
+.navbar.scrolled::after,
+.navbar.solid::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    pointer-events: none;
+    background: linear-gradient(90deg,
+        rgba(85, 33, 94, 0) 0%,
+        rgba(85, 33, 94, 0.20) 22%,
+        rgba(184, 87, 129, 0.28) 55%,
+        rgba(85, 33, 94, 0) 100%);
+}
+
+.nav-menu { align-items: center; }
+.nav-menu > li { display: flex; align-items: center; }
+.nav-trigger { padding: 0; line-height: 1.5; }
+
+/* Logo nudged inward; Apply stays hard right */
+.navbar .container { padding: 0.7rem 32px 0.7rem 56px; }
+@media (max-width: 768px) { .navbar .container { padding: 0.7rem 20px 0.7rem 28px; } }
+
+/* ---------- 4 · Cursor-following ambient glow ---------- */
+/* Lit sections carry a soft radial highlight that trails the pointer, in the
+   same palette as the section beneath it but a few stops lighter. */
+.glow-follow { position: relative; isolation: isolate; }
+
+.glow-follow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background: radial-gradient(
+        460px circle at var(--mx, 50%) var(--my, 50%),
+        rgba(217, 137, 167, 0.20) 0%,
+        rgba(192, 100, 139, 0.11) 32%,
+        rgba(122, 52, 134, 0.05) 55%,
+        transparent 72%);
+}
+
+.glow-follow.glow-on::before { opacity: 1; }
+.glow-follow > * { position: relative; z-index: 1; }
+
+/* The hero already carries its own art, so keep its glow lighter and wider. */
+.hero.glow-follow::before {
+    background: radial-gradient(
+        620px circle at var(--mx, 50%) var(--my, 50%),
+        rgba(244, 184, 219, 0.16) 0%,
+        rgba(201, 106, 144, 0.10) 35%,
+        rgba(122, 52, 134, 0.05) 58%,
+        transparent 74%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glow-follow::before { display: none; }
+}
+
+/* ---------- 5 · Soft seams between lit and white sections ---------- */
+/* The lit sections clip their own overflow (the hero animates tiles inside it),
+   so the halo is painted by the WHITE section on the other side of the seam,
+   inside its own box. Reads as light spilling onto the white rather than a cut. */
+.light-echo-top,
+.light-echo-bottom { position: relative; isolation: isolate; }
+
+.light-echo-top::before,
+.light-echo-bottom::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 190px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.light-echo-top::before {
+    top: 0;
+    background:
+        linear-gradient(to bottom, rgba(50, 23, 63, 0.085) 0%, rgba(85, 33, 94, 0.035) 34%, transparent 82%),
+        radial-gradient(72% 100% at 50% 0%, rgba(184, 87, 129, 0.13) 0%, transparent 72%);
+}
+
+.light-echo-bottom::after {
+    bottom: 0;
+    background:
+        linear-gradient(to top, rgba(50, 23, 63, 0.085) 0%, rgba(85, 33, 94, 0.035) 34%, transparent 82%),
+        radial-gradient(72% 100% at 50% 100%, rgba(184, 87, 129, 0.13) 0%, transparent 72%);
+}
+
+/* Content sits above the halo. */
+.light-echo-top > *,
+.light-echo-bottom > * { position: relative; z-index: 1; }
+
+/* ---------- 6 · Announcement banner ---------- */
+:root { --nav-h: 0px; --banner-h: 0px; }
+
+.site-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    padding: 0.62rem 56px;
+    font-size: 0.92rem;
+    color: #fff;
+    background: linear-gradient(100deg, var(--ink) 0%, var(--gradient-start) 45%, var(--gradient-end) 100%);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+.site-banner p { margin: 0; }
+.site-banner a { color: #fff; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; font-weight: 600; }
+.site-banner a:hover { color: var(--accent-light); }
+
+.site-banner-close {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: var(--radius-btn);
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+.site-banner-close:hover { background: rgba(255, 255, 255, 0.24); }
+
+.navbar { top: 0; }
+.site-banner { top: var(--nav-h); }
+html { scroll-padding-top: calc(var(--nav-h) + var(--banner-h) + 24px); }
+
+@media (max-width: 700px) {
+    .site-banner { padding: 0.55rem 46px 0.55rem 20px; font-size: 0.83rem; text-align: left; justify-content: flex-start; }
+}
+
+/* ---------- 7 · Students dropdown ---------- */
+.nav-item-has-menu { position: relative; }
+
+/* Hover bridge across the gap between the trigger and the panel */
+.nav-item-has-menu::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 14px;
+}
+
+.nav-trigger { display: inline-flex; align-items: center; gap: 0.34rem; background: none; border: none; font: inherit; cursor: pointer; padding: 0.5rem 0; }
+.nav-trigger .caret { display: inline-block; width: 0.5rem; height: 0.5rem; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform 0.25s ease; }
+.nav-item-has-menu:hover .nav-trigger .caret,
+.nav-item-has-menu:focus-within .nav-trigger .caret { transform: translateY(1px) rotate(225deg); }
+
+.nav-sub {
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 50%;
+    min-width: 216px;
+    margin: 0;
+    padding: 0.4rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.72);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    backdrop-filter: blur(28px) saturate(160%);
+    border-radius: var(--radius-card);
+    box-shadow: 0 18px 46px rgba(25, 10, 32, 0.20);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(-6px);
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+}
+
+.nav-item-has-menu:hover .nav-sub,
+.nav-item-has-menu:focus-within .nav-sub,
+.nav-sub.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-sub a {
+    display: block;
+    padding: 0.6rem 0.85rem;
+    border-radius: 7px;
+    color: var(--text-secondary);
+    font-size: 0.93rem;
+    white-space: nowrap;
+    transition: background 0.18s ease, color 0.18s ease;
+}
+.nav-sub a::after { display: none; }
+.nav-sub a:hover,
+.nav-sub a[aria-current="page"] { background: var(--background-tint); color: var(--primary-color); }
+
+/* Mobile: the submenu just becomes an indented list inside the open panel */
+@media (max-width: 768px) {
+    .nav-menu.active .nav-item-has-menu::after { display: none; }
+    .nav-menu.active .nav-sub {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+        background: none;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        box-shadow: none;
+        padding: 0.25rem 0 0;
+        min-width: 0;
+    }
+    .nav-menu.active .nav-sub a { padding: 0.5rem; font-size: 1.05rem; opacity: 0.85; }
+    .nav-menu.active .nav-trigger { justify-content: flex-start; width: 100%; }
+}
+
+/* ---------- 8 · Leadership: matched row widths, framed headshots, flip ---------- */
+/* Six directors at 330px sit the same total width as four VPs at 240px. */
+.board-grid { max-width: 1100px; }
+.board-grid .team-card { flex: 0 0 330px; }
+@media (max-width: 900px) {
+    .board-grid, .vp-grid { max-width: 700px; }
+    .board-grid .team-card, .vp-grid .team-card { flex: 0 0 300px; }
+}
+@media (max-width: 700px) { .board-grid .team-card { flex: 0 0 100%; max-width: 320px; } }
+
+.team-card {
+    display: flex;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    perspective: 1400px;
+    cursor: pointer;
+}
+.team-card::after { display: none; }
+.team-card:hover { transform: none; box-shadow: none; }
+
+.team-card-inner {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    transform-style: preserve-3d;
+    transition: transform 0.72s cubic-bezier(0.2, 0.72, 0.24, 1);
+}
+.team-card:hover .team-card-inner,
+.team-card:focus-visible .team-card-inner,
+.team-card.is-flipped .team-card-inner { transform: rotateY(180deg); }
+
+.team-card-inner { min-height: 420px; }
+
+.team-face {
+    border-radius: var(--radius-card);
+    padding: 1.35rem 1.35rem 1.5rem;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.team-face-front {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--glass-light);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: 0 6px 24px rgba(37, 15, 45, 0.07);
+}
+.team-face-front::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+    background: linear-gradient(145deg, rgba(255,255,255,0.95) 0%, rgba(192,100,139,0.34) 42%, rgba(85,33,94,0.16) 70%, rgba(255,255,255,0.55) 100%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.team-face-back {
+    padding: 1.15rem 1.2rem 1.25rem;
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+    overflow-y: auto;
+    text-align: left;
+    color: #fff;
+    background:
+        radial-gradient(120% 90% at 12% 0%, rgba(184, 87, 129, 0.55) 0%, transparent 58%),
+        linear-gradient(158deg, var(--primary-color) 0%, var(--ink-3) 55%, var(--ink-2) 100%);
+    box-shadow: 0 14px 40px rgba(25, 10, 32, 0.28);
+}
+
+.team-back-name { font-family: var(--font-display); font-size: 1.02rem; font-weight: 700; color: #fff; margin-bottom: 0.1rem; }
+.team-back-role { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 0.7rem; }
+
+.team-facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.42rem; }
+.team-facts li { font-size: 0.76rem; line-height: 1.38; color: rgba(255, 255, 255, 0.9); }
+.team-facts dt,
+.team-fact-label { display: block; font-size: 0.61rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(255, 255, 255, 0.52); margin-bottom: 0.12rem; }
+
+/* Square, softly framed headshots — same corner language as the card */
+.team-avatar {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    margin: 0 0 1rem;
+    border-radius: var(--radius-media);
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--background-tint), var(--border-color));
+}
+.team-avatar img.headshot { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+
+/* No 3D on touch/reduced-motion — cross-fade instead */
+@media (prefers-reduced-motion: reduce) {
+    .team-card-inner { transition: none; }
+    .team-card:hover .team-card-inner,
+    .team-card.is-flipped .team-card-inner { transform: none; }
+    .team-face-back { opacity: 0; transform: none; transition: opacity 0.2s ease; }
+    .team-card:hover .team-face-back,
+    .team-card.is-flipped .team-face-back { opacity: 1; }
+}
+
+/* ---------- 9 · Footer: logo lockup + BUILD WHAT MATTERS ---------- */
+.footer { overflow: hidden; padding-bottom: 0; }
+.footer-wordmark img { display: block; height: 38px; width: auto; }
+
+.footer-bleed {
+    margin: 3rem 0 -0.1em;
+    padding: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.9rem, 9.5vw, 12.2rem);
+    line-height: 0.78;
+    letter-spacing: 0.002em;
+    text-align: center;
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.13);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* ---------- 10 · Clients: aligned testimonials with company marks ---------- */
+.client-quotes { align-items: stretch; }
+.client-quote { display: flex; flex-direction: column; height: 100%; }
+.client-quote blockquote { flex: 1 1 auto; }
+.client-quote figcaption { margin-top: auto; }
+
+.cq-logo {
+    display: block;
+    height: 26px;
+    width: auto;
+    max-width: 116px;
+    object-fit: contain;
+    object-position: left center;
+    margin-left: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.82;
+}
+
+/* ---------- 11 · Sample work: one paragraph style, full-height rule ---------- */
+.case { align-items: stretch; }
+.case-side { display: flex; flex-direction: column; align-items: flex-start; }
+.case-body p,
+.case-body p:first-child {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    line-height: 1.65;
+    margin: 0 0 1.1rem;
+}
+.case-body p:last-child { margin-bottom: 0; }
+@media (max-width: 800px) {
+    .case-body p,
+    .case-body p:first-child { font-size: 1.02rem; }
+}
+
+/* ============================================================
+   FALL 2026 — new page components
+   ============================================================ */
+
+/* ---------- Interior page hero ---------- */
+.page-hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    /* Heavier bottom padding pulls the copy up off dead centre, clear of the nav */
+    padding: 150px 0 210px;
+    overflow: hidden;
+}
+.page-hero .container { position: relative; z-index: 2; width: 100%; }
+.page-hero h1 { font-family: var(--font-display); font-size: clamp(2.4rem, 5.6vw, 4.2rem); line-height: 1.04; letter-spacing: -0.025em; color: #fff; margin-bottom: 1.1rem; max-width: 18ch; }
+.page-hero .lede { font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.6; color: var(--on-dark-muted); max-width: 62ch; }
+.page-hero .eyebrow { color: var(--accent-light); }
+
+.page-hero-photo { position: absolute; inset: 0; z-index: 0; }
+.page-hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+.page-hero-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(100deg, rgba(25, 10, 32, 0.94) 0%, rgba(36, 16, 49, 0.86) 46%, rgba(50, 23, 63, 0.62) 100%),
+        radial-gradient(70% 90% at 88% 30%, rgba(184, 87, 129, 0.34), transparent 65%);
+}
+
+/* ---------- Copy + photo split ---------- */
+.media-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; align-items: center; }
+.media-split.reverse .media-split-media { order: -1; }
+.media-split-media { margin: 0; border-radius: var(--radius-media); overflow: hidden; box-shadow: 0 24px 60px rgba(37, 15, 45, 0.20); }
+.media-split-media img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 2; }
+.media-split h2, .media-split h3 { text-align: left; }
+.media-split p { color: var(--text-secondary); line-height: 1.75; margin-bottom: 1rem; }
+.media-split p:last-child { margin-bottom: 0; }
+.section-dark .media-split p { color: var(--on-dark-muted); }
+@media (max-width: 900px) {
+    .media-split { grid-template-columns: 1fr; gap: 2rem; }
+    .media-split.reverse .media-split-media { order: 0; }
+}
+
+/* ---------- Value columns (clients) ---------- */
+.value-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+.value-col h3 { font-family: var(--font-display); font-size: 1.28rem; color: var(--primary-color); margin-bottom: 0.9rem; letter-spacing: -0.01em; }
+.value-col p { color: var(--text-secondary); line-height: 1.75; font-size: 0.99rem; }
+.section-dark .value-col h3 { color: #fff; }
+.section-dark .value-col p { color: var(--on-dark-muted); }
+
+/* ---------- Engagement pod (PM / SPA / analysts) ---------- */
+.pod { display: grid; gap: 1rem; margin-top: 2.5rem; max-width: 780px; }
+.pod-tier { position: relative; padding: 1.5rem 1.75rem; border-radius: var(--radius-card); background: var(--glass-dark); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); }
+.pod-tier::after { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none; background: linear-gradient(145deg, rgba(255,255,255,0.30), rgba(217,137,167,0.28) 50%, rgba(255,255,255,0.05)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+.pod-tier h4 { font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 0.5rem; }
+.pod-tier p { color: var(--on-dark-muted); font-size: 0.98rem; line-height: 1.6; margin: 0; }
+.pod-tier .pod-count { float: right; font-size: 0.78rem; font-weight: 600; color: rgba(255, 255, 255, 0.5); }
+.pod-link { display: block; width: 2px; height: 22px; margin: 0 auto; background: linear-gradient(180deg, var(--accent-bright), var(--accent-light)); border-radius: 2px; }
+.pod-tier.lead { background: rgba(255, 255, 255, 0.10); }
+.light-pod .pod-tier { background: var(--glass-light); }
+.light-pod .pod-tier h4 { color: var(--primary-bright); }
+.light-pod .pod-tier p { color: var(--text-secondary); }
+.light-pod .pod-tier .pod-count { color: var(--text-secondary); }
+
+/* ---------- Polaroid wall (community) ---------- */
+.polaroid-wall { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 0; max-width: 1260px; margin: 3rem auto 0; padding: 1rem 24px 2rem; }
+.polaroid {
+    position: relative;
+    flex: 0 0 auto;
+    width: clamp(180px, 22vw, 268px);
+    margin: 0 -18px 26px;
+    padding: 12px 12px 46px;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 12px 30px rgba(37, 15, 45, 0.18);
+    transform: rotate(var(--rot, 0deg));
+    transition: transform 0.4s cubic-bezier(0.2, 0.72, 0.24, 1), box-shadow 0.4s ease, z-index 0s;
+    z-index: 1;
+}
+.polaroid::after { border-radius: 3px; opacity: 0.5; }
+.polaroid img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 1px; background: var(--background-tint); }
+.polaroid figcaption { position: absolute; left: 12px; right: 12px; bottom: 14px; text-align: center; font-size: 0.8rem; font-weight: 500; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.polaroid:hover { transform: rotate(0deg) translateY(-10px) scale(1.04); box-shadow: 0 26px 54px rgba(37, 15, 45, 0.28); z-index: 5; }
+.polaroid.tall img { aspect-ratio: 3 / 4; }
+@media (max-width: 640px) { .polaroid { width: clamp(150px, 42vw, 210px); margin: 0 -10px 20px; padding: 9px 9px 36px; } .polaroid figcaption { font-size: 0.72rem; bottom: 11px; } }
+
+/* ---------- Simple stat / fact row ---------- */
+.factrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin-top: 2.75rem; }
+.fact strong { display: block; font-family: var(--font-display); font-size: clamp(1.9rem, 3.4vw, 2.7rem); font-weight: 700; letter-spacing: -0.02em; color: var(--primary-color); line-height: 1.05; }
+.fact span { display: block; margin-top: 0.4rem; font-size: 0.95rem; color: var(--text-secondary); }
+.section-dark .fact strong { color: #fff; }
+.section-dark .fact span { color: var(--on-dark-muted); }
+
+/* ---------- Pipeline (about) ---------- */
+.pipeline { list-style: none; margin: 3rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; counter-reset: pl; }
+.pipeline li { position: relative; padding: 1.5rem 1.25rem; border-radius: var(--radius-card); background: var(--glass-light); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); }
+.pipeline li::after { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none; background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(192,100,139,0.30) 45%, rgba(255,255,255,0.5)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+.pipeline h3 { font-family: var(--font-display); font-size: 1.02rem; color: var(--primary-color); text-align: left; margin-bottom: 0.5rem; }
+.pipeline p { font-size: 0.88rem; line-height: 1.5; color: var(--text-secondary); margin: 0; }
+.pipeline .pl-step { display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent-bright); margin-bottom: 0.55rem; }
+@media (max-width: 980px) { .pipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .pipeline { grid-template-columns: 1fr; } }
+
+/* ---------- Discipline trio (tech / business / design) ---------- */
+.trio { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-top: 3rem; }
+.trio-card { position: relative; padding: 2rem 1.85rem; border-radius: var(--radius-card); background: var(--glass-dark); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); }
+.trio-card::after { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none; background: linear-gradient(145deg, rgba(255,255,255,0.32), rgba(217,137,167,0.28) 50%, rgba(255,255,255,0.05)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+.trio-card h3 { font-family: var(--font-display); font-size: 1.2rem; color: #fff; text-align: left; margin-bottom: 0.7rem; }
+.trio-card p { color: var(--on-dark-muted); font-size: 0.97rem; line-height: 1.65; margin: 0; }
+
+/* ---------- 501(c)(3) callout ---------- */
+.taxnote { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 3rem; align-items: center; margin-top: 3rem; padding: 2.5rem 2.75rem; border-radius: var(--radius-card); background: var(--glass-light); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); position: relative; }
+.taxnote::after { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none; background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(192,100,139,0.34) 45%, rgba(255,255,255,0.5)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+.taxnote h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--primary-color); text-align: left; margin-bottom: 0.85rem; letter-spacing: -0.015em; }
+.taxnote p { color: var(--text-secondary); line-height: 1.75; margin-bottom: 0.9rem; }
+.taxnote p:last-child { margin-bottom: 0; }
+@media (max-width: 860px) { .taxnote { grid-template-columns: 1fr; gap: 1.75rem; padding: 2rem 1.6rem; } }
+
+/* ---------- Numbered next-steps ---------- */
+.steps { list-style: none; counter-reset: st; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.steps li { counter-increment: st; position: relative; padding-left: 3rem; color: var(--text-secondary); line-height: 1.6; font-size: 0.99rem; }
+.steps li::before { content: counter(st); position: absolute; left: 0; top: -0.15rem; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); }
+.steps li strong { display: block; color: var(--text-primary); font-weight: 600; margin-bottom: 0.15rem; }
+.section-dark .steps li { color: var(--on-dark-muted); }
+.section-dark .steps li strong { color: #fff; }
+
+/* Pre-JS fallback so the navbar never overlaps the banner on first paint;
+   script.js replaces this with the measured height. */
+body.has-banner { --nav-h: 76px; --banner-h: 43px; }
+@media (max-width: 700px) { body.has-banner { --nav-h: 68px; --banner-h: 38px; } }
+@media (max-width: 430px) { body.has-banner { --nav-h: 68px; --banner-h: 56px; } }
+
+/* The Students trigger is a <button>, so it needs the same treatment the nav
+   anchors get in both the transparent and the glass navbar states. */
+.nav-trigger { color: rgba(255, 255, 255, 0.86); font-weight: 500; font-size: 0.95rem; position: relative; transition: color 0.3s ease; }
+.nav-trigger::after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: currentColor; transition: width 0.3s ease; }
+.nav-item-has-menu:hover .nav-trigger::after,
+.nav-item-has-menu:focus-within .nav-trigger::after { width: calc(100% - 0.84rem); }
+.nav-trigger:hover { color: #fff; }
+.navbar.scrolled .nav-trigger, .navbar.solid .nav-trigger { color: var(--text-secondary); }
+.navbar.scrolled .nav-item-has-menu:hover .nav-trigger,
+.navbar.solid .nav-item-has-menu:hover .nav-trigger,
+.navbar.scrolled .nav-trigger[aria-expanded="true"],
+.navbar.solid .nav-trigger[aria-expanded="true"] { color: var(--primary-color); }
+.navbar .nav-menu.active .nav-trigger { color: var(--text-secondary); }
+.nav-item-has-menu.is-section .nav-trigger { color: #fff; }
+.navbar.scrolled .nav-item-has-menu.is-section .nav-trigger,
+.navbar.solid .nav-item-has-menu.is-section .nav-trigger { color: var(--primary-color); }
+
+/* Footer logo replaces the wordmark text in the same slot */
+.footer-wordmark { display: block; }
+
+/* Redirect stubs for retired URLs (careers.html, students.html) */
+.redirect-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; text-align: center; background: var(--background-light); }
+.redirect-page p { color: var(--text-secondary); font-size: 1.05rem; }
+.redirect-page a { color: var(--primary-color); font-weight: 600; }
+
+/* Date line inside a scroll-path card (used by the recruiting timeline) */
+.vpath-when { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 0.45rem; }
+.vpath-card h3 { letter-spacing: -0.01em; }
+
+/* ---------- Horizontal variant of the scroll path (recruiting timeline) ----------
+   Below 861px it falls back to the base vertical .vpath layout, so every
+   override here is scoped to the wide breakpoint. */
+@media (min-width: 861px) {
+    .vpath-h {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0;
+        padding: 56px 0 0;
+        margin-top: 3.5rem;
+    }
+    /* Rail spans first node centre to last node centre (columns are exactly 20%) */
+    .vpath-h .vpath-line { left: 10%; right: 10%; top: 20px; bottom: auto; width: auto; height: 3px; }
+    .vpath-h .vpath-fill { width: var(--vpath-progress, 0%); height: 100%; transition: width 0.12s linear; }
+
+    .vpath-h .vpath-step { padding: 0 0.9rem; text-align: center; }
+    .vpath-h .vpath-node { left: 50%; top: -52px; transform: translateX(-50%); }
+    /* Every step is in view at once here, so the shared .in-view lighting would
+       fire all five at the same time. Reset it and let the fill do the lighting. */
+    .vpath-h .vpath-step.in-view .vpath-node {
+        background: var(--ink-2);
+        border-color: var(--border-dark);
+        box-shadow: none;
+    }
+    .vpath-h .vpath-step.is-lit .vpath-node {
+        background: linear-gradient(135deg, var(--accent-bright), var(--secondary-color));
+        border-color: transparent;
+        box-shadow: 0 0 18px rgba(192, 100, 139, 0.5);
+    }
+
+    .vpath-h .vpath-card h3 { font-size: 1.08rem; margin-bottom: 0.4rem; }
+    .vpath-h .vpath-card p { max-width: none; margin-bottom: 0; font-size: 0.92rem; line-height: 1.5; }
+    .vpath-h .vpath-when { margin-bottom: 0.55rem; }
+}

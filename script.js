@@ -13,6 +13,11 @@
         };
         hamburger.addEventListener('click', () => setOpen(!navMenu.classList.contains('active')));
         navMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+        // The open panel is a mobile-only layout; leaving it up past the breakpoint
+        // strands it over the desktop nav.
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && navMenu.classList.contains('active')) setOpen(false);
+        }, { passive: true });
     }
 
     // --- Navbar shadow on scroll (stays visible; no auto-hide) ---
@@ -98,26 +103,44 @@
     }
 
     // --- About: vertical path fill tracks scroll progress ---
-    const vpath = document.querySelector('.vpath');
-    if (vpath) {
+    document.querySelectorAll('.vpath').forEach((vpath) => {
         if (reduceMotion) {
             vpath.style.setProperty('--vpath-progress', '100%');
         } else {
+            const steps = Array.from(vpath.querySelectorAll('.vpath-step'));
             const onVPathScroll = () => {
                 const r = vpath.getBoundingClientRect();
-                // Fill as the path crosses the lower half of the viewport…
-                let p = (window.innerHeight * 0.72 - r.top) / r.height;
+                // The horizontal variant is short, so scrubbing against its own height
+                // would fill it almost instantly. Scrub it against a slice of the
+                // viewport instead. (It reverts to the vertical layout under 861px.)
+                const horizontal = vpath.classList.contains('vpath-h') && window.innerWidth > 860;
+                let p;
+                if (horizontal) {
+                    const from = window.innerHeight * 0.9;
+                    const to = window.innerHeight * 0.3;
+                    p = (from - r.top) / (from - to);
+                } else {
+                    // Fill as the path crosses the lower half of the viewport…
+                    p = (window.innerHeight * 0.72 - r.top) / r.height;
+                }
                 // …and guarantee 100% once the page can't scroll any further (path is the last section).
                 const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
                 if (maxScroll - window.scrollY < 4) p = 1;
                 p = Math.max(0, Math.min(1, p));
                 vpath.style.setProperty('--vpath-progress', (p * 100).toFixed(1) + '%');
+
+                // Light each node as the fill reaches it.
+                if (horizontal && steps.length > 1) {
+                    steps.forEach((step, i) => {
+                        step.classList.toggle('is-lit', p >= i / (steps.length - 1) - 0.001);
+                    });
+                }
             };
             onVPathScroll();
             window.addEventListener('scroll', onVPathScroll, { passive: true });
             window.addEventListener('resize', onVPathScroll, { passive: true });
         }
-    }
+    });
 
     // --- Careers: rotating editorial pull-quote ---
     const pq = document.querySelector('.pullquotes');
@@ -224,6 +247,111 @@
                 + '&body=' + encodeURIComponent(body);
             showMessage(msg, 'Opening your email app to send this to our team. If nothing opens, email us at productspacegeorgetown@gmail.com.', 'success');
             form.reset();
+        });
+    });
+
+    // --- Announcement banner: measure its height so the fixed navbar sits below it ---
+    const banner = document.querySelector('.site-banner');
+    if (banner) {
+        const BANNER_KEY = 'ps-banner-dismissed-f26';
+        let bannerDismissed = false;
+        try { bannerDismissed = localStorage.getItem(BANNER_KEY) === '1'; } catch (e) { /* private mode */ }
+
+        const clearBanner = () => {
+            banner.remove();
+            document.body.classList.remove('has-banner');
+            document.documentElement.style.setProperty('--banner-h', '0px');
+            document.body.style.setProperty('--banner-h', '0px');
+            document.documentElement.style.setProperty('--nav-h', '0px');
+            document.body.style.setProperty('--nav-h', '0px');
+        };
+
+        if (bannerDismissed) {
+            clearBanner();
+        } else {
+            const syncBannerHeight = () => {
+                const nav = document.querySelector('.navbar');
+                const setVar = (name, value) => {
+                    document.documentElement.style.setProperty(name, value);
+                    document.body.style.setProperty(name, value);
+                };
+                if (nav) setVar('--nav-h', nav.offsetHeight + 'px');
+                setVar('--banner-h', banner.offsetHeight + 'px');
+            };
+            syncBannerHeight();
+            window.addEventListener('resize', syncBannerHeight, { passive: true });
+
+            const closeBtn = banner.querySelector('.site-banner-close');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    clearBanner();
+                    try { localStorage.setItem(BANNER_KEY, '1'); } catch (e) { /* private mode */ }
+                });
+            }
+        }
+    }
+
+    // --- Students dropdown: hover and focus are CSS; JS adds tap, Escape, outside-click ---
+    document.querySelectorAll('.nav-item-has-menu').forEach((item) => {
+        const trigger = item.querySelector('.nav-trigger');
+        const sub = item.querySelector('.nav-sub');
+        if (!trigger || !sub) return;
+
+        const setSubOpen = (open) => {
+            sub.classList.toggle('open', open);
+            trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        };
+
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            setSubOpen(!sub.classList.contains('open'));
+        });
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') { setSubOpen(false); trigger.focus(); }
+        });
+        document.addEventListener('click', (e) => {
+            if (!item.contains(e.target)) setSubOpen(false);
+        });
+    });
+
+    // --- Cursor-following ambient glow on the lit sections ---
+    if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
+        document.querySelectorAll('.glow-follow').forEach((section) => {
+            let frame = 0;
+            let px = 0;
+            let py = 0;
+            const paint = () => {
+                frame = 0;
+                section.style.setProperty('--mx', px + 'px');
+                section.style.setProperty('--my', py + 'px');
+            };
+            section.addEventListener('pointermove', (e) => {
+                const rect = section.getBoundingClientRect();
+                px = e.clientX - rect.left;
+                py = e.clientY - rect.top;
+                if (!frame) frame = window.requestAnimationFrame(paint);
+            }, { passive: true });
+            section.addEventListener('pointerenter', () => section.classList.add('glow-on'));
+            section.addEventListener('pointerleave', () => section.classList.remove('glow-on'));
+        });
+    }
+
+    // --- Leadership cards: CSS flips on hover; this covers touch and keyboard ---
+    document.querySelectorAll('.team-card').forEach((card) => {
+        const flip = () => {
+            const willFlip = !card.classList.contains('is-flipped');
+            document.querySelectorAll('.team-card.is-flipped').forEach((other) => {
+                if (other !== card) {
+                    other.classList.remove('is-flipped');
+                    other.setAttribute('aria-pressed', 'false');
+                }
+            });
+            card.classList.toggle('is-flipped', willFlip);
+            card.setAttribute('aria-pressed', willFlip ? 'true' : 'false');
+        };
+        card.addEventListener('click', flip);
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
         });
     });
 })();
