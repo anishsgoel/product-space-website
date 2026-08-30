@@ -25,3 +25,6 @@ dist/
 
 # Vercel link metadata
 .vercel/
+
+# Raw asset drop (originals stay local; optimized copies live in img/ and Logos/)
+NewAssets/
