@@ -36,7 +36,7 @@
 
 <body>
     <a class="skip-link" href="#main">Skip to main content</a>
-    <nav class="navbar solid">
+    <nav class="navbar">
         <div class="container">
             <a href="index.html" class="nav-brand">
                 <img src="ProductSpaceLogoWhite.png" alt="Product Space at Georgetown University" class="nav-logo nav-logo-white">
@@ -47,14 +47,13 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html" class="active" aria-current="page">About</a></li>
                     <li class="nav-item-has-menu">
-                        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="students-menu">Students <span class="caret" aria-hidden="true"></span></button>
+                        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="students-menu">For Students <span class="caret" aria-hidden="true"></span></button>
                         <ul class="nav-sub" id="students-menu">
-                            <li><a href="fellowship.html">Fellowship</a></li>
-                            <li><a href="project-teams.html">Project Teams</a></li>
-                            <li><a href="community.html">Community</a></li>
+                            <li><a href="students.html#work">The Work</a></li>
+                            <li><a href="students.html#community">The Community</a></li>
                         </ul>
                     </li>
-                    <li><a href="clients.html">Clients</a></li>
+                    <li><a href="clients.html">For Clients</a></li>
                 </ul>
                 <a href="apply.html" class="btn btn-primary nav-apply">Apply</a>
                 <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
@@ -68,36 +67,33 @@
 
     <main id="main" tabindex="-1">
         <section class="page-hero section-dark glow-follow">
-            <div class="page-hero-photo"><img src="img/main-club.jpg" alt="" aria-hidden="true"></div>
             <div class="container">
-                <h1>Georgetown's home for people who build products.</h1>
-                <p class="lede">Product Space is a nationwide organization with chapters at Georgetown, UC Berkeley,
-                    Columbia and beyond, developing talent and building community around product management. This is
-                    the Georgetown chapter: a fellowship that teaches the craft, and client teams that practise it on
-                    real products.</p>
+                <div class="page-hero-copy">
+                    <h1>Georgetown's home for passionate problem solvers.</h1>
+                    <p class="lede">We empower Georgetown students to bridge liberal arts and technology, building empathetic leaders who design products with purpose &mdash; through client work, workshops, and a close-knit community on the Hilltop.</p>
+                </div>
+                <figure class="page-hero-photo"><img src="img/main-club.jpg" alt="" aria-hidden="true"></figure>
             </div>
         </section>
 
         <section id="why-product" class="about light-echo-top light-echo-bottom">
             <div class="container">
                 <div class="section-head centered">
-                    <h2>The decisions that shape the next decade are being made at technology companies</h2>
+                    <h2>Be where the decisions that shape the next decade are. </h2>
                 </div>
                 <div class="value-cols">
                     <div class="value-col rvl">
-                        <h3>Where the growth is</h3>
-                        <p>The largest companies in the world are technology companies, and AI has pulled enormous
-                            capital and attention into the sector. Every major firm is reorganizing around it.</p>
+                        <h3>GROWTH</h3>
+                        <p>Tech firms lead the global economy and will continue to drive the futre. As we enter an era of unprecendented growth, the demand for skilled product managers is higher than ever.</p>
                     </div>
                     <div class="value-col rvl">
-                        <h3>Where the questions are</h3>
-                        <p>How AI gets deployed, what it should be allowed to do, and who it serves are being decided
-                            right now, inside the companies and startups building it.</p>
+                        <h3>IMPACT</h3>
+                        <p>Critical choices about AI deployment, acess, and safety are made real time inside engineering and product teams.</p>
                     </div>
                     <div class="value-col rvl">
-                        <h3>Where the reach is</h3>
-                        <p>Products built by these teams are used by billions of people. A decision made in a product
-                            meeting shows up in how those people work and live.</p>
+                        <h3>REACH</h3>
+                        <p>Large scale products reach and connect billions of people. PMs make decisions that affect how billions of people work, learn, create, and connect. 
+                            </p>
                     </div>
                 </div>
             </div>
@@ -107,124 +103,307 @@
             <div class="container">
                 <div class="section-head centered">
                     <h2>What is product management?</h2>
-                    <p class="section-intro">Product management is the practice of guiding a product from idea through
-                        design, launch, and ongoing improvement. It sits between customer needs, business goals, and
-                        technology. A product manager decides what to build, and why.</p>
+                    <p class="section-intro">Product management guides a product from idea to launch and beyond. Sitting at the intersection of customer needs, technology, and business strategy, PMs define what to build and <em>why</em>.</p>
                 </div>
-                <div class="value-cols">
-                    <div class="value-col rvl">
-                        <h3>User research</h3>
-                        <p>Learn what users actually need and where the product fails them today.</p>
+                <div class="media-split pm-split">
+                    <div class="value-cols pm-value-cols">
+                        <div class="value-col rvl">
+                            <h3>User research</h3>
+                            <p>Learn what users actually need and where the product currently falls short.</p>
+                        </div>
+                        <div class="value-col rvl">
+                            <h3>Product strategy</h3>
+                            <p>Set a clear vision that grounds every execution. </p>
+                        </div>
+                        <div class="value-col rvl">
+                            <h3>Roadmapping</h3>
+                            <p>Prioritize features and decide what actually gets built next.</p>
+                        </div>
+                        <div class="value-col rvl">
+                            <h3>Team coordination</h3>
+                            <p>Work with engineers, designers, and business teams to ship meaningful ideas</p>
+                        </div>
                     </div>
-                    <div class="value-col rvl">
-                        <h3>Product strategy</h3>
-                        <p>Set the vision and the long-term plan the rest of the work ladders up to.</p>
-                    </div>
-                    <div class="value-col rvl">
-                        <h3>Roadmapping</h3>
-                        <p>Prioritize features and decide what actually gets built next, and what waits.</p>
-                    </div>
-                    <div class="value-col rvl">
-                        <h3>Team coordination</h3>
-                        <p>Work with engineers, designers, and marketers to get the thing shipped.</p>
-                    </div>
-                </div>
-
-                <div class="section-head centered" style="margin-top: 5rem;">
-                    <h2>At the intersection of tech, business, and design</h2>
-                </div>
-                <div class="trio">
-                    <div class="trio-card rvl">
-                        <h3>Engineering</h3>
-                        <p>Scoping the build, estimating effort, and understanding what is technically possible
-                            within the time you have.</p>
-                    </div>
-                    <div class="trio-card rvl">
-                        <h3>Business</h3>
-                        <p>Market sizing, unit economics, pricing, and the customer research that tells you whether
-                            a thing is worth building at all.</p>
-                    </div>
-                    <div class="trio-card rvl">
-                        <h3>Design</h3>
-                        <p>Visual design, UI and UX, user flows, interface decisions, and usability testing against
-                            real people.</p>
+                    <div class="orbital-wrap rvl">
+                        <div class="orbital" id="orbital-diagram">
+                            <div class="orbital-stars" aria-hidden="true"></div>
+                            <div class="orbital-path" data-path="engineering" aria-hidden="true"></div>
+                            <div class="orbital-path" data-path="business" aria-hidden="true"></div>
+                            <div class="orbital-path" data-path="design" aria-hidden="true"></div>
+                            <div class="orbital-core"><span>Product</span></div>
+                            <button class="orbital-node" type="button" data-node="engineering">Engineering</button>
+                            <button class="orbital-node" type="button" data-node="business">Business</button>
+                            <button class="orbital-node" type="button" data-node="design">Design</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="pipeline" class="about light-echo-top light-echo-bottom">
+        <section id="how-we-work" class="section-dark glow-follow">
             <div class="container">
-                <div class="section-head centered">
-                    <h2>Product Space runs the full pipeline</h2>
-                    <p class="section-intro">No other organization at Georgetown covers the whole sequence, from
-                        finding a pain point to shipping against it and revising on real usage data.</p>
+                <div class="section-head">
+                    <h2>How We Work</h2>
+                    <p class="section-intro">Every member moves through two sequential stages: fellowship and training, then
+                        applied client work.</p>
                 </div>
-                <ol class="pipeline">
-                    <li class="rvl">
-                        <span class="pl-step">01 · Research</span>
-                        <h3>Find pain points</h3>
-                        <p>User research and interviews to learn where a product actually fails people.</p>
-                    </li>
-                    <li class="rvl">
-                        <span class="pl-step">02 · Strategy</span>
-                        <h3>Prioritize</h3>
-                        <p>Market and competitive analysis, then feature prioritization against real constraints.</p>
-                    </li>
-                    <li class="rvl">
-                        <span class="pl-step">03 · MVP</span>
-                        <h3>Scope and build</h3>
-                        <p>Requirements, wireframes, and prototypes that turn a direction into something testable.</p>
-                    </li>
-                    <li class="rvl">
-                        <span class="pl-step">04 · Iteration</span>
-                        <h3>Define success</h3>
-                        <p>Go-to-market planning and the success metrics that say whether it worked.</p>
-                    </li>
-                    <li class="rvl">
-                        <span class="pl-step">05 · Launch</span>
-                        <h3>Ship and revise</h3>
-                        <p>Usage data and feedback loop back into the roadmap for the next revision.</p>
-                    </li>
-                </ol>
-            </div>
-        </section>
-
-        <section id="how-it-works" class="section-dark glow-follow">
-            <div class="container">
-                <div class="media-split">
-                    <div class="media-split-copy">
-                        <h2>Two things, done properly</h2>
-                        <p>Every new member spends their first semester in the <a href="fellowship.html">Product
-                            Fellowship</a>: twelve weeks of lecture and lab that take you from what a product manager
-                            actually does through discovery, business validation, design, metrics, and technical
-                            fundamentals. You build a capstone product alongside the curriculum and present it to
-                            industry professionals in December.</p>
-                        <p>After that you join a <a href="project-teams.html">project team</a> working directly with a
-                            client company on a real engagement, with a midterm and a final deliverable. Analysts who
-                            lead well move up to senior analyst and project manager in later semesters.</p>
-                        <p>Around both of those is a <a href="community.html">community</a> that goes on a retreat every
-                            year, throws parties for Georgetown Day and Homecoming, and plays a lot of Fish.</p>
+                <div class="media-split media-split-top">
+                    <div class="vpath" style="--vpath-progress:0%">
+                        <div class="vpath-line" aria-hidden="true"><span class="vpath-fill"></span></div>
+                        <div class="vpath-step rvl">
+                            <span class="vpath-node">1</span>
+                            <div class="vpath-card">
+                                <h3>Fellowship</h3>
+                                <p>A 10-week intensive training program covering product fundamentals, AI and LLM products,
+                                    data and analytics, and more. Culminating in a final capstone project pitched to industry professionals.</p>
+                                <a href="students.html#work" class="link-arrow">See the curriculum</a>
+                            </div>
+                        </div>
+                        <div class="vpath-step rvl">
+                            <span class="vpath-node">2</span>
+                            <div class="vpath-card">
+                                <h3>Client Work</h3>
+                                <p>Students apply what they've learned through semester long projects for real clients. Covering all services from GTM strategy to feature redesign execution.</p>
+                                <a href="clients.html" class="link-arrow">See our clients</a>
+                            </div>
+                        </div>
                     </div>
                     <figure class="media-split-media rvl">
                         <img src="img/board.jpg" alt="Product Space members together at a chapter event" loading="lazy">
                     </figure>
                 </div>
-                <div class="factrow">
-                    <div class="fact rvl"><strong>12 weeks</strong><span>Of fellowship curriculum, lecture plus lab</span></div>
-                    <div class="fact rvl"><strong>4&ndash;6 hrs</strong><span>Per week, all in</span></div>
-                    <div class="fact rvl"><strong>501(c)(3)</strong><span>Independent student-run nonprofit</span></div>
-                    <div class="fact rvl"><strong>Any major</strong><span>From every undergraduate school</span></div>
+            </div>
+        </section>
+
+        <section id="team" class="team light-echo-top">
+            <div class="container">
+                <div class="section-head centered">
+                    <h2>Our People</h2>
+                    <p class="section-intro">Meet the students leading Product Space</p>
+                </div>
+
+                <div class="team-group">
+                    <h3 class="team-group-title">Board of Directors</h3>
+                    <div class="team-grid board-grid">
+                        <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Anish Goel, President. Show details.">
+                            <div class="team-card-inner">
+                                <div class="team-face team-face-front">
+                                    <div class="team-avatar"><img class="headshot" src="team/anish-goel.jpg" alt="Anish Goel" loading="lazy"></div>
+                                    <h4>Anish Goel</h4>
+                                    <p class="team-role">President</p>
+                                </div>
+                                <div class="team-face team-face-back">
+                                    <p class="team-back-name">Anish Goel</p>
+                                    <p class="team-back-role">President</p>
+                                    <ul class="team-facts">
+                                        <li><span class="team-fact-label">School</span>SFS/MSB &#x27;27</li>
+                                        <li><span class="team-fact-label">Studying</span>BGA</li>
+                                        <li><span class="team-fact-label">Hometown</span>Dallas, TX</li>
+                                    <li><span class="team-fact-label">Underrated product</span>Speed radar detector</li>
+                                    <li><span class="team-fact-label">Favorite Product Space memory</span>Spring 26 retreat + zasta</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Justin Lee, Director of Product. Show details.">
+                            <div class="team-card-inner">
+                                <div class="team-face team-face-front">
+                                    <div class="team-avatar"><img class="headshot" src="team/justin-lee.jpg" alt="Justin Lee" loading="lazy"></div>
+                                    <h4>Justin Lee</h4>
+                                    <p class="team-role">Director of Product</p>
+                                </div>
+                                <div class="team-face team-face-back">
+                                    <p class="team-back-name">Justin Lee</p>
+                                    <p class="team-back-role">Director of Product</p>
+                                    <ul class="team-facts">
+                                        <li><span class="team-fact-label">School</span>CAS &#x27;27</li>
+                                        <li><span class="team-fact-label">Studying</span>Computer Science; Psychology</li>
+                                        <li><span class="team-fact-label">Hometown</span>Scotch Plains, NJ</li>
+                                    <li><span class="team-fact-label">Underrated product</span>Bloons Tower Defense 6</li>
+                                    <li><span class="team-fact-label">Favorite Product Space memory</span>Georgetown Day</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Michelle Hu, Director of Personnel. Show details.">
+                            <div class="team-card-inner">
+                                <div class="team-face team-face-front">
+                                    <div class="team-avatar"><img class="headshot" src="team/michelle-hu.jpg" alt="Michelle Hu" loading="lazy"></div>
+                                    <h4>Michelle Hu</h4>
+                                    <p class="team-role">Director of Personnel</p>
+                                </div>
+                                <div class="team-face team-face-back">
+                                    <p class="team-back-name">Michelle Hu</p>
+                                    <p class="team-back-role">Director of Personnel</p>
+                                    <ul class="team-facts">
+                                        <li><span class="team-fact-label">School</span>SOH &#x27;27</li>
+                                        <li><span class="team-fact-label">Studying</span>HCMP, Econ</li>
+                                        <li><span class="team-fact-label">Hometown</span>Chandler, AZ</li>
+                                    <li><span class="team-fact-label">Underrated product</span>Immersion blender</li>
+                                    <li><span class="team-fact-label">Favorite Product Space memory</span>My mentor Zoe #icon, and being on board with my dear friends this fall</li>
+                                    <li><span class="team-fact-label">Excited for next semester</span>Bringing whimsy back + PS Cup</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Nikki Jiang, Director of Operations and Finance. Show details.">
+                            <div class="team-card-inner">
+                                <div class="team-face team-face-front">
+                                    <div class="team-avatar"><img class="headshot" src="team/nikki-jiang.jpg" alt="Nikki Jiang" loading="lazy"></div>
+                                    <h4>Nikki Jiang</h4>
+                                    <p class="team-role">Director of Operations and Finance</p>
+                                </div>
+                                <div class="team-face team-face-back">
+                                    <p class="team-back-name">Nikki Jiang</p>
+                                    <p class="team-back-role">Director of Operations and Finance</p>
+                                    <ul class="team-facts">
+                                        <li><span class="team-fact-label">School</span>SOH &#x27;28</li>
+                                        <li><span class="team-fact-label">Studying</span>Global Health, STIA minor</li>
+                                        <li><span class="team-fact-label">Hometown</span>Long Island, NY</li>
+                                    <li><span class="team-fact-label">Why product management</span>Creativity, user impact, and constantly learning new things</li>
+                                    <li><span class="team-fact-label">Underrated product</span>Google App, not the browser</li>
+                                    <li><span class="team-fact-label">Favorite Product Space memory</span>The wedding.</li>
+                                    <li><span class="team-fact-label">Excited for next semester</span>Adapting to the new AI tools shipping in the fall</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Amy Liu, Director of Marketing. Show details.">
+                            <div class="team-card-inner">
+                                <div class="team-face team-face-front">
+                                    <div class="team-avatar"><img class="headshot" src="team/amy-liu.jpg" alt="Amy Liu" loading="lazy"></div>
+                                    <h4>Amy Liu</h4>
+                                    <p class="team-role">Director of Marketing</p>
+                                </div>
+                                <div class="team-face team-face-back">
+                                    <p class="team-back-name">Amy Liu</p>
+                                    <p class="team-back-role">Director of Marketing</p>
+                                    <ul class="team-facts">
+                                        <li><span class="team-fact-label">School</span>MSB/SFS &#x27;27</li>
+                                        <li><span class="team-fact-label">Studying</span>Statistics</li>
+                                        <li><span class="team-fact-label">Hometown</span>San Jose, CA</li>
+                                    <li><span class="team-fact-label">Underrated product</span>Ikea cooling pillow</li>
+                                    <li><span class="team-fact-label">Favorite Product Space memory</span>Playing Fish</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Janice Ku, Director of Education. Show details.">
+                            <div class="team-card-inner">
+                                <div class="team-face team-face-front">
+                                    <div class="team-avatar"><img class="headshot" src="team/janice-ku.jpg" alt="Janice Ku" loading="lazy"></div>
+                                    <h4>Janice Ku</h4>
+                                    <p class="team-role">Director of Education</p>
+                                </div>
+                                <div class="team-face team-face-back">
+                                    <p class="team-back-name">Janice Ku</p>
+                                    <p class="team-back-role">Director of Education</p>
+                                    <ul class="team-facts">
+                                        <li><span class="team-fact-label">School</span>CAS &#x27;27</li>
+                                        <li><span class="team-fact-label">Studying</span>Econ, with Business Studies and Math minors</li>
+                                        <li><span class="team-fact-label">Hometown</span>Oklahoma</li>
+                                    <li><span class="team-fact-label">Favorite Product Space memory</span>Spring 2026 retreat, and the Atlantic team</li>
+                                    <li><span class="team-fact-label">Excited for next semester</span>Building into and expanding our community with the new cohort</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-group">
+                    <h3 class="team-group-title">Vice Presidents</h3>
+                    <div class="team-grid vp-grid">
+                        <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Jesse Najera, VP of Technology. Show details.">
+                            <div class="team-card-inner">
+                                <div class="team-face team-face-front">
+                                    <div class="team-avatar"><img class="headshot" src="team/jesse-najera.jpg" alt="Jesse Najera" loading="lazy"></div>
+                                    <h4>Jesse Najera</h4>
+                                    <p class="team-role">VP of Technology</p>
+                                </div>
+                                <div class="team-face team-face-back">
+                                    <p class="team-back-name">Jesse Najera</p>
+                                    <p class="team-back-role">VP of Technology</p>
+                                    <ul class="team-facts">
+                                        <li><span class="team-fact-label">School</span>CAS &#x27;28</li>
+                                        <li><span class="team-fact-label">Studying</span>Computer Science</li>
+                                        <li><span class="team-fact-label">Hometown</span>Long Island, NY</li>
+                                    <li><span class="team-fact-label">Why product management</span>When something just works, someone thought hard about how I&#x27;d use it</li>
+                                    <li><span class="team-fact-label">Underrated product</span>The PSP. Ahead of its time, and a handheld hall-of-famer</li>
+                                    <li><span class="team-fact-label">Favorite Product Space memory</span>Up all night at the retreat, trying to win a card game I&#x27;d just learned</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Otto Dierig, VP of Design. Show details.">
+                            <div class="team-card-inner">
+                                <div class="team-face team-face-front">
+                                    <div class="team-avatar"><img class="headshot" src="team/otto-dierig.jpg" alt="Otto Dierig" loading="lazy"></div>
+                                    <h4>Otto Dierig</h4>
+                                    <p class="team-role">VP of Design</p>
+                                </div>
+                                <div class="team-face team-face-back">
+                                    <p class="team-back-name">Otto Dierig</p>
+                                    <p class="team-back-role">VP of Design</p>
+                                    <ul class="team-facts">
+                                        <li><span class="team-fact-label">School</span>CAS &#x27;28</li>
+                                        <li><span class="team-fact-label">Studying</span>Government/History, German</li>
+                                        <li><span class="team-fact-label">Hometown</span>Jersey City, NJ</li>
+                                    <li><span class="team-fact-label">Underrated product</span>Garmin Forerunner</li>
+                                    <li><span class="team-fact-label">Favorite Product Space memory</span>Hot tub, lake, pool, hot tub, second lake. Also PS Cup</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Jaden Sarr, VP of Partnerships. Show details.">
+                            <div class="team-card-inner">
+                                <div class="team-face team-face-front">
+                                    <div class="team-avatar"><img class="headshot" src="team/jaden-sarr.jpg" alt="Jaden Sarr" loading="lazy"></div>
+                                    <h4>Jaden Sarr</h4>
+                                    <p class="team-role">VP of Partnerships</p>
+                                </div>
+                                <div class="team-face team-face-back">
+                                    <p class="team-back-name">Jaden Sarr</p>
+                                    <p class="team-back-role">VP of Partnerships</p>
+                                    <ul class="team-facts">
+                                        <li><span class="team-fact-label">School</span>MSB &#x27;27</li>
+                                        <li><span class="team-fact-label">Studying</span>Accounting and Finance</li>
+                                        <li><span class="team-fact-label">Hometown</span>New York City, NY</li>
+                                    <li><span class="team-fact-label">Favorite product</span>Retrieval augmented generation, from Bloomberg terminals to Perplexity</li>
+                                    <li><span class="team-fact-label">Excited for next semester</span>Senior year is the year I go see the world. The pressure is the exciting part</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card rvl" role="button" tabindex="0" aria-pressed="false" aria-label="Aayan Ali, VP of Education. Show details.">
+                            <div class="team-card-inner">
+                                <div class="team-face team-face-front">
+                                    <div class="team-avatar"><img class="headshot" src="team/aayan-ali.jpg" alt="Aayan Ali" loading="lazy"></div>
+                                    <h4>Aayan Ali</h4>
+                                    <p class="team-role">VP of Education</p>
+                                </div>
+                                <div class="team-face team-face-back">
+                                    <p class="team-back-name">Aayan Ali</p>
+                                    <p class="team-back-role">VP of Education</p>
+                                    <ul class="team-facts">
+                                        <li><span class="team-fact-label">School</span>SFS/MSB &#x27;28</li>
+                                        <li><span class="team-fact-label">Studying</span>Business and Global Affairs, Econ minor</li>
+                                        <li><span class="team-fact-label">Hometown</span>Glenview, IL</li>
+                                    <li><span class="team-fact-label">Underrated product</span>Gemini browser plugin</li>
+                                    <li><span class="team-fact-label">Excited for next semester</span>Teaching the new hires Fish</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="where-we-go" class="placements-light light-echo-top">
+        <section id="where-we-go" class="placements-light">
             <div class="container">
                 <div class="section-head centered">
                     <h2>Where We Go</h2>
-                    <p class="section-intro">Members recruit into product management, design, strategy, and engineering
-                        roles. Many go on to found their own startups with the expertise they built here.</p>
                 </div>
                 <ul class="logo-grid light" aria-label="Companies where Product Space members and alumni work">
                 <li class="logo-tile rvl" data-logo="google"><img src="Logos/alumni/google.svg" alt="Google" loading="lazy"></li>
@@ -271,14 +450,14 @@
                     <div class="footer-col">
                         <h4>Explore</h4>
                         <a href="index.html">Home</a>
-                        <a href="about.html">About</a>
+                        <a href="about.html">Our Mission</a>
+                        <a href="about.html#team">Our People</a>
                         <a href="clients.html">Clients</a>
                     </div>
                     <div class="footer-col">
                         <h4>Students</h4>
-                        <a href="fellowship.html">Fellowship</a>
-                        <a href="project-teams.html">Project Teams</a>
-                        <a href="community.html">Community</a>
+                        <a href="students.html#work">The Work</a>
+                        <a href="students.html#community">The Community</a>
                     </div>
                     <div class="footer-col">
                         <h4>Connect</h4>

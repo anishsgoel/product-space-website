@@ -1,23 +1,607 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-xccjRKJkULpA2QTMQzwusuAnDmKLJgjVozvd5Z8vEHY='; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex">
-    <meta http-equiv="refresh" content="0; url=fellowship.html">
-    <link rel="canonical" href="https://www.productspacegeorgetown.org/fellowship.html">
-    <title>Moved &middot; Product Space at Georgetown</title>
+    <meta name="description" content="The student experience at Product Space: the twelve-week fellowship, the project teams that take on real client work, and the community that holds it together.">
+    <meta name="theme-color" content="#190A20">
+    <link rel="canonical" href="https://www.productspacegeorgetown.org/students.html">
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Product Space at Georgetown">
+    <meta property="og:title" content="Students · Product Space at Georgetown">
+    <meta property="og:description" content="The student experience at Product Space: the twelve-week fellowship, the project teams that take on real client work, and the community that holds it together.">
+    <meta property="og:url" content="https://www.productspacegeorgetown.org/students.html">
+    <meta property="og:image" content="https://www.productspacegeorgetown.org/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Students · Product Space at Georgetown">
+    <meta name="twitter:description" content="The student experience at Product Space: the twelve-week fellowship, the project teams that take on real client work, and the community that holds it together.">
+    <meta name="twitter:image" content="https://www.productspacegeorgetown.org/og-image.jpg">
+    <title>Students · Product Space at Georgetown</title>
     <link rel="icon" type="image/png" sizes="256x256" href="favicon.png">
     <link rel="stylesheet" href="styles.css">
+    <script>
+        (function () {
+            var d = document.documentElement;
+            d.className = (d.className || '').replace('no-js', 'js');
+            setTimeout(function () { d.classList.add('reveal-failsafe'); }, 2500);
+        })();
+    </script>
 </head>
 
-<body class="redirect-page">
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="ProductSpaceLogoWhite.png" alt="Product Space at Georgetown University" class="nav-logo nav-logo-white">
+                <img src="ProductSpaceLogoGU.png" alt="" aria-hidden="true" class="nav-logo nav-logo-color">
+            </a>
+            <div class="nav-right">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="nav-item-has-menu">
+                        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="students-menu">For Students <span class="caret" aria-hidden="true"></span></button>
+                        <ul class="nav-sub" id="students-menu">
+                            <li><a href="students.html#work">The Work</a></li>
+                            <li><a href="students.html#community">The Community</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="clients.html">For Clients</a></li>
+                </ul>
+                <a href="apply.html" class="btn btn-primary nav-apply">Apply</a>
+                <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
     <main id="main" tabindex="-1">
-        <p>The Students page has moved. <a href="fellowship.html">Continue to the new page</a>.</p>
+        <section id="work" class="page-hero section-dark glow-follow">
+            <div class="container">
+                <div class="page-hero-copy">
+                    <p class="eyebrow">Fellowship & Projects</p>
+                    <h1>Twelve weeks of training, then a real client.</h1>
+                    <p class="lede">Every new member spends their first semester in the Product Fellowship, then joins a
+                        project team working directly with a client company on a real engagement.</p>
+                </div>
+                <figure class="page-hero-photo"><img src="img/fellowship-new.jpg" alt="" aria-hidden="true"></figure>
+            </div>
+        </section>
+
+        <section id="semester" class="about light-echo-top">
+            <div class="container">
+                <div class="section-head centered">
+                    <h2>What your first semester looks like</h2>
+                </div>
+                <div class="value-cols">
+                    <div class="value-col rvl">
+                        <h3>Fellowship</h3>
+                        <p>Twelve weeks of product management curriculum, running lecture and lab from late September
+                            through December.</p>
+                    </div>
+                    <div class="value-col rvl">
+                        <h3>Capstone</h3>
+                        <p>You are placed on a team in week two and build a product alongside the curriculum,
+                            presenting to the full membership and industry professionals in December.</p>
+                    </div>
+                    <div class="value-col rvl">
+                        <h3>General body meetings</h3>
+                        <p>The full club meets weekly for speaker events, case studies, and workshops.</p>
+                    </div>
+                    <div class="value-col rvl">
+                        <h3>Recruiting support</h3>
+                        <p>Support from senior members on learning about and preparing for the recruiting process.</p>
+                    </div>
+                </div>
+                <div class="factrow">
+                    <div class="fact rvl"><strong>12 weeks</strong><span>Lecture plus lab</span></div>
+                    <div class="fact rvl"><strong>4&ndash;6 hrs</strong><span>Per week, all in</span></div>
+                    <div class="fact rvl"><strong>Week 2</strong><span>Capstone teams form</span></div>
+                    <div class="fact rvl"><strong>No experience</strong><span>Required to start</span></div>
+                </div>
+
+                <div class="media-split reverse" style="margin-top: 4.5rem;">
+                    <div class="media-split-copy">
+                        <h2>Beyond the curriculum</h2>
+                        <p>The fellowship runs alongside the rest of club life rather than in place of it. Members sit
+                            weekly general body meetings, speaker events, and workshops through the semester.</p>
+                        <p>We also run events with industry partners, including a product case competition hosted with
+                            Perplexity, where members work a real product problem end-to-end and present it.</p>
+                    </div>
+                    <figure class="media-split-media rvl">
+                        <img src="img/fellowship/prodev-2.jpg" alt="Product Space members at the Product Case Competition hosted with Perplexity" loading="lazy">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="curriculum" class="fellowship light-echo-bottom">
+            <div class="container">
+                <div class="section-head centered">
+                    <h2>What you'll cover</h2>
+                    <p class="section-intro">Twelve weeks, most of them pairing a lecture with a hands-on lab. The
+                        curriculum moves in order, from what the job is through discovery, business validation, design,
+                        and the metrics and technical fundamentals you need to work with engineers.</p>
+                </div>
+                <ol class="curriculum-grid modules">
+                    <li class="curriculum-item rvl">
+                        <span class="module-num" aria-hidden="true">01</span>
+                        <div class="module-text">
+                            <h3>Foundations</h3>
+                            <p>What a product is, what a product manager actually does, cross-functional collaboration, and the product development life cycle.</p>
+                        </div>
+                    </li>
+                    <li class="curriculum-item rvl">
+                        <span class="module-num" aria-hidden="true">02</span>
+                        <div class="module-text">
+                            <h3>Methodology</h3>
+                            <p>The move from waterfall to iterative work. Agile, Scrum, and Lean, with sprint planning and backlog management in Jira.</p>
+                        </div>
+                    </li>
+                    <li class="curriculum-item rvl">
+                        <span class="module-num" aria-hidden="true">03</span>
+                        <div class="module-text">
+                            <h3>Discovery</h3>
+                            <p>User surveys and customer interviews, identifying real pain points, and building personas, stories, and user journeys.</p>
+                        </div>
+                    </li>
+                    <li class="curriculum-item rvl">
+                        <span class="module-num" aria-hidden="true">04</span>
+                        <div class="module-text">
+                            <h3>Business</h3>
+                            <p>Market and competitive research, business outcome estimation, and deciding whether a thing is worth building at all.</p>
+                        </div>
+                    </li>
+                    <li class="curriculum-item rvl">
+                        <span class="module-num" aria-hidden="true">05</span>
+                        <div class="module-text">
+                            <h3>Design and build</h3>
+                            <p>MVP scoping, prioritization frameworks, Figma wireframes and prototypes, and UI and UX principles.</p>
+                        </div>
+                    </li>
+                    <li class="curriculum-item rvl">
+                        <span class="module-num" aria-hidden="true">06</span>
+                        <div class="module-text">
+                            <h3>Metrics and technical</h3>
+                            <p>KPIs and the HEART framework, A/B testing, APIs, and full stack and cloud fundamentals.</p>
+                        </div>
+                    </li>
+                </ol>
+                <p class="section-intro" style="margin-top: 2.75rem;">Alongside it you sit weekly labs, general body
+                    meetings, and speaker events, and you close the semester presenting your capstone. Total commitment
+                    is about four to six hours a week.</p>
+            </div>
+        </section>
+
+        <section id="capstone" class="section-dark glow-follow">
+            <div class="container">
+                <div class="media-split">
+                    <div class="media-split-copy">
+                        <h2>Every new member builds a product from scratch</h2>
+                        <p>Teams form in week two and build alongside the curriculum. Each team gets a mentor from the
+                            board. In December, teams present to the full membership and to industry professionals,
+                            and the strongest project could receive funding.</p>
+                        <p>Recent capstones include <strong>Reverb</strong>, which synthesizes your calendar, email, and
+                            coursework into a daily briefing and prioritized action plan, delivered as a five-minute
+                            audio briefing or a skimmable one-pager; and <strong>Soundscape</strong>, which generates
+                            playlists from where you are, surfacing local artists and neighborhood music scenes as you
+                            move between cities.</p>
+                    </div>
+                    <figure class="media-split-media rvl">
+                        <img src="img/fellowship-2.jpg" alt="A fellowship capstone team working together" loading="lazy">
+                    </figure>
+                </div>
+
+                <ol class="pipeline" style="margin-top: 3.5rem;">
+                    <li class="rvl"><span class="pl-step">Weeks 2&ndash;3</span><h3>Team formation</h3><p>Teams form and select the problem they want to go after.</p></li>
+                    <li class="rvl"><span class="pl-step">Weeks 3&ndash;4</span><h3>Research</h3><p>User interviews and market research to validate the problem is real.</p></li>
+                    <li class="rvl"><span class="pl-step">Weeks 5&ndash;6</span><h3>Scoping</h3><p>MVP scoping, wireframes, and a written PRD.</p></li>
+                    <li class="rvl"><span class="pl-step">Weeks 7&ndash;9</span><h3>Build</h3><p>Prototype build and defining the metrics that count as success.</p></li>
+                    <li class="rvl"><span class="pl-step">Weeks 11&ndash;12</span><h3>Final pitch</h3><p>Presentation prep and the final pitch to industry professionals.</p></li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="ai" class="about light-echo-top light-echo-bottom">
+            <div class="container">
+                <div class="media-split reverse">
+                    <div class="media-split-copy">
+                        <h2>Prompting alone is table stakes</h2>
+                        <p>Product Space members are the most AI-capable builders on campus, and we teach several
+                            layers deeper than prompt writing. Members learn to direct AI, not just talk to it.</p>
+                        <ul class="steps">
+                            <li><strong>MCP servers and tool integration</strong>Wiring models into the systems they need to act on.</li>
+                            <li><strong>Agentic workflows and orchestration</strong>Designing multi-step work that runs without a human in every loop.</li>
+                            <li><strong>Evals and prompt architecture</strong>Measuring whether the thing you built actually works.</li>
+                            <li><strong>Vibecoding with Claude Code and Cursor</strong>Shipping working software as a non-engineer.</li>
+                            <li><strong>Context engineering</strong>Getting the right information in front of the model at the right time.</li>
+                            <li><strong>Model selection and cost tradeoffs</strong>Choosing what to run, and knowing what it costs you.</li>
+                        </ul>
+                    </div>
+                    <figure class="media-split-media rvl">
+                        <img src="img/fellowship/prodev-1.jpg" alt="A Product Space professional development workshop" loading="lazy">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="what-you-get" class="section-dark glow-follow">
+            <div class="container">
+                <div class="section-head centered">
+                    <h2>What You'll Get</h2>
+                    <p class="section-intro">Fellowship graduates apply their training on real client engagements,
+                        build a portfolio of zero-to-one work, and join a network of alumni at top companies.</p>
+                </div>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <h3>Real Client Work</h3>
+                        <p>Apply what you learn directly on real engagements for companies and organizations</p>
+                    </li>
+                    <li class="perk-item">
+                        <h3>Community</h3>
+                        <p>Join a network of peers, board members, and alumni working in product</p>
+                    </li>
+                    <li class="perk-item">
+                        <h3>A Portfolio</h3>
+                        <p>Leave with concrete, shippable work to show for your time in the club</p>
+                    </li>
+                    <li class="perk-item">
+                        <h3>An Alumni Network</h3>
+                        <p>Tap into graduates now working in product at top companies</p>
+                    </li>
+                </ul>
+                <div class="band-links">
+                    <a href="students.html#project-teams" class="btn btn-outline-light">See how project teams work &rarr;</a>
+                    <a href="about.html#where-we-go" class="btn btn-outline-light">See where we go &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="project-teams" class="about light-echo-top">
+            <div class="container">
+                <div class="section-head centered">
+                    <p class="eyebrow">Project Teams</p>
+                    <h2>After the fellowship, you work on a real client.</h2>
+                    <p class="section-intro">Project teams are where the curriculum stops being theory. You join a small pod
+                        assigned to a company, own a piece of the work, and take it through a midterm and a final
+                        deliverable the client actually uses.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pod" class="about light-echo-top light-echo-bottom">
+            <div class="container">
+                <div class="media-split">
+                    <div class="media-split-copy">
+                        <h2>How an engagement works</h2>
+                        <p>Every client gets a dedicated team. Members join as product analysts and work directly on
+                            the engagement. Teams meet weekly with the client and present at both a midterm and a
+                            final review.</p>
+                        <p>Analysts who lead well move up to senior product analyst and then project manager in later
+                            semesters, so the structure is a ladder, not a ceiling.</p>
+                    </div>
+                    <div class="pod light-pod">
+                        <div class="pod-tier lead rvl">
+                            <h4>Project Manager <span class="pod-count">&times;1</span></h4>
+                            <p>Runs client communication, sets sprint timelines, and leads the engagement end-to-end.</p>
+                        </div>
+                        <span class="pod-link" aria-hidden="true"></span>
+                        <div class="pod-tier rvl">
+                            <h4>Senior Product Analyst <span class="pod-count">&times;1</span></h4>
+                            <p>Leads execution, drives roadmap strategy, and reviews the team's work before it ships.</p>
+                        </div>
+                        <span class="pod-link" aria-hidden="true"></span>
+                        <div class="pod-tier rvl">
+                            <h4>Product Analysts <span class="pod-count">&times;4&ndash;6</span></h4>
+                            <p>Execute data analytics, UI and UX design, and competitive market research.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pt-semester" class="section-dark glow-follow">
+            <div class="container">
+                <div class="section-head centered">
+                    <h2>Ten to twelve weeks, two deliverables</h2>
+                    <p class="section-intro">Engagements run on a structured lifecycle with pre-defined sprint
+                        milestones, a mid-semester deliverable review by our executive board, and bi-weekly client
+                        check-ins. Rapid iteration, with the quality gates left in.</p>
+                </div>
+                <ol class="pipeline">
+                    <li class="rvl"><span class="pl-step">Weeks 1&ndash;4</span><h3>Scope</h3><p>Onboarding, initial research, and planning against the client's actual problem.</p></li>
+                    <li class="rvl"><span class="pl-step">Weeks 4&ndash;8</span><h3>Build</h3><p>Implementation and action, heading into the midterm deliverable.</p></li>
+                    <li class="rvl"><span class="pl-step">Midterm</span><h3>Review</h3><p>You present to the client and to our executive board, and take the notes.</p></li>
+                    <li class="rvl"><span class="pl-step">Weeks 8&ndash;11</span><h3>Iterate</h3><p>Revision against that feedback, then finalizing deliverables and findings.</p></li>
+                    <li class="rvl"><span class="pl-step">Week 12</span><h3>Final</h3><p>The final deliverable, handed to the client to actually use.</p></li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="disciplines" class="about light-echo-top">
+            <div class="container">
+                <div class="section-head centered">
+                    <h2>Business, tech, and design problems</h2>
+                    <p class="section-intro">Members are selected for strength across technical, design, and business
+                        domains, and teams are staffed so a project gets all three. What you work on depends on what
+                        the client actually needs.</p>
+                </div>
+                <div class="value-cols">
+                    <div class="value-col rvl">
+                        <h3>Growth strategy</h3>
+                        <p>Building acquisition funnels, distribution and growth work, and monetization strategy.</p>
+                    </div>
+                    <div class="value-col rvl">
+                        <h3>Design</h3>
+                        <p>Problem validation, mockups and wireframes, user interviews, and design recommendations.</p>
+                    </div>
+                    <div class="value-col rvl">
+                        <h3>Marketing</h3>
+                        <p>Market research and segmentation, value proposition validation, and go-to-market strategy.</p>
+                    </div>
+                    <div class="value-col rvl">
+                        <h3>Development</h3>
+                        <p>Feature recommendation, data science and analytics, and competitive analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="engagements" class="portfolio light-echo-bottom">
+            <div class="container">
+                <div class="section-head centered">
+                    <h2>What that looks like in practice</h2>
+                </div>
+                <ol class="case-list">
+                    <li class="case rvl">
+                        <div class="case-side">
+                            <img class="case-logo" src="Logos/googlelogo.png" alt="Google" loading="lazy">
+                            <h3>Gemini-powered programmable search</h3>
+                        </div>
+                        <div class="case-body">
+                            <p>The team partnered with Google's Search Ads and Syndication group, working alongside
+                                their engineers to integrate Gemini into Programmable Search Engine.</p>
+                            <p>They analyzed query behavior, mapped the user journey for AI-assisted search, and
+                                delivered a PRD, a product roadmap, and Figma mockups built to Google's interface
+                                standards.</p>
+                        </div>
+                    </li>
+                    <li class="case rvl">
+                        <div class="case-side">
+                            <img class="case-logo" src="Logos/uberlogo.png" alt="Uber" loading="lazy">
+                            <h3>Sizing the campus dining opportunity</h3>
+                        </div>
+                        <div class="case-body">
+                            <p>Uber asked whether the campus dining point-of-sale market was worth entering. The team
+                                ran stakeholder interviews with Georgetown Dining, Aramark, and Grubhub.</p>
+                            <p>They researched how campus dining systems are bought, run, and replaced, and returned a
+                                clear go or no-go recommendation grounded in what Uber's hardware could actually do.</p>
+                        </div>
+                    </li>
+                    <li class="case rvl">
+                        <div class="case-side">
+                            <img class="case-logo" src="Logos/GMAClogo.png" alt="Graduate Management Admission Council" loading="lazy">
+                            <h3>Positioning a new product</h3>
+                        </div>
+                        <div class="case-body">
+                            <p>GMAC needed to determine the product positioning for Advancery. The team ran competitive
+                                analysis and market research, leaning on Georgetown graduate students as primary
+                                sources.</p>
+                            <p>They identified target market preferences and handed over actionable next steps the
+                                client could take straight into their roadmap.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="community" class="page-hero section-dark glow-follow">
+            <div class="container">
+                <div class="page-hero-copy">
+                    <p class="eyebrow">The Community</p>
+                    <h2>The part that isn't on the syllabus.</h2>
+                    <p class="lede">Product Space is a club before it is a consultancy. We go on a retreat every semester,
+                        throw parties for the days worth throwing parties for, give every project team a budget to go do
+                        something together, and play a truly unreasonable amount of Fish.</p>
+                </div>
+                <figure class="page-hero-photo"><img src="img/community-1.jpg" alt="" aria-hidden="true"></figure>
+            </div>
+        </section>
+
+        <section id="how-we-hang" class="about light-echo-top light-echo-bottom">
+            <div class="container">
+                <div class="media-split">
+                    <div class="media-split-copy">
+                        <h2>We build the club the same way we build products</h2>
+                        <p>The work is genuinely demanding, and the reason people stay is the people. Bonding is not an
+                            afterthought bolted onto the semester; it is budgeted, scheduled, and taken about as
+                            seriously as a client deadline.</p>
+                        <p>Every project team gets its own budget for dinners, trips, and whatever else the team
+                            decides counts as team building. Beyond that, the whole club gets together weekly, usually
+                            over a card game that has caused more genuine conflict than any client engagement.</p>
+                        <p>New members are folded in immediately. You are placed on a capstone team in week two and
+                            paired with a mentor from the board, so you have a small group before you have a big one.</p>
+                    </div>
+                    <figure class="media-split-media rvl">
+                        <img src="img/community/gday-hero.jpg" alt="Product Space members together at a social event" loading="lazy">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="wall" class="about light-echo-top light-echo-bottom">
+            <div class="container">
+                <div class="section-head centered">
+                    <h2>A year in Product Space</h2>
+                    <p class="section-intro">Retreats, Georgetown Days, project team dinners, and an alarming number of
+                        card games.</p>
+                </div>
+            </div>
+            <div class="polaroid-wall rvl">
+                <figure class="polaroid tall" style="--rot: -4.0deg">
+                    <img src="img/community/retreat-house.jpg" alt="Retreat Spring &rsquo;26" loading="lazy">
+                    <figcaption>Retreat Spring &rsquo;26</figcaption>
+                </figure>
+                <figure class="polaroid" style="--rot: 2.5deg">
+                    <img src="img/community/retreat-1b.jpg" alt="Retreat Fall &rsquo;25" loading="lazy">
+                    <figcaption>Retreat Fall &rsquo;25</figcaption>
+                </figure>
+                <figure class="polaroid tall" style="--rot: -2.0deg">
+                    <img src="img/community/gday-1.jpg" alt="Georgetown Day" loading="lazy">
+                    <figcaption>Georgetown Day</figcaption>
+                </figure>
+                <figure class="polaroid" style="--rot: 3.5deg">
+                    <img src="img/community/social-1.jpg" alt="Weekly bonding" loading="lazy">
+                    <figcaption>Weekly bonding</figcaption>
+                </figure>
+                <figure class="polaroid" style="--rot: -3.0deg">
+                    <img src="img/community/retreat-2a.jpg" alt="Retreat Spring &rsquo;26" loading="lazy">
+                    <figcaption>Retreat Spring &rsquo;26</figcaption>
+                </figure>
+                <figure class="polaroid" style="--rot: 1.5deg">
+                    <img src="img/community/social-2.jpg" alt="Guitar on the dock" loading="lazy">
+                    <figcaption>Guitar on the dock</figcaption>
+                </figure>
+                <figure class="polaroid tall" style="--rot: 4.0deg">
+                    <img src="img/community/gday-2.jpg" alt="Georgetown Day" loading="lazy">
+                    <figcaption>Georgetown Day</figcaption>
+                </figure>
+                <figure class="polaroid" style="--rot: -2.5deg">
+                    <img src="img/community/retreat-1a.jpg" alt="Retreat Fall &rsquo;25" loading="lazy">
+                    <figcaption>Retreat Fall &rsquo;25</figcaption>
+                </figure>
+                <figure class="polaroid" style="--rot: 2.0deg">
+                    <img src="img/community/social-3.jpg" alt="Waffle House" loading="lazy">
+                    <figcaption>Waffle House</figcaption>
+                </figure>
+                <figure class="polaroid" style="--rot: -3.5deg">
+                    <img src="img/community/misc-1.jpg" alt="St. Patrick&rsquo;s Day" loading="lazy">
+                    <figcaption>St. Patrick&rsquo;s Day</figcaption>
+                </figure>
+                <figure class="polaroid tall" style="--rot: 3.0deg">
+                    <img src="img/community/retreat-2b.jpg" alt="Retreat Spring &rsquo;26" loading="lazy">
+                    <figcaption>Retreat Spring &rsquo;26</figcaption>
+                </figure>
+                <figure class="polaroid" style="--rot: -1.5deg">
+                    <img src="img/community/social-4.jpg" alt="A very serious meeting" loading="lazy">
+                    <figcaption>A very serious meeting</figcaption>
+                </figure>
+                <figure class="polaroid tall" style="--rot: 2.8deg">
+                    <img src="img/community/retreat-1c.jpg" alt="Retreat Fall &rsquo;25" loading="lazy">
+                    <figcaption>Retreat Fall &rsquo;25</figcaption>
+                </figure>
+                <figure class="polaroid" style="--rot: -3.2deg">
+                    <img src="img/community/misc-2.jpg" alt="Homecoming" loading="lazy">
+                    <figcaption>Homecoming</figcaption>
+                </figure>
+                <figure class="polaroid" style="--rot: 1.8deg">
+                    <img src="img/community/social-5.jpg" alt="Retreat" loading="lazy">
+                    <figcaption>Retreat</figcaption>
+                </figure>
+                <figure class="polaroid" style="--rot: -2.2deg">
+                    <img src="img/community/retreat-2c.jpg" alt="Retreat Spring &rsquo;26" loading="lazy">
+                    <figcaption>Retreat Spring &rsquo;26</figcaption>
+                </figure>
+                <figure class="polaroid" style="--rot: 3.2deg">
+                    <img src="img/community/misc-3.jpg" alt="End of semester" loading="lazy">
+                    <figcaption>End of semester</figcaption>
+                </figure>
+                <figure class="polaroid" style="--rot: -4.0deg">
+                    <img src="img/community/social-6.jpg" alt="Out with the team" loading="lazy">
+                    <figcaption>Out with the team</figcaption>
+                </figure>
+                <figure class="polaroid" style="--rot: 2.2deg">
+                    <img src="img/community/misc-4.jpg" alt="St. Patrick&rsquo;s Day" loading="lazy">
+                    <figcaption>St. Patrick&rsquo;s Day</figcaption>
+                </figure>
+                <figure class="polaroid" style="--rot: -2.8deg">
+                    <img src="img/community/social-7.jpg" alt="New merch!" loading="lazy">
+                    <figcaption>New merch!</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="retreat" class="section-dark glow-follow">
+            <div class="container">
+                <div class="media-split reverse">
+                    <div class="media-split-copy">
+                        <h2>Two weekends, the whole club</h2>
+                        <p>Twice a year, once each semester, the entire chapter goes away together for a weekend. There is a nominal
+                            schedule. It survives about four hours.</p>
+                        <p>What actually happens is the thing that makes the rest of the year work: the new cohort
+                            stops being the new cohort, project teams that only knew each other over Zoom become
+                            friends, and somebody learns a card game on Friday night and spends all of Saturday trying
+                            to win it.</p>
+                        <div class="band-links">
+                            <a href="students.html#work" class="btn btn-outline-light">See the work &rarr;</a>
+                        </div>
+                    </div>
+                    <figure class="media-split-media rvl">
+                        <img src="img/community-3.jpg" alt="Product Space members on the annual retreat" loading="lazy">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="join" class="join-band">
+            <div class="container">
+                <div class="join-card">
+                    <div>
+                        <h2>Fall 2026 applications are open</h2>
+                        <p>Applications are due <strong>September 8, 11:59 PM</strong>. No prior product experience required.</p>
+                    </div>
+                    <a href="apply.html" class="btn btn-primary">Apply for the fellowship</a>
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-wordmark"><img src="ProductSpaceLogoWhite.png" alt="Product Space at Georgetown University"></span>
+                    <p>A student-run product management consultancy at Georgetown University. We train students through a hands-on fellowship, then build real products with companies end-to-end.</p>
+                </div>
+                <nav class="footer-nav" aria-label="Footer">
+                    <div class="footer-col">
+                        <h4>Explore</h4>
+                        <a href="index.html">Home</a>
+                        <a href="about.html">Our Mission</a>
+                        <a href="about.html#team">Our People</a>
+                        <a href="clients.html">Clients</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Students</h4>
+                        <a href="students.html#work">The Work</a>
+                        <a href="students.html#community">The Community</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <div class="footer-talk"><a href="apply.html">Get Involved &rarr;</a></div>
+                    </div>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Product Space at Georgetown University. All rights reserved.</p>
+                <p class="nonprofit-status">Product Space is a 501(c)(3) nonprofit organization</p>
+            </div>
+        </div>
+        <div class="footer-bleed" aria-hidden="true">BUILD WHAT MATTERS</div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

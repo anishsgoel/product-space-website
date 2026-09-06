@@ -20,12 +20,26 @@
         }, { passive: true });
     }
 
-    // --- Navbar shadow on scroll (stays visible; no auto-hide) ---
+    // --- Navbar always has an opaque background: a dark bar with the white
+    // logo/light text over any dark section (.hero / .section-dark), a light
+    // glass bar with the dark logo/text everywhere else. Checked by sampling
+    // whatever is actually behind the bar, so it flips correctly at every
+    // light/dark section boundary on the page, not just past the top hero. ---
     const navbar = document.querySelector('.navbar');
     if (navbar) {
-        const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 20);
+        const darkSelector = '.hero, .section-dark';
+        const isOverDark = () => {
+            const rect = navbar.getBoundingClientRect();
+            const x = window.innerWidth / 2;
+            const y = Math.min(window.innerHeight - 1, rect.height / 2);
+            const stack = typeof document.elementsFromPoint === 'function' ? document.elementsFromPoint(x, y) : [];
+            const behind = stack.find((el) => !navbar.contains(el));
+            return behind ? !!behind.closest(darkSelector) : false;
+        };
+        const onScroll = () => navbar.classList.toggle('over-dark', isOverDark());
         onScroll();
         window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
     }
 
     // --- Smooth in-page anchor scrolling ---
@@ -354,4 +368,196 @@
             if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
         });
     });
+
+    // --- Discipline orbital (tech / business / design) ---
+    // Electron-orbital motion: each node drifts on its own tilted ellipse,
+    // independent of the other two (different radius, tilt and speed), then
+    // all three periodically glide together into a Venn overlap where
+    // "Product" appears in the shared intersection, hold, and release back
+    // out into their own orbits. Hover/focus forces the convergence early.
+    const orbital = document.getElementById('orbital-diagram');
+    if (orbital) {
+        const nodes = Array.from(orbital.querySelectorAll('.orbital-node'));
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Each node's own tilted elliptical shell (rx/ry radii, tilt in
+        // degrees, angular speed in deg/frame, starting phase in degrees).
+        const shells = [
+            { rx: 150, ry: 66, tilt: -22, speed: 0.22, phase: 0 },
+            { rx: 128, ry: 88, tilt: 38, speed: 0.17, phase: 150 },
+            { rx: 162, ry: 58, tilt: 96, speed: 0.25, phase: 265 }
+        ];
+        const angles = shells.map((s) => s.phase);
+        const paths = Array.from(orbital.querySelectorAll('.orbital-path'));
+
+        // Scatter tiny twinkling stars behind the diagram, so it reads as a
+        // small solar system — a nod to the space in "Product Space".
+        const starField = orbital.querySelector('.orbital-stars');
+        if (starField) {
+            const STAR_COUNT = 170;
+            const frag = document.createDocumentFragment();
+            for (let i = 0; i < STAR_COUNT; i += 1) {
+                const star = document.createElement('span');
+                star.className = 'orbital-star';
+                const size = (Math.random() * 2.2 + 0.7).toFixed(2);
+                star.style.left = `${(Math.random() * 100).toFixed(2)}%`;
+                star.style.top = `${(Math.random() * 100).toFixed(2)}%`;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.setProperty('--star-min', (Math.random() * 0.15 + 0.05).toFixed(2));
+                star.style.setProperty('--star-max', (Math.random() * 0.3 + 0.7).toFixed(2));
+                star.style.animationDuration = `${(Math.random() * 4 + 4).toFixed(2)}s`;
+                star.style.animationDelay = `-${(Math.random() * 8).toFixed(2)}s`;
+                frag.appendChild(star);
+            }
+            starField.appendChild(frag);
+        }
+
+        // Fixed offsets (at a 420px reference size) for the three circles
+        // once converged into a Venn diagram: one on top, two on the bottom.
+        const vennRef = [
+            { x: 0, y: -76 },
+            { x: -66, y: 38 },
+            { x: 66, y: 38 }
+        ];
+
+        const placePaths = () => {
+            const scale = orbital.clientWidth / 420;
+            paths.forEach((path, i) => {
+                const s = shells[i];
+                const w = s.rx * 2 * scale;
+                const h = s.ry * 2 * scale;
+                path.style.width = `${w}px`;
+                path.style.height = `${h}px`;
+                path.style.marginLeft = `${-w / 2}px`;
+                path.style.marginTop = `${-h / 2}px`;
+                path.style.transform = `rotate(${s.tilt}deg)`;
+            });
+        };
+
+        // Node/core circles are sized in JS (not fixed CSS px) so they stay
+        // in proportion to the orbit's own venn offsets at any container
+        // size — a fixed circle size at a smaller container (e.g. the
+        // narrower half-column on about.html) would overlap far more than
+        // intended and make the converged labels unreadable.
+        const NODE_SIZE_REF = 210;
+        const CORE_SIZE_REF = 165;
+        const core = orbital.querySelector('.orbital-core');
+        const sizeElements = () => {
+            const scale = orbital.clientWidth / 420;
+            const nodeSize = NODE_SIZE_REF * scale;
+            nodes.forEach((node) => {
+                node.style.width = `${nodeSize}px`;
+                node.style.height = `${nodeSize}px`;
+                node.style.marginLeft = `${-nodeSize / 2}px`;
+                node.style.marginTop = `${-nodeSize / 2}px`;
+                node.style.fontSize = `${(0.95 * scale).toFixed(2)}rem`;
+            });
+            if (core) {
+                const coreSize = CORE_SIZE_REF * scale;
+                core.style.width = `${coreSize}px`;
+                core.style.height = `${coreSize}px`;
+                core.style.marginLeft = `${-coreSize / 2}px`;
+                core.style.marginTop = `${-coreSize / 2}px`;
+                const coreSpan = core.querySelector('span');
+                if (coreSpan) coreSpan.style.fontSize = `${(1.15 * scale).toFixed(2)}rem`;
+            }
+        };
+
+        const placeIndependent = () => {
+            const scale = orbital.clientWidth / 420;
+            nodes.forEach((node, i) => {
+                const s = shells[i];
+                const t = (angles[i] * Math.PI) / 180;
+                const ex = Math.cos(t) * s.rx * scale;
+                const ey = Math.sin(t) * s.ry * scale;
+                const tiltRad = (s.tilt * Math.PI) / 180;
+                const x = ex * Math.cos(tiltRad) - ey * Math.sin(tiltRad);
+                const y = ex * Math.sin(tiltRad) + ey * Math.cos(tiltRad);
+                node.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        };
+
+        const placeVenn = () => {
+            const scale = orbital.clientWidth / 420;
+            nodes.forEach((node, i) => {
+                const o = vennRef[i];
+                node.style.transform = `translate(${o.x * scale}px, ${o.y * scale}px)`;
+            });
+        };
+
+        let venn = false;
+        let hoverForced = false;
+        let shiftTimer = null;
+        let cycleTimer = null;
+        const SHIFT_MS = 3400;
+        const INDEPENDENT_MS = 14000;
+        const HOLD_MS = 2400;
+
+        const setShifting = (on) => nodes.forEach((n) => n.classList.toggle('is-shifting', on));
+
+        const enterVenn = () => {
+            if (venn) return;
+            venn = true;
+            orbital.classList.add('is-venn');
+            setShifting(true);
+            placeVenn();
+            clearTimeout(shiftTimer);
+            shiftTimer = setTimeout(() => setShifting(false), SHIFT_MS);
+        };
+
+        const leaveVenn = () => {
+            if (!venn) return;
+            venn = false;
+            orbital.classList.remove('is-venn');
+            setShifting(true);
+            placeIndependent();
+            clearTimeout(shiftTimer);
+            shiftTimer = setTimeout(() => setShifting(false), SHIFT_MS);
+        };
+
+        const scheduleCycle = () => {
+            clearTimeout(cycleTimer);
+            if (prefersReducedMotion) return;
+            cycleTimer = setTimeout(() => {
+                if (!hoverForced) { if (venn) leaveVenn(); else enterVenn(); }
+                scheduleCycle();
+            }, venn ? HOLD_MS : INDEPENDENT_MS);
+        };
+
+        const tick = () => {
+            // Freeze the angle clock (not just the on-screen position) while a
+            // shift transition is running, so it can't silently accumulate
+            // motion during the 2-3s CSS transition and then jump forward the
+            // instant the transition ends.
+            const shifting = nodes[0].classList.contains('is-shifting');
+            if (!venn && !prefersReducedMotion && !shifting) {
+                shells.forEach((s, i) => { angles[i] = (angles[i] + s.speed) % 360; });
+                placeIndependent();
+            }
+            requestAnimationFrame(tick);
+        };
+
+        orbital.addEventListener('mouseenter', () => { hoverForced = true; enterVenn(); });
+        orbital.addEventListener('mouseleave', () => { hoverForced = false; leaveVenn(); });
+        orbital.addEventListener('focusin', () => { hoverForced = true; enterVenn(); });
+        orbital.addEventListener('focusout', () => { hoverForced = false; leaveVenn(); });
+
+        nodes.forEach((node) => {
+            node.addEventListener('click', () => {
+                nodes.forEach((n) => n.classList.toggle('is-active', n === node));
+            });
+        });
+
+        sizeElements();
+        placePaths();
+        placeIndependent();
+        requestAnimationFrame(tick);
+        scheduleCycle();
+        window.addEventListener('resize', () => {
+            sizeElements();
+            placePaths();
+            if (venn) placeVenn(); else placeIndependent();
+        }, { passive: true });
+    }
 })();

@@ -61,24 +61,27 @@ h1, h2, h3, h4,
 }
 
 /* Navigation */
-/* Navbar: full-width and transparent over the hero (white logo + white links); turns into a
-   white glass bar with the colored logo once the page scrolls (.scrolled) or on pages that
-   start on a light background (.solid). Shared stylesheet, so every page gets it. */
+/* Navbar always has an opaque background: a dark glass bar with the white
+   logo/light text over any dark section (.over-dark, set by script.js from
+   whatever is actually behind the bar), a light glass bar with the dark
+   logo/text everywhere else — never transparent. */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.92);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    backdrop-filter: blur(28px) saturate(160%);
+    box-shadow: 0 6px 26px rgba(25, 10, 32, 0.07);
     transition: background 0.35s ease, box-shadow 0.35s ease;
 }
-.navbar.scrolled,
-.navbar.solid {
-    background: rgba(255, 255, 255, 0.82);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    backdrop-filter: blur(24px) saturate(180%);
-    box-shadow: inset 0 -1px 0 rgba(37, 15, 45, 0.08), 0 8px 30px rgba(25, 10, 32, 0.10);
+.navbar.over-dark {
+    background: rgba(25, 10, 32, 0.86);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    backdrop-filter: blur(24px) saturate(160%);
+    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.06), 0 8px 30px rgba(0, 0, 0, 0.25);
 }
 
 .navbar .container {
@@ -96,7 +99,6 @@ h1, h2, h3, h4,
     gap: 2rem;
 }
 
-.nav-menu a.active { color: #fff; }
 
 .nav-menu a.active::after {
     width: 100%;
@@ -105,14 +107,14 @@ h1, h2, h3, h4,
 .nav-apply {
     border-radius: 999px;
     padding: 10px 24px;
-    background-image: linear-gradient(90deg, #efe4f4 0 50%, #ffffff 50% 100%);
-    color: var(--primary-color);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
-}
-.navbar.scrolled .nav-apply, .navbar.solid .nav-apply {
     background-image: linear-gradient(90deg, var(--hover-color) 0 50%, var(--primary-color) 50% 100%);
     color: #fff;
     box-shadow: 0 4px 14px rgba(85, 33, 94, 0.26);
+}
+.navbar.over-dark .nav-apply {
+    background-image: linear-gradient(90deg, #efe4f4 0 50%, #ffffff 50% 100%);
+    color: var(--primary-color);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
 }
 .nav-apply-spacer-unused {
     font-size: 0.95rem;
@@ -131,9 +133,9 @@ h1, h2, h3, h4,
 }
 
 .nav-logo { height: 42px; width: auto; display: block; }
-.nav-logo-color { display: none; }
-.navbar.scrolled .nav-logo-white, .navbar.solid .nav-logo-white { display: none; }
-.navbar.scrolled .nav-logo-color, .navbar.solid .nav-logo-color { display: block; }
+.nav-logo-white { display: none; }
+.navbar.over-dark .nav-logo-white { display: block; }
+.navbar.over-dark .nav-logo-color { display: none; }
 
 .nav-menu {
     display: flex;
@@ -143,7 +145,7 @@ h1, h2, h3, h4,
 
 .nav-menu a {
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.86);
+    color: var(--text-secondary);
     font-weight: 500;
     font-size: 0.95rem;
     position: relative;
@@ -162,11 +164,13 @@ h1, h2, h3, h4,
     transition: width 0.3s ease;
 }
 
-.nav-menu a:hover { color: #fff; }
-.navbar.scrolled .nav-menu a, .navbar.solid .nav-menu a { color: var(--text-secondary); }
-.navbar.scrolled .nav-menu a:hover, .navbar.solid .nav-menu a:hover,
-.navbar.scrolled .nav-menu a.active, .navbar.solid .nav-menu a.active,
-.navbar.scrolled .nav-menu a[aria-current="page"], .navbar.solid .nav-menu a[aria-current="page"] { color: var(--primary-color); }
+.nav-menu a:hover,
+.nav-menu a.active,
+.nav-menu a[aria-current="page"] { color: var(--primary-color); }
+.navbar.over-dark .nav-menu a { color: rgba(255, 255, 255, 0.86); }
+.navbar.over-dark .nav-menu a:hover,
+.navbar.over-dark .nav-menu a.active,
+.navbar.over-dark .nav-menu a[aria-current="page"] { color: #fff; }
 
 .nav-menu a:hover::after {
     width: 100%;
@@ -182,9 +186,10 @@ h1, h2, h3, h4,
 .hamburger span {
     width: 25px;
     height: 3px;
-    background-color: #fff;
+    background-color: var(--primary-color);
     transition: all 0.3s ease;
 }
+.navbar.over-dark .hamburger span { background-color: #fff; }
 
 /* ================================================================
    Hero — full-viewport, left-aligned copy + 3D grid plane carrying the
@@ -463,7 +468,7 @@ section {
     scroll-margin-top: 72px;
 }
 
-h2 {
+h2, .section-head h1 {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--primary-color);
@@ -481,6 +486,7 @@ h2 {
     color: var(--accent-bright);
     margin-bottom: 0.85rem;
 }
+.logo-grid-eyebrow { display: block; text-align: center; margin: 0.5rem 0 1.5rem; }
 
 .section-head {
     max-width: 760px;
@@ -621,7 +627,9 @@ h2 {
 /* Portfolio Section */
 .portfolio {
     background: var(--background-light);
+    padding-bottom: 0;
 }
+#client-testimonials.testimonials-dark { padding-top: 72px; }
 
 .portfolio-grid {
     display: grid;
@@ -770,6 +778,8 @@ h2 {
 }
 
 /* Team Section */
+#team.team { padding-bottom: 40px; }
+
 .team-group {
     margin-top: 3rem;
 }
@@ -1176,8 +1186,8 @@ h2 {
    Fall 2026 redesign — unified system, footer, reveal, a11y
    ============================================================ */
 
-/* Active nav via aria-current (mirrors .active) */
-.nav-menu a[aria-current="page"] { color: #fff; }
+/* Active nav via aria-current (mirrors .active); color is handled by the
+   base and .navbar.over-dark rules near the top of the stylesheet. */
 .nav-menu a[aria-current="page"]::after { width: 100%; }
 
 /* Eyebrow contrast on gradient sections */
@@ -1899,7 +1909,6 @@ a.person-name:hover { text-decoration: underline; }
     .nav-right { gap: 0.75rem; }
 }
 
-.navbar.scrolled .hamburger span, .navbar.solid .hamburger span { background-color: var(--primary-color); }
 /* Open mobile dropdown is a white panel: links are always ink there */
 .navbar .nav-menu.active a { color: var(--text-secondary); }
 .navbar .nav-menu.active a:hover, .navbar .nav-menu.active a.active, .navbar .nav-menu.active a[aria-current="page"] { color: var(--primary-color); }
@@ -2033,6 +2042,8 @@ a.person-name:hover { text-decoration: underline; }
     transition: transform 0.3s ease;
 }
 .logo-tile:hover img { transform: scale(calc(var(--zoom, 1) * 1.06)); }
+.logo-tile-more span { color: var(--on-dark-muted); font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; letter-spacing: -0.01em; }
+.logo-grid.light .logo-tile-more span { color: var(--text-secondary); }
 /* Per-logo normalisation: source PNGs carry different amounts of padding */
 .logo-tile[data-logo="googlelogo"] { --zoom: 1; }
 .logo-tile[data-logo="uberlogo"] { --zoom: 0.72; }
@@ -2113,7 +2124,7 @@ a.person-name:hover { text-decoration: underline; }
 @media (max-width: 800px) { .case { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1.5rem; } }
 
 /* --- Careers: logo grids (light + dark variants) --- */
-.placements-light { padding-top: 160px; background: var(--background-white); }
+.placements-light { padding-top: 48px; background: var(--background-white); }
 .logo-grid.light .logo-tile { background: white; border: none; box-shadow: 0 5px 20px rgba(106, 43, 116, 0.1); }
 .logo-grid.light .logo-tile:hover { background: white; box-shadow: 0 10px 30px rgba(106, 43, 116, 0.15); }
 .logo-grid.light .logo-tile img { filter: none; opacity: 1; }
@@ -2151,6 +2162,64 @@ a.person-name:hover { text-decoration: underline; }
     .case-body { padding-left: 0; }
     .case h3 { font-size: 1.35rem; }
     .case-body p:first-child { font-size: 1.02rem; }
+}
+
+/* --- Clients: "Our Work" gradient tile grid, Superside-style hover reveal --- */
+/* Full-bleed 3x2 mosaic — no gaps, no rounded corners, no floating cards. */
+.case-grid { list-style: none; margin: 2.75rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); }
+.case-tile { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 440px; padding: 2rem 2.25rem; overflow: hidden; cursor: default; transition: filter 0.35s ease; outline: none; }
+.case-tile:hover, .case-tile:focus-visible { filter: brightness(1.12); }
+.case-tile-more { background: linear-gradient(150deg, var(--primary-color) 0%, var(--secondary-color) 100%); align-items: center; justify-content: center; text-align: center; gap: 0.5rem; }
+.case-tile-more h3 { color: #fff; font-size: 1.7rem; margin: 0; }
+.case-tile-more p { color: rgba(255, 255, 255, 0.85); font-size: 0.95rem; line-height: 1.6; margin: 0 0 0.75rem; max-width: 28ch; }
+@media (max-width: 900px) { .case-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .case-grid { grid-template-columns: 1fr; } }
+.case-tile-1 {
+    background-image: linear-gradient(180deg, rgba(45, 15, 56, 0.15) 0%, rgba(30, 10, 40, 0.55) 55%, rgba(20, 7, 28, 0.85) 100%), url('img/projects/google.png');
+    background-size: cover;
+    background-position: center;
+}
+.case-tile-2 {
+    background-image: linear-gradient(180deg, rgba(45, 15, 56, 0.15) 0%, rgba(30, 10, 40, 0.55) 55%, rgba(20, 7, 28, 0.85) 100%), url('img/projects/uber2.png');
+    background-size: cover;
+    background-position: center;
+}
+.case-tile-3 {
+    background-image: linear-gradient(180deg, rgba(45, 15, 56, 0.15) 0%, rgba(30, 10, 40, 0.55) 55%, rgba(20, 7, 28, 0.85) 100%), url('img/projects/wapo.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.case-tile-4 {
+    background-image: linear-gradient(180deg, rgba(45, 15, 56, 0.15) 0%, rgba(30, 10, 40, 0.55) 55%, rgba(20, 7, 28, 0.85) 100%), url('img/projects/atlantic.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.case-tile-5 {
+    background-image: linear-gradient(180deg, rgba(45, 15, 56, 0.15) 0%, rgba(30, 10, 40, 0.55) 55%, rgba(20, 7, 28, 0.85) 100%), url('img/projects/admit-ravenk.png');
+    background-size: cover;
+    background-position: center;
+}
+.case-tile-6 {
+    background-image: linear-gradient(180deg, rgba(45, 15, 56, 0.15) 0%, rgba(30, 10, 40, 0.55) 55%, rgba(20, 7, 28, 0.85) 100%), url('img/projects/toast.png');
+    background-size: auto, 120%;
+    background-position: center, 32% center;
+}
+.case-tile-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.case-tile-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.85); padding-top: 0.4rem; }
+.case-tile-logo { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 84px; height: 52px; }
+.case-tile-logo img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
+.case-tile-logo img[alt="The Atlantic"] { filter: brightness(0) invert(1); }
+.case-tile-logo img[alt="Uber"] { filter: brightness(0) invert(1); }
+.case-tile-logo img[alt="Toast"] { filter: brightness(0.85); }
+.case-tile-wordmark { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; color: var(--primary-color); letter-spacing: -0.01em; }
+.case-tile h3 { color: #fff; font-size: 1.5rem; line-height: 1.15; letter-spacing: -0.01em; margin: 0; }
+.case-tile-desc { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.45s ease, opacity 0.35s ease, margin-top 0.35s ease; margin-top: 0; }
+.case-tile:hover .case-tile-desc, .case-tile:focus-visible .case-tile-desc { max-height: 260px; opacity: 1; margin-top: 0.9rem; }
+.case-tile-desc p { color: rgba(255, 255, 255, 0.88); font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.7rem; }
+.case-tile-desc p:last-child { margin-bottom: 0; }
+@media (max-width: 800px) {
+    .case-tile { min-height: auto; }
+    .case-tile-desc { max-height: none; opacity: 1; margin-top: 0.9rem; overflow: visible; transition: none; }
 }
 
 /* ---------- Mobile: full-width hero buttons centre their labels ---------- */
@@ -2314,32 +2383,6 @@ a.person-name:hover { text-decoration: underline; }
 
 /* The stats band reads as bare numbers by design — keep it flat. */
 .stat { background: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
-
-/* ---------- 3 · Navbar: more glass, less milk ---------- */
-.navbar.scrolled,
-.navbar.solid {
-    background: rgba(255, 255, 255, 0.62);
-    -webkit-backdrop-filter: blur(28px) saturate(160%);
-    backdrop-filter: blur(28px) saturate(160%);
-    box-shadow: 0 6px 26px rgba(25, 10, 32, 0.07);
-}
-
-/* Gradient hairline along the bottom edge instead of a flat inset line */
-.navbar.scrolled::after,
-.navbar.solid::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 1px;
-    pointer-events: none;
-    background: linear-gradient(90deg,
-        rgba(85, 33, 94, 0) 0%,
-        rgba(85, 33, 94, 0.20) 22%,
-        rgba(184, 87, 129, 0.28) 55%,
-        rgba(85, 33, 94, 0) 100%);
-}
 
 .nav-menu { align-items: center; }
 .nav-menu > li { display: flex; align-items: center; }
@@ -2538,6 +2581,13 @@ html { scroll-padding-top: calc(var(--nav-h) + var(--banner-h) + 24px); }
 .nav-sub a:hover,
 .nav-sub a[aria-current="page"] { background: var(--background-tint); color: var(--primary-color); }
 
+/* The dropdown panel is always a light frosted card, regardless of navbar
+   state, so its links must stay dark-on-light even when the navbar itself
+   is in .over-dark mode (which otherwise turns .nav-menu a white). */
+.navbar.over-dark .nav-sub a { color: var(--text-secondary); }
+.navbar.over-dark .nav-sub a:hover,
+.navbar.over-dark .nav-sub a[aria-current="page"] { color: var(--primary-color); }
+
 /* Mobile: the submenu just becomes an indented list inside the open panel */
 @media (max-width: 768px) {
     .nav-menu.active .nav-item-has-menu::after { display: none; }
@@ -2726,35 +2776,39 @@ html { scroll-padding-top: calc(var(--nav-h) + var(--banner-h) + 24px); }
    FALL 2026 — new page components
    ============================================================ */
 
-/* ---------- Interior page hero ---------- */
+/* ---------- Interior page intro (copy + side photo, not a full-bleed hero) ---------- */
 .page-hero {
     position: relative;
-    min-height: 100vh;
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
-    /* Heavier bottom padding pulls the copy up off dead centre, clear of the nav */
-    padding: 150px 0 210px;
+    padding: 150px 0 90px;
     overflow: hidden;
+    background:
+        radial-gradient(70% 90% at 88% 20%, rgba(184, 87, 129, 0.22), transparent 65%),
+        linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%);
 }
-.page-hero .container { position: relative; z-index: 2; width: 100%; }
-.page-hero h1 { font-family: var(--font-display); font-size: clamp(2.4rem, 5.6vw, 4.2rem); line-height: 1.04; letter-spacing: -0.025em; color: #fff; margin-bottom: 1.1rem; max-width: 18ch; }
-.page-hero .lede { font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.6; color: var(--on-dark-muted); max-width: 62ch; }
+.page-hero .container {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 3rem;
+    align-items: center;
+}
+.page-hero-copy { min-width: 0; }
+.page-hero h1 { font-family: var(--font-display); font-size: clamp(2.1rem, 4.4vw, 3.4rem); line-height: 1.08; letter-spacing: -0.025em; color: #fff; margin-bottom: 1.1rem; }
+.page-hero .lede { font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.6; color: var(--on-dark-muted); }
 .page-hero .eyebrow { color: var(--accent-light); }
 
-.page-hero-photo { position: absolute; inset: 0; z-index: 0; }
-.page-hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
-.page-hero-photo::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        linear-gradient(100deg, rgba(25, 10, 32, 0.94) 0%, rgba(36, 16, 49, 0.86) 46%, rgba(50, 23, 63, 0.62) 100%),
-        radial-gradient(70% 90% at 88% 30%, rgba(184, 87, 129, 0.34), transparent 65%);
+.page-hero-photo { margin: 0; border-radius: var(--radius-media); overflow: hidden; box-shadow: 0 24px 60px rgba(37, 15, 45, 0.28); }
+.page-hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
+@media (max-width: 900px) {
+    .page-hero { padding: 130px 0 70px; }
+    .page-hero .container { grid-template-columns: 1fr; gap: 2rem; }
 }
 
 /* ---------- Copy + photo split ---------- */
 .media-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; align-items: center; }
+.media-split-top { align-items: flex-start; }
+.media-split-top .vpath { margin-top: 0; }
 .media-split.reverse .media-split-media { order: -1; }
 .media-split-media { margin: 0; border-radius: var(--radius-media); overflow: hidden; box-shadow: 0 24px 60px rgba(37, 15, 45, 0.20); }
 .media-split-media img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 2; }
@@ -2766,6 +2820,15 @@ html { scroll-padding-top: calc(var(--nav-h) + var(--banner-h) + 24px); }
     .media-split { grid-template-columns: 1fr; gap: 2rem; }
     .media-split.reverse .media-split-media { order: 0; }
 }
+
+/* What is PM? left/right split: value-cols on the left, orbital diagram on
+   the right. The orbital's own size is viewport-relative by default, so it
+   needs to shrink to its actual grid column here instead of overflowing it. */
+.pm-split { align-items: flex-start; margin-top: 3rem; }
+.pm-value-cols { margin-top: 0; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.pm-split .orbital-wrap { width: 100%; margin: 0; }
+.pm-split .orbital { width: min(480px, 100%); height: auto; aspect-ratio: 1 / 1; }
+@media (max-width: 900px) { .pm-split .orbital-wrap { margin-top: 1rem; } }
 
 /* ---------- Value columns (clients) ---------- */
 .value-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
@@ -2812,6 +2875,36 @@ html { scroll-padding-top: calc(var(--nav-h) + var(--banner-h) + 24px); }
 
 /* ---------- Simple stat / fact row ---------- */
 .factrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin-top: 2.75rem; }
+/* "Why Product Space" split screen: white left panel (the case for us),
+   dark purple right panel (the numbers + the nonprofit note). */
+.why-split { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; padding: 0; }
+.why-split-left { background: var(--background-white); padding: 56px 3.5vw; display: flex; flex-direction: column; justify-content: center; }
+.why-split-right {
+    padding: 56px 3.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: linear-gradient(135deg, rgba(85, 33, 94, 0.82) 0%, rgba(36, 16, 49, 0.88) 100%), url('img/community-team.jpg');
+    background-size: cover;
+    background-position: center, 30% center;
+}
+@media (min-width: 901px) {
+    .why-split-left, .why-split-right { justify-content: flex-end; }
+}
+.why-split .section-head { max-width: 44ch; text-align: left; margin-left: 0; margin-right: 0; margin-bottom: 0; }
+.why-split-cols { grid-template-columns: repeat(2, 1fr); gap: 1.1rem 1.5rem; margin-top: 1.6rem; }
+.why-split-cols .value-col p { max-width: 30ch; font-size: 0.92rem; line-height: 1.55; }
+.why-split-cols .value-col h3 { font-size: 1.12rem; margin-bottom: 0.4rem; }
+.why-split-facts { grid-template-columns: 1fr; gap: 1.4rem; margin-top: 0; text-align: left; }
+.why-split-facts .fact { transition-delay: 0s; }
+.why-split-facts .fact.d1 { transition-delay: 0.28s; }
+.why-split-facts .fact.d2 { transition-delay: 0.56s; }
+.why-split-facts .fact strong { font-size: clamp(2.2rem, 3.4vw, 3rem); }
+.why-split-right .section-intro { margin: 1.75rem 0 0; text-align: left; max-width: 40ch; font-size: 0.92rem; }
+@media (max-width: 900px) {
+    .why-split { grid-template-columns: 1fr; }
+    .why-split-left, .why-split-right { padding: 64px 6vw; }
+}
 .fact strong { display: block; font-family: var(--font-display); font-size: clamp(1.9rem, 3.4vw, 2.7rem); font-weight: 700; letter-spacing: -0.02em; color: var(--primary-color); line-height: 1.05; }
 .fact span { display: block; margin-top: 0.4rem; font-size: 0.95rem; color: var(--text-secondary); }
 .section-dark .fact strong { color: #fff; }
@@ -2827,12 +2920,41 @@ html { scroll-padding-top: calc(var(--nav-h) + var(--banner-h) + 24px); }
 @media (max-width: 980px) { .pipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .pipeline { grid-template-columns: 1fr; } }
 
-/* ---------- Discipline trio (tech / business / design) ---------- */
-.trio { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-top: 3rem; }
-.trio-card { position: relative; padding: 2rem 1.85rem; border-radius: var(--radius-card); background: var(--glass-dark); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); }
-.trio-card::after { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none; background: linear-gradient(145deg, rgba(255,255,255,0.32), rgba(217,137,167,0.28) 50%, rgba(255,255,255,0.05)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
-.trio-card h3 { font-family: var(--font-display); font-size: 1.2rem; color: #fff; text-align: left; margin-bottom: 0.7rem; }
-.trio-card p { color: var(--on-dark-muted); font-size: 0.97rem; line-height: 1.65; margin: 0; }
+/* ---------- Discipline orbital (tech / business / design) ---------- */
+/* Electron-orbital motion: each node drifts independently on its own tilted
+   ellipse (script.js), then all three periodically converge into a Venn
+   overlap where "Product" — hidden the rest of the time — fades into the
+   shared intersection. */
+.orbital-wrap { display: flex; align-items: center; justify-content: center; margin: 0.5rem auto 0; }
+.orbital { position: relative; width: min(580px, 92vw); height: min(580px, 92vw); flex-shrink: 0; }
+/* Scattered background stars, scoped to the diagram itself so it reads as a
+   small solar system without adding a space theme to the rest of the page. */
+.orbital-stars { position: absolute; top: -12%; bottom: -12%; left: -220%; right: -30%; pointer-events: none; z-index: 0; overflow: visible; }
+.orbital-star { position: absolute; border-radius: 50%; background: #fff; box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.9); animation: orbital-star-twinkle 6s ease-in-out infinite; }
+@keyframes orbital-star-twinkle { 0%, 100% { opacity: var(--star-min, 0.12); transform: scale(0.7); } 50% { opacity: var(--star-max, 1); transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .orbital-star { animation: none; opacity: 0.5; } }
+
+.orbital-path { position: absolute; top: 50%; left: 50%; border: 2px solid rgba(255, 255, 255, 0.4); border-radius: 50%; pointer-events: none; z-index: 1; transition: opacity 0.4s ease; }
+.orbital.is-venn .orbital-path { opacity: 0; }
+.orbital-core { position: absolute; top: 50%; left: 50%; width: 190px; height: 190px; margin: -95px 0 0 -95px; display: flex; align-items: center; justify-content: center; text-align: center; z-index: 6; pointer-events: none; opacity: 0; transition: opacity 0.35s ease; }
+.orbital-core span { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: #fff; letter-spacing: 0.01em; text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45); white-space: nowrap; }
+.orbital.is-venn .orbital-core { opacity: 1; transition: opacity 0.7s ease 1.1s; }
+.orbital-node { position: absolute; top: 50%; left: 50%; width: 210px; height: 210px; margin: -105px 0 0 -105px; background: none; border: none; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0.5rem; cursor: pointer; font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; letter-spacing: 0.01em; line-height: 1.2; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35); transition: color 0.3s, background 0.3s, border-color 0.3s, box-shadow 0.3s; will-change: transform; z-index: 3; }
+.orbital-node.is-shifting { transition: transform 3.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s, background 0.3s, border-color 0.3s, box-shadow 0.3s; }
+.orbital-node[data-node="engineering"] { color: #d8a9e6; }
+.orbital-node[data-node="business"] { color: #f0a8c4; }
+.orbital-node[data-node="design"] { color: #f6c9a8; }
+.orbital-node.is-active { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Venn diagram: the circles come back, colored and overlapping, only while
+   the nodes have converged (auto cycle, or hover/focus to force it early). */
+.orbital.is-venn .orbital-node { color: #fff; border: 2px solid rgba(255, 255, 255, 0.6); text-shadow: 0 2px 4px rgba(0, 0, 0, 0.75), 0 0 12px rgba(0, 0, 0, 0.55); }
+.orbital.is-venn .orbital-node[data-node="engineering"] { background: rgba(110, 42, 124, 0.55); }
+.orbital.is-venn .orbital-node[data-node="business"] { background: rgba(201, 106, 144, 0.55); }
+.orbital.is-venn .orbital-node[data-node="design"] { background: rgba(235, 165, 140, 0.55); }
+.orbital.is-venn .orbital-node.is-active { text-decoration: none; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.65) inset, 0 0 30px rgba(255, 255, 255, 0.25); }
+@media (max-width: 720px) { .orbital-wrap { margin-top: 3rem; } }
+@media (max-width: 560px) { .orbital-node { width: 140px; height: 140px; margin: -70px 0 0 -70px; font-size: 0.82rem; } }
 
 /* ---------- 501(c)(3) callout ---------- */
 .taxnote { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 3rem; align-items: center; margin-top: 3rem; padding: 2.5rem 2.75rem; border-radius: var(--radius-card); background: var(--glass-light); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); position: relative; }
@@ -2856,22 +2978,20 @@ body.has-banner { --nav-h: 76px; --banner-h: 43px; }
 @media (max-width: 700px) { body.has-banner { --nav-h: 68px; --banner-h: 38px; } }
 @media (max-width: 430px) { body.has-banner { --nav-h: 68px; --banner-h: 56px; } }
 
-/* The Students trigger is a <button>, so it needs the same treatment the nav
-   anchors get in both the transparent and the glass navbar states. */
-.nav-trigger { color: rgba(255, 255, 255, 0.86); font-weight: 500; font-size: 0.95rem; position: relative; transition: color 0.3s ease; }
+/* The About/Students trigger is a <button>, so it needs the same treatment the
+   nav anchors get in both the dark-text (default) and over-dark navbar states. */
+.nav-trigger { color: var(--text-secondary); font-weight: 500; font-size: 0.95rem; position: relative; transition: color 0.3s ease; }
 .nav-trigger::after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: currentColor; transition: width 0.3s ease; }
 .nav-item-has-menu:hover .nav-trigger::after,
 .nav-item-has-menu:focus-within .nav-trigger::after { width: calc(100% - 0.84rem); }
-.nav-trigger:hover { color: #fff; }
-.navbar.scrolled .nav-trigger, .navbar.solid .nav-trigger { color: var(--text-secondary); }
-.navbar.scrolled .nav-item-has-menu:hover .nav-trigger,
-.navbar.solid .nav-item-has-menu:hover .nav-trigger,
-.navbar.scrolled .nav-trigger[aria-expanded="true"],
-.navbar.solid .nav-trigger[aria-expanded="true"] { color: var(--primary-color); }
+.nav-trigger:hover,
+.nav-trigger[aria-expanded="true"] { color: var(--primary-color); }
+.navbar.over-dark .nav-trigger { color: rgba(255, 255, 255, 0.86); }
+.navbar.over-dark .nav-item-has-menu:hover .nav-trigger,
+.navbar.over-dark .nav-trigger[aria-expanded="true"] { color: #fff; }
 .navbar .nav-menu.active .nav-trigger { color: var(--text-secondary); }
-.nav-item-has-menu.is-section .nav-trigger { color: #fff; }
-.navbar.scrolled .nav-item-has-menu.is-section .nav-trigger,
-.navbar.solid .nav-item-has-menu.is-section .nav-trigger { color: var(--primary-color); }
+.nav-item-has-menu.is-section .nav-trigger { color: var(--primary-color); }
+.navbar.over-dark .nav-item-has-menu.is-section .nav-trigger { color: #fff; }
 
 /* Footer logo replaces the wordmark text in the same slot */
 .footer-wordmark { display: block; }

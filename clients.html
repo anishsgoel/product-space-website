@@ -36,7 +36,7 @@
 
 <body>
     <a class="skip-link" href="#main">Skip to main content</a>
-    <nav class="navbar solid">
+    <nav class="navbar">
         <div class="container">
             <a href="index.html" class="nav-brand">
                 <img src="ProductSpaceLogoWhite.png" alt="Product Space at Georgetown University" class="nav-logo nav-logo-white">
@@ -47,14 +47,13 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li class="nav-item-has-menu">
-                        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="students-menu">Students <span class="caret" aria-hidden="true"></span></button>
+                        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="students-menu">For Students <span class="caret" aria-hidden="true"></span></button>
                         <ul class="nav-sub" id="students-menu">
-                            <li><a href="fellowship.html">Fellowship</a></li>
-                            <li><a href="project-teams.html">Project Teams</a></li>
-                            <li><a href="community.html">Community</a></li>
+                            <li><a href="students.html#work">The Work</a></li>
+                            <li><a href="students.html#community">The Community</a></li>
                         </ul>
                     </li>
-                    <li><a href="clients.html" class="active" aria-current="page">Clients</a></li>
+                    <li><a href="clients.html" class="active" aria-current="page">For Clients</a></li>
                 </ul>
                 <a href="apply.html" class="btn btn-primary nav-apply">Apply</a>
                 <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
@@ -71,7 +70,7 @@
     <section id="services" class="section-dark clients-hero glow-follow">
         <div class="container">
             <div class="section-head centered">
-                <h2>Our Clients</h2>
+                <h2>Trusted by the world's biggest brands</h2>
                 <p class="section-intro">We partner with leading technology companies and organizations to deliver
                     innovative product solutions</p>
             </div>
@@ -87,63 +86,114 @@
                 <li class="logo-tile rvl" data-logo="atlanticlogo"><img src="Logos/atlanticlogo.png" alt="The Atlantic" loading="lazy"></li>
                 <li class="logo-tile rvl" data-logo="toastlogo"><img src="Logos/toastlogo.png" alt="Toast" loading="lazy"></li>
                 <li class="logo-tile rvl" data-logo="govskillslogo"><img src="Logos/govskillslogo.png" alt="GovSkills" loading="lazy"></li>
+                <li class="logo-tile logo-tile-more rvl"><span>and more&hellip;</span></li>
             </ul>
         </div>
     </section>
 
     <section id="portfolio" class="portfolio light-echo-top light-echo-bottom">
         <div class="container">
-                    <h2>Our Work</h2>
-            <p class="section-intro">A sample of the product work our teams take on.</p>
-                        <ol class="case-list">
-                <li class="case rvl">
-                    <div class="case-side">
-                        <img class="case-logo" src="Logos/googlelogo.png" alt="Google" loading="lazy">
-                        <h3>Gemini-powered programmable search</h3>
-                    </div>
-                    <div class="case-body">
-                        <p>Working with Google's Search Ads and Syndication team, we integrated Gemini into Programmable Search Engine so publishers could offer smarter search on their own sites. The engine detects what a reader is actually looking for, and RAG context pipelines pull the right article content into results.</p>
-                        <p>We also built smart ad sections that serve relevant ads to publishers without touching user data and without resorting to clickbait.</p>
-                    </div>
-                </li>
-                <li class="case rvl">
-                    <div class="case-side">
-                        <img class="case-logo" src="Logos/uberlogo.png" alt="Uber" loading="lazy">
-                        <h3>Sizing the campus dining opportunity</h3>
-                    </div>
-                    <div class="case-body">
-                        <p>Uber asked whether the campus dining point-of-sale market was worth entering, given the constraints of its hardware. We ran stakeholder analysis with Georgetown Dining, Aramark, and Grubhub, and researched how campus dining systems are bought, run, and replaced.</p>
-                        <p>The result was a clear go or no-go recommendation grounded in what Uber's hardware could and could not do.</p>
-                    </div>
-                </li>
-                <li class="case rvl">
-                    <div class="case-side">
-                        <img class="case-logo" src="Logos/washingtonpostlogo.png" alt="The Washington Post" loading="lazy">
-                        <h3>A mobile app redesigned for Gen&nbsp;Z</h3>
-                    </div>
-                    <div class="case-body">
-                        <p>With younger readers getting their news from social media, The Washington Post asked us to rethink its mobile app for Gen Z. We studied where and how younger readers find news, then redesigned the reading experience around short, social-native formats.</p>
-                        <p>We delivered concepts and prototypes for a more mobile-first Post.</p>
-                    </div>
-                </li>
-            </ol>
+            <div class="section-head centered">
+                <h2>Our Work</h2>
+                <p class="section-intro">A sample of the product work our teams take on.</p>
+            </div>
         </div>
+            <ul class="case-grid">
+                <li class="case-tile case-tile-1 rvl" tabindex="0">
+                    <div class="case-tile-top">
+                        <span class="case-tile-tag">AI &middot; Search</span>
+                        <span class="case-tile-logo"><img src="Logos/googlelogo.png" alt="Google" loading="lazy"></span>
+                    </div>
+                    <div class="case-tile-bottom">
+                        <h3>Gemini-powered programmable search</h3>
+                        <div class="case-tile-desc">
+                            <p>Working with Google's Search Ads and Syndication team, we integrated Gemini into Programmable Search Engine so publishers could offer smarter, more relevant search on their own sites.</p>
+                            <p>We also built ad sections that serve relevant ads to publishers without touching user data or resorting to clickbait.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="case-tile case-tile-2 rvl" tabindex="0">
+                    <div class="case-tile-top">
+                        <span class="case-tile-tag">Strategy &middot; Research</span>
+                        <span class="case-tile-logo"><img src="Logos/uberlogo.png" alt="Uber" loading="lazy"></span>
+                    </div>
+                    <div class="case-tile-bottom">
+                        <h3>Sizing the campus dining opportunity</h3>
+                        <div class="case-tile-desc">
+                            <p>Uber asked whether the campus dining point-of-sale market was worth entering. We ran stakeholder analysis with Georgetown Dining, Aramark, and Grubhub.</p>
+                            <p>We delivered a go/no-go recommendation framework grounded in what Uber's hardware could and could not do.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="case-tile case-tile-6 rvl" tabindex="0">
+                    <div class="case-tile-top">
+                        <span class="case-tile-tag">Strategy &middot; Research</span>
+                        <span class="case-tile-logo"><img src="Logos/toastlogo.png" alt="Toast" loading="lazy"></span>
+                    </div>
+                    <div class="case-tile-bottom">
+                        <h3>Finding Toast's next opportunity in campus ordering</h3>
+                        <div class="case-tile-desc">
+                            <p>Toast asked us to find its next opportunity in campus food ordering. We audited 11 competitors and surveyed 50 students on what drives cart abandonment.</p>
+                            <p>We recommended a menu filtering feature for dietary tags, plus an AI-search strategy to keep Toast visible as diners increasingly search through AI platforms.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="case-tile case-tile-4 rvl" tabindex="0">
+                    <div class="case-tile-top">
+                        <span class="case-tile-tag">Research &middot; Product Design</span>
+                        <span class="case-tile-logo"><img src="Logos/atlanticlogo.png" alt="The Atlantic" loading="lazy"></span>
+                    </div>
+                    <div class="case-tile-bottom">
+                        <h3>Turning article comments into real conversation</h3>
+                        <div class="case-tile-desc">
+                            <p>The Atlantic asked us to make its comments section a better place for discussion. We designed a split-screen view with highlight-to-quote, so readers can reference the article without losing their place.</p>
+                            <p>We also built a comment-ranking algorithm and author badges that flag when Atlantic staff join the discussion.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="case-tile case-tile-5 rvl" tabindex="0">
+                    <div class="case-tile-top">
+                        <span class="case-tile-tag">Product Design &middot; Research</span>
+                        <span class="case-tile-logo"><img src="img/projects/admit-raven-app-transparent.png" alt="Admit Raven" loading="lazy"></span>
+                    </div>
+                    <div class="case-tile-bottom">
+                        <h3>Dashboards that keep counselors, students, and parents in sync</h3>
+                        <div class="case-tile-desc">
+                            <p>Admit Raven (formerly Scholarly), a gamified college-guidance platform, asked us to design flows for counselors and parents. For counselors juggling scattered tools, we built a roster dashboard organized by task and deadline.</p>
+                            <p>For parents, we designed a progress tracker with selective visibility, so students choose what to share while parents stay informed.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="case-tile case-tile-3 rvl" tabindex="0">
+                    <div class="case-tile-top">
+                        <span class="case-tile-tag">Product &middot; Design</span>
+                        <span class="case-tile-logo"><img src="img/projects/wapo-logo.jpg" alt="The Washington Post" loading="lazy"></span>
+                    </div>
+                    <div class="case-tile-bottom">
+                        <h3>A mobile app redesigned for Gen&nbsp;Z voters</h3>
+                        <div class="case-tile-desc">
+                            <p>With younger readers getting their news from social media, The Washington Post asked us to rethink its mobile app for Gen Z. We studied where and how younger readers find news, then redesigned the reading experience around short, social-native formats.</p>
+                            <p>We delivered concepts and prototypes for a more mobile-first Post.</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
     </section>
 
     <section id="client-testimonials" class="section-dark testimonials-dark glow-follow">
         <div class="container">
             <div class="section-head centered">
-                <h2>What Our Clients Say</h2>
+                <h2>Hear From Our Clients</h2>
                 <p class="section-intro">Feedback from the teams we partnered with.</p>
             </div>
             <div class="client-quotes">
                 <figure class="client-quote rvl">
                     <blockquote>We had the pleasure of collaborating with the Georgetown Product Space team. The findings presented were not only comprehensive but also actionable, providing valuable insights that have informed our strategic decision making. We highly recommend Product Space to any organization seeking a partner in market research and analysis, and hope to have the opportunity to work with them again on future projects!</blockquote>
-                    <figcaption><img class="cq-avatar" src="testimonials/sarah-trosko.jpg" alt="Sarah Trosko" loading="lazy"><span class="cq-meta"><span class="cq-name">Sarah Trosko</span>, Marketplace Customer Ops, Spring 2025 client</span><img class="cq-logo" src="Logos/cencoralogo.png" alt="Cencora" loading="lazy"></figcaption>
+                    <figcaption><img class="cq-avatar" src="img/projects/sarah-trosko.png" alt="Sarah Trosko" loading="lazy"><span class="cq-meta"><span class="cq-name">Sarah Trosko</span>, Marketplace Customer Ops, Spring 2025 client</span><img class="cq-logo" src="Logos/cencoralogo.png" alt="Cencora" loading="lazy"></figcaption>
                 </figure>
                 <figure class="client-quote rvl">
                     <blockquote>The Product Space team at Georgetown proved to be strong thought partners throughout the project. They thought critically about the problems we were facing and independently uncovered insights that informed our product strategy.</blockquote>
-                    <figcaption><img class="cq-avatar" src="testimonials/nathan-yang.jpg" alt="Nathan Yang" loading="lazy"><span class="cq-meta"><span class="cq-name">Nathan Yang</span>, Product Manager, Spring 2025 client</span><img class="cq-logo" src="Logos/uberlogo.png" alt="Uber" loading="lazy"></figcaption>
+                    <figcaption><img class="cq-avatar" src="img/projects/nathan-yang.jpeg" alt="Nathan Yang" loading="lazy"><span class="cq-meta"><span class="cq-name">Nathan Yang</span>, Product Manager, Spring 2025 client</span><img class="cq-logo" src="Logos/uberlogo.png" alt="Uber" loading="lazy"></figcaption>
                 </figure>
             </div>
             <div class="band-cta">
@@ -154,46 +204,50 @@
     </section>
 
 
-    <section id="why-us" class="about light-echo-top">
-        <div class="container">
-            <div class="section-head centered">
-                <h2>Commitment</h2>
+    <section id="why-us" class="why-split">
+        <div class="why-split-left">
+            <div class="section-head">
+                <h2>Why Product Space @ Georgetown?</h2>
                 <p class="section-intro">We take on a small number of engagements each semester so that every one of
                     them gets a real team and real hours.</p>
             </div>
-            <div class="value-cols">
+            <div class="value-cols why-split-cols">
                 <div class="value-col rvl">
-                    <h3>Selective talent</h3>
-                    <p>Members are drawn from every undergraduate school at Georgetown and chosen from a competitive
-                        applicant pool for demonstrated strength in business, technology, or design. Every analyst
-                        completes an intensive twelve-week product management curriculum before joining a client team.</p>
+                    <h3>A team of six, the cost of one</h3>
+                    <p>A project manager, senior analyst, and four to six analysts, putting in roughly forty hours a
+                        week, for far less than a single hire or agency retainer.</p>
                 </div>
                 <div class="value-col rvl">
-                    <h3>Real dedication</h3>
-                    <p>Each engagement gets a project manager, a senior product analyst, and four to six analysts
-                        putting roughly forty hours a week into your project, collectively, across a full semester.
-                        Weekly client calls, a midterm review, and a final deliverable.</p>
+                    <h3>Fresh ideas, Gen Z insights</h3>
+                    <p>If college students are part of your audience, we already are that audience. We provide valuable firsthand
+                        interviews and campus fieldwork other teams have to pay outside firms to access.</p>
                 </div>
                 <div class="value-col rvl">
-                    <h3>Scoped to you</h3>
-                    <p>We scope every engagement from the problem up rather than dropping a stock framework on it.
-                        Teams are staffed against what the work actually needs, and the direction adapts as findings
-                        come in and the question changes.</p>
+                    <h3>Dedicated, capable teams</h3>
+                    <p>Members complete a competitive twelve-week product management curriculum before joining a
+                        client team, then hold to weekly calls, a midterm review, and a final deliverable.</p>
                 </div>
                 <div class="value-col rvl">
-                    <h3>Georgetown access</h3>
-                    <p>Our position on campus produces research other teams cannot easily run: student and faculty
-                        interviews, focus groups, on-the-ground fieldwork, and a national Product Space network with
-                        chapters at UC Berkeley, Columbia, and beyond.</p>
+                    <h3>Tomorrow's talent, today</h3>
+                    <p>Every analyst is a future product manager, engineer, or founder &mdash; an early look at the
+                        people you'll want to be hiring in a few years.</p>
                 </div>
             </div>
+        </div>
+        <div class="why-split-right section-dark">
+            <div class="factrow why-split-facts">
+                <div class="fact rvl"><strong>~40 hrs</strong></div>
+                <div class="fact rvl d1"><strong>10&ndash;12 weeks</strong></div>
+                <div class="fact rvl d2"><strong>501(c)(3)</strong></div>
+            </div>
+            <p class="section-intro">Product Space is an independent, student-run 501(c)(3) nonprofit. All donations are fully tax-deductible and go towards supporting our mission of providing education and support to the next generation of product leaders.</p>
         </div>
     </section>
 
     <section id="services-offered" class="section-dark glow-follow">
         <div class="container">
             <div class="section-head centered">
-                <h2>What we can take on</h2>
+                <h2>Our Services</h2>
                 <p class="section-intro">Our members are talented across technical, design, and business domains, each
                     selected for particular expertise in one of them. That lets us offer varied and genuinely useful
                     services, including but not limited to the following.</p>
@@ -256,44 +310,48 @@
             <div class="section-head centered">
                 <h2>How an engagement runs</h2>
             </div>
-            <ol class="pipeline">
-                <li class="rvl"><span class="pl-step">Weeks 1&ndash;4</span><h3>Scope</h3><p>Onboarding, then initial research, scoping, and planning against your problem.</p></li>
-                <li class="rvl"><span class="pl-step">Weeks 4&ndash;8</span><h3>Build</h3><p>Implementation and building, heading into the midterm deliverable.</p></li>
-                <li class="rvl"><span class="pl-step">Midterm</span><h3>Review</h3><p>A mid-semester deliverable reviewed by you and by our executive board.</p></li>
-                <li class="rvl"><span class="pl-step">Weeks 8&ndash;11</span><h3>Iterate</h3><p>Revision against that feedback, then finalizing deliverables and findings.</p></li>
-                <li class="rvl"><span class="pl-step">Week 12</span><h3>Handoff</h3><p>The final deliverable, with everything documented for your team.</p></li>
-            </ol>
-        </div>
-    </section>
-
-    <section id="nonprofit" class="about light-echo-top">
-        <div class="container">
-            <div class="section-head centered">
-                <h2>An independent 501(c)(3)</h2>
-            </div>
-            <div class="taxnote">
-                <div>
-                    <h3>Donations are fully tax-deductible</h3>
-                    <p>Product Space is an independent, student-run 501(c)(3) nonprofit. We are not a vendor and we do
-                        not invoice: engagements are supported by a donation, and that donation is fully tax-deductible.</p>
-                    <p>Contributions are modest relative to project scope and have historically run between $5,000 and
-                        $10,000, a fraction of the cost of the equivalent work in-house or through an agency.</p>
+            <div class="vpath vpath-h" style="--vpath-progress:0%">
+                <div class="vpath-line" aria-hidden="true"><span class="vpath-fill"></span></div>
+                <div class="vpath-step rvl">
+                    <span class="vpath-node">1</span>
+                    <div class="vpath-card">
+                        <span class="vpath-when">Weeks 1&ndash;4</span>
+                        <h3>Scope</h3>
+                        <p>Onboarding, then initial research, scoping, and planning against your problem.</p>
+                    </div>
                 </div>
-                <div>
-                    <h3>Next steps</h3>
-                    <ol class="steps">
-                        <li><strong>Scope the project</strong>We work with you to define potential project scopes for the team.</li>
-                        <li><strong>Paperwork</strong>We draft a statement of work and sign NDAs.</li>
-                        <li><strong>Onboarding</strong>Your team completes the onboarding steps and meets the pod.</li>
-                        <li><strong>Donation</strong>You determine the donation amount that fits the engagement.</li>
-                    </ol>
+                <div class="vpath-step rvl">
+                    <span class="vpath-node">2</span>
+                    <div class="vpath-card">
+                        <span class="vpath-when">Weeks 4&ndash;8</span>
+                        <h3>Build</h3>
+                        <p>Implementation and building, heading into the midterm deliverable.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="factrow">
-                <div class="fact rvl"><strong>~40 hrs</strong><span>Of team work per week, cumulatively</span></div>
-                <div class="fact rvl"><strong>1 weekly call</strong><span>With your project manager, minimum</span></div>
-                <div class="fact rvl"><strong>10&ndash;12 weeks</strong><span>Per engagement, with two formal reviews</span></div>
-                <div class="fact rvl"><strong>DMV in person</strong><span>Teams can travel to local offices</span></div>
+                <div class="vpath-step rvl">
+                    <span class="vpath-node">3</span>
+                    <div class="vpath-card">
+                        <span class="vpath-when">Midterm</span>
+                        <h3>Review</h3>
+                        <p>A mid-semester deliverable reviewed by you and by our executive board.</p>
+                    </div>
+                </div>
+                <div class="vpath-step rvl">
+                    <span class="vpath-node">4</span>
+                    <div class="vpath-card">
+                        <span class="vpath-when">Weeks 8&ndash;11</span>
+                        <h3>Iterate</h3>
+                        <p>Revision against that feedback, then finalizing deliverables and findings.</p>
+                    </div>
+                </div>
+                <div class="vpath-step rvl">
+                    <span class="vpath-node">5</span>
+                    <div class="vpath-card">
+                        <span class="vpath-when">Week 12</span>
+                        <h3>Handoff</h3>
+                        <p>The final deliverable, with everything documented for your team.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -319,14 +377,14 @@
                     <div class="footer-col">
                         <h4>Explore</h4>
                         <a href="index.html">Home</a>
-                        <a href="about.html">About</a>
+                        <a href="about.html">Our Mission</a>
+                        <a href="about.html#team">Our People</a>
                         <a href="clients.html">Clients</a>
                     </div>
                     <div class="footer-col">
                         <h4>Students</h4>
-                        <a href="fellowship.html">Fellowship</a>
-                        <a href="project-teams.html">Project Teams</a>
-                        <a href="community.html">Community</a>
+                        <a href="students.html#work">The Work</a>
+                        <a href="students.html#community">The Community</a>
                     </div>
                     <div class="footer-col">
                         <h4>Connect</h4>
