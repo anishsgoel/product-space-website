@@ -1984,6 +1984,11 @@ a.person-name:hover { text-decoration: underline; }
 .testimonials-dark .cq-name { color: #fff; }
 .band-cta { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; margin-top: 3.5rem; text-align: center; }
 .band-cta p { color: var(--on-dark); font-size: 1.15rem; margin: 0; }
+.cta-band { padding: 140px 0; }
+.cta-band .band-cta { margin-top: 0; gap: 1.5rem; }
+.cta-band .band-cta h2 { color: #fff; font-size: clamp(2.1rem, 4vw, 3rem); max-width: 20ch; margin: 0; }
+.cta-band .band-cta p { max-width: 46ch; font-size: 1.2rem; }
+.btn-lg { padding: 18px 38px; font-size: 1.1rem; }
 
 /* --- Students: curriculum as cards (no icons) --- */
 .curriculum-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.75rem; }
@@ -2850,6 +2855,44 @@ html { scroll-padding-top: calc(var(--nav-h) + var(--banner-h) + 24px); }
 .light-pod .pod-tier h4 { color: var(--primary-bright); }
 .light-pod .pod-tier p { color: var(--text-secondary); }
 .light-pod .pod-tier .pod-count { color: var(--text-secondary); }
+
+/* Dedicated Teams: full-bleed 50/50 split, photo left, org chart right —
+   same edge-to-edge treatment as the "Why Product Space" split section. */
+.team-split { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; padding: 0; }
+.team-split-photo {
+    padding: 120px 4vw;
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: linear-gradient(135deg, rgba(85, 33, 94, 0.85) 0%, rgba(36, 16, 49, 0.9) 100%), url('img/project-team-3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.team-split-photo h2 { color: #fff; }
+.team-split-photo p { color: var(--on-dark-muted); }
+.team-split-chart { background: var(--background-white); padding: 120px 4vw; display: flex; align-items: center; justify-content: center; }
+@media (max-width: 900px) { .team-split { grid-template-columns: 1fr; } }
+
+/* ---------- Team org chart: PM -> Senior Analyst -> row of Analysts ---------- */
+.orgchart { display: flex; flex-direction: column; align-items: center; margin-top: 2.5rem; max-width: 780px; }
+.orgchart-node { position: relative; padding: 0.9rem 1.5rem; border-radius: var(--radius-card); background: var(--glass-dark); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); text-align: center; }
+.orgchart-node::after { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 2px; pointer-events: none; background: linear-gradient(145deg, rgba(255,255,255,0.55), rgba(217,137,167,0.5) 50%, rgba(255,255,255,0.1)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+.orgchart-node h4 { font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-light); margin: 0; }
+.orgchart-node.lead { background: rgba(255, 255, 255, 0.10); }
+.orgchart-link { display: block; width: 2px; height: 26px; background: linear-gradient(180deg, var(--accent-bright), var(--accent-light)); border-radius: 2px; }
+.orgchart-row-wrap { display: inline-flex; gap: 1.1rem; margin-top: 26px; padding-top: 26px; border-top: 2px solid var(--accent-light); }
+.orgchart-row-wrap .orgchart-node.small { padding: 0.7rem 1.1rem; }
+.orgchart-row-wrap .orgchart-node.small::before { content: ''; position: absolute; top: -26px; left: 50%; width: 2px; height: 26px; background: var(--accent-light); transform: translateX(-50%); }
+.orgchart-caption { margin: 0.85rem 0 0; font-size: 0.85rem; color: var(--on-dark-muted); }
+.light-orgchart .orgchart-node { background: var(--glass-light); }
+.light-orgchart .orgchart-node.lead { background: var(--glass-light-hover); }
+.light-orgchart .orgchart-node h4 { color: var(--primary-bright); }
+.light-orgchart .orgchart-caption { color: var(--text-secondary); }
+@media (max-width: 560px) {
+    .orgchart-row-wrap { flex-wrap: wrap; justify-content: center; border-top: none; padding-top: 0; margin-top: 12px; gap: 0.75rem; }
+    .orgchart-row-wrap .orgchart-node.small::before { display: none; }
+}
 
 /* ---------- Polaroid wall (community) ---------- */
 .polaroid-wall { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 0; max-width: 1260px; margin: 3rem auto 0; padding: 1rem 24px 2rem; }
