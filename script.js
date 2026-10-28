@@ -350,24 +350,27 @@
         });
     }
 
-    // --- Leadership cards: CSS flips on hover; this covers touch and keyboard ---
-    document.querySelectorAll('.team-card').forEach((card) => {
-        const flip = () => {
-            const willFlip = !card.classList.contains('is-flipped');
-            document.querySelectorAll('.team-card.is-flipped').forEach((other) => {
-                if (other !== card) {
-                    other.classList.remove('is-flipped');
-                    other.setAttribute('aria-pressed', 'false');
-                }
-            });
-            card.classList.toggle('is-flipped', willFlip);
-            card.setAttribute('aria-pressed', willFlip ? 'true' : 'false');
-        };
-        card.addEventListener('click', flip);
-        card.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
+    // --- Our People: CSS spotlights on hover; this covers tap, keyboard, and Escape ---
+    const people = Array.from(document.querySelectorAll('.person'));
+    const setActive = (person, on) => {
+        person.classList.toggle('is-active', on);
+        person.querySelector('.person-trigger').setAttribute('aria-expanded', on ? 'true' : 'false');
+    };
+    people.forEach((person) => {
+        person.querySelector('.person-trigger').addEventListener('click', () => {
+            const willOpen = !person.classList.contains('is-active');
+            people.forEach((p) => { if (p !== person) setActive(p, false); });
+            setActive(person, willOpen);
         });
     });
+    if (people.length) {
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') people.forEach((p) => setActive(p, false));
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.person')) people.forEach((p) => setActive(p, false));
+        });
+    }
 
     // --- Discipline orbital (tech / business / design) ---
     // Electron-orbital motion: each node drifts on its own tilted ellipse,

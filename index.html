@@ -34,12 +34,8 @@
     </script>
 </head>
 
-<body class="has-banner">
+<body>
     <a class="skip-link" href="#main">Skip to main content</a>
-    <aside class="site-banner">
-        <p>Fall 2026 fellowship applications are now open! Apply <a href="apply.html">here</a>.</p>
-        <button class="site-banner-close" type="button" aria-label="Dismiss announcement">&times;</button>
-    </aside>
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="nav-brand">
@@ -49,7 +45,13 @@
             <div class="nav-right">
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li class="nav-item-has-menu">
+                        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="about-menu">About <span class="caret" aria-hidden="true"></span></button>
+                        <ul class="nav-sub" id="about-menu">
+                            <li><a href="about.html">Our Mission</a></li>
+                            <li><a href="team.html">Our Team</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item-has-menu">
                         <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="students-menu">For Students <span class="caret" aria-hidden="true"></span></button>
                         <ul class="nav-sub" id="students-menu">
@@ -59,7 +61,7 @@
                     </li>
                     <li><a href="clients.html">For Clients</a></li>
                 </ul>
-                <a href="apply.html" class="btn btn-primary nav-apply">Apply</a>
+                <a href="apply.html" class="btn btn-primary nav-apply">Work with us</a>
                 <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
                     <span></span>
                     <span></span>
@@ -95,7 +97,7 @@
                 <h1 class="hero-title">Build what <span class="accent">matters.</span></h1>
                 <p class="hero-subtitle">Georgetown University's premier product development community.<br>Here, at the intersection of business, tech, and design, tomorrow's most innovative ideas come to life.</p>
                 <div class="hero-cta">
-                    <a href="apply.html" class="btn btn-primary">Apply</a>
+                    <a href="apply.html" class="btn btn-primary">Work with us</a>
                     <a href="#intro" class="btn btn-scroll">Scroll to learn more <span class="arrow" aria-hidden="true">&darr;</span></a>
                 </div>
             </div>
@@ -229,7 +231,7 @@
                         <h4>Explore</h4>
                         <a href="index.html">Home</a>
                         <a href="about.html">Our Mission</a>
-                        <a href="about.html#team">Our People</a>
+                        <a href="team.html">Our People</a>
                         <a href="clients.html"> For Clients</a>
                     </div>
                     <div class="footer-col">

@@ -45,7 +45,13 @@
             <div class="nav-right">
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li class="nav-item-has-menu">
+                        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="about-menu">About <span class="caret" aria-hidden="true"></span></button>
+                        <ul class="nav-sub" id="about-menu">
+                            <li><a href="about.html">Our Mission</a></li>
+                            <li><a href="team.html">Our Team</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item-has-menu">
                         <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="students-menu">For Students <span class="caret" aria-hidden="true"></span></button>
                         <ul class="nav-sub" id="students-menu">
@@ -55,7 +61,7 @@
                     </li>
                     <li><a href="clients.html">For Clients</a></li>
                 </ul>
-                <a href="apply.html" class="btn btn-primary nav-apply">Apply</a>
+                <a href="apply.html" class="btn btn-primary nav-apply">Work with us</a>
                 <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
                     <span></span>
                     <span></span>
@@ -70,9 +76,9 @@
             <div class="container">
                 <div class="page-hero-copy">
                     <h1>The part that isn't on the syllabus.</h1>
-                    <p class="lede">Product Space is led by students, for students. From retreats to games nights and everything inbetween, we celebrate our successes together and build lasting relationships.</p>
+                    <p class="lede">Product Space is led by students, for students. From retreats to game nights and everything in between, we celebrate our successes together and build lasting relationships.</p>
                 </div>
-                <figure class="page-hero-photo"><img src="img/community-1.jpg" alt="" aria-hidden="true"></figure>
+                <figure class="page-hero-photo"><img src="img/thegirls.jpg" alt="" aria-hidden="true"></figure>
             </div>
         </section>
 
@@ -188,10 +194,7 @@
                 <div class="media-split reverse">
                     <div class="media-split-copy">
                         <h2>Community as a foundation, not an afterthought</h2>
-                        <p>Product Space @ Georgetown is a family of students passionate about product management and innovation. Project meetings turn into family dinners and portfolio building turns into laughter filled hangouts. Together, we build what matters. Join us today. </p>
-                        <div class="band-links">
-                            <a href="apply.html" class="btn btn-outline-light">Apply now &rarr;</a>
-                        </div>
+                        <p>Product Space @ Georgetown is a family of students passionate about product management and innovation. Project meetings turn into family dinners and portfolio building turns into laughter filled hangouts. Together, we build what matters.</p>
                     </div>
                     <figure class="media-split-media rvl">
                         <img src="img/community-3.jpg" alt="Product Space members on the annual retreat" loading="lazy">
@@ -215,7 +218,7 @@
                         <h4>Explore</h4>
                         <a href="index.html">Home</a>
                         <a href="about.html">Our Mission</a>
-                        <a href="about.html#team">Our People</a>
+                        <a href="team.html">Our People</a>
                         <a href="clients.html">Clients</a>
                     </div>
                     <div class="footer-col">

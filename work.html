@@ -45,7 +45,13 @@
             <div class="nav-right">
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li class="nav-item-has-menu">
+                        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="about-menu">About <span class="caret" aria-hidden="true"></span></button>
+                        <ul class="nav-sub" id="about-menu">
+                            <li><a href="about.html">Our Mission</a></li>
+                            <li><a href="team.html">Our Team</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item-has-menu">
                         <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="students-menu">For Students <span class="caret" aria-hidden="true"></span></button>
                         <ul class="nav-sub" id="students-menu">
@@ -55,7 +61,7 @@
                     </li>
                     <li><a href="clients.html">For Clients</a></li>
                 </ul>
-                <a href="apply.html" class="btn btn-primary nav-apply">Apply</a>
+                <a href="apply.html" class="btn btn-primary nav-apply">Work with us</a>
                 <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
                     <span></span>
                     <span></span>
@@ -171,7 +177,7 @@
             <div class="container">
                 <div class="section-head centered">
                     <h2>Capstone Projects</h2>
-                    <p class="section-intro">Along with education, every new member builds a product from scratch, recieving guidance from skilled mentors and industry professionals. Strongest projects have the potential to recieving funding for continuous development.</p>
+                    <p class="section-intro">Along with education, every new member builds a product from scratch, receiving guidance from skilled mentors and industry professionals. Strongest projects have the potential to receive funding for continuous development.</p>
                 </div>
                 <div class="capstone-split">
                     <ul class="capstone-cards">
@@ -276,7 +282,7 @@
                 </ul>
                 <div class="band-links">
                     <a href="#project-teams" class="btn btn-outline-light">See how project teams work &rarr;</a>
-                    <a href="about.html#where-we-go" class="btn btn-outline-light">See where we go &rarr;</a>
+                    <a href="team.html#where-we-go" class="btn btn-outline-light">See where we go &rarr;</a>
                 </div>
             </div>
         </section>
@@ -320,10 +326,10 @@
             <div class="container">
                 <div class="join-card">
                     <div>
-                        <h2>Fall 2026 applications are open</h2>
-                        <p>Applications are due <strong>September 8, 11:59 PM</strong>. No prior product experience required.</p>
+                        <h2>Partner with a project team this spring</h2>
+                        <p>We are now scoping <strong>Spring 2027</strong> client engagements. Bring us a product challenge.</p>
                     </div>
-                    <a href="apply.html" class="btn btn-primary">Apply for the fellowship</a>
+                    <a href="apply.html" class="btn btn-primary">Work with us</a>
                 </div>
             </div>
         </section>
@@ -341,7 +347,7 @@
                         <h4>Explore</h4>
                         <a href="index.html">Home</a>
                         <a href="about.html">Our Mission</a>
-                        <a href="about.html#team">Our People</a>
+                        <a href="team.html">Our People</a>
                         <a href="clients.html">Clients</a>
                     </div>
                     <div class="footer-col">
