@@ -9,7 +9,7 @@ rm -rf dist
 mkdir -p dist
 
 # Public pages + code
-cp index.html about.html team.html work.html clients.html apply.html 404.html \
+cp index.html about.html work.html clients.html apply.html 404.html \
    fellowship.html project-teams.html community.html \
    careers.html students.html \
    styles.css script.js dist/
